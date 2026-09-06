@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="advanced_grid.ListViewColorGridButton"
+       t-inherit="web.ListView"
+       t-inherit-mode="extension">
+        <xpath expr="//t[@t-set-slot='control-panel-create-button']" position="inside">
+            <button t-if="props.showButtons and agShowColorGridButton"
+                    type="button"
+                    class="btn btn-secondary o_ag_color_grid_button"
+                    title="Personalise the colours and icons of this list"
+                    t-on-click="agOpenColorGrid">
+                <i class="fa fa-paint-brush me-1" role="img"/>
+                <span class="d-none d-md-inline">Color Grid</span>
+            </button>
+        </xpath>
+    </t>
+
+</templates>

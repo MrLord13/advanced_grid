@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_advanced_grid_rule_user,advanced.grid.rule.user,model_advanced_grid_rule,base.group_user,1,1,1,1
+access_advanced_grid_rule_manager,advanced.grid.rule.manager,model_advanced_grid_rule,advanced_grid.group_advanced_grid_manager,1,1,1,1

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <!--
+        The icon is injected inside the first *field* cell. Nothing is added to
+        the <tr> itself and no extra <td> is created, so the column count, the
+        header alignment and the frozen column widths keep working exactly as
+        they do in stock Odoo.
+    -->
+    <t t-name="advanced_grid.ListRendererRecordRow"
+       t-inherit="web.ListRenderer.RecordRow"
+       t-inherit-mode="extension">
+        <xpath expr="//t[@t-if='!isInvisible']" position="before">
+            <t t-set="agIcon"
+               t-value="agIsFirstFieldColumn(column, record) ? agRowIcon(record) : null"/>
+            <i t-if="agIcon"
+               class="fa o_ag_row_icon me-1"
+               t-attf-class="{{ agIcon.icon }}"
+               t-att-style="agIconStyle(agIcon)"
+               t-att-title="agIcon.title"
+               role="img"/>
+        </xpath>
+    </t>
+
+</templates>

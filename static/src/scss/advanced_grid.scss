@@ -1,0 +1,28 @@
+// Advanced Grid - static styles.
+// The per-rule colours themselves are generated at runtime by the
+// advanced_grid service into a single <style> tag, never inline.
+
+.o_list_renderer {
+    .o_ag_row_icon {
+        display: inline-block;
+        width: 1em;
+        text-align: center;
+        vertical-align: baseline;
+    }
+
+    // A coloured row would otherwise lose the standard selection feedback,
+    // because the rule background is applied with !important. A subtle inset
+    // overlay keeps selected rows recognisable without fighting the colour.
+    tr.o_data_row.o_ag_styled_row.o_data_row_selected > td {
+        box-shadow: inset 0 0 0 9999px rgba(0, 0, 0, 0.08);
+    }
+
+    // Keep the row being edited perfectly readable.
+    tr.o_data_row.o_ag_styled_row.o_selected_row > td {
+        box-shadow: inset 0 0 0 9999px rgba(255, 255, 255, 0.35);
+    }
+}
+
+.o_ag_color_grid_button {
+    white-space: nowrap;
+}

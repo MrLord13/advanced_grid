@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--
+        Regular users reach their own rules through the "Color Grid" button of
+        any list view, so the menu itself only targets administrators.
+    -->
+    <menuitem id="menu_advanced_grid_rule"
+              name="Grid Styling Rules"
+              parent="base.next_id_2"
+              action="action_advanced_grid_rule"
+              groups="advanced_grid.group_advanced_grid_manager"
+              sequence="90"/>
+
+</odoo>

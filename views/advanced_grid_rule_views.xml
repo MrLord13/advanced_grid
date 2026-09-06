@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_advanced_grid_rule_list" model="ir.ui.view">
+        <field name="name">advanced.grid.rule.list</field>
+        <field name="model">advanced.grid.rule</field>
+        <field name="arch" type="xml">
+            <list string="Grid Rules" editable="bottom" multi_edit="1">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="model_id" options="{'no_create': True}"
+                       readonly="context.get('advanced_grid_model_name')"/>
+                <field name="model_name" column_invisible="True"/>
+                <field name="condition_mode"/>
+                <field name="field_id" options="{'no_create': True}"
+                       domain="[('model_id', '=', model_id), ('store', '=', True)]"
+                       readonly="condition_mode != 'simple'"/>
+                <field name="field_ttype" column_invisible="True"/>
+                <field name="operator" readonly="condition_mode != 'simple'"/>
+                <field name="value" readonly="condition_mode != 'simple' or operator in ('set', 'not set')"/>
+                <field name="target"/>
+                <field name="cell_field_id" options="{'no_create': True}"
+                       domain="[('model_id', '=', model_id)]"
+                       readonly="target != 'cell'"/>
+                <field name="background_color" widget="color"/>
+                <field name="text_color" widget="color" optional="hide"/>
+                <field name="bold"/>
+                <field name="italic" optional="hide"/>
+                <field name="icon"/>
+                <field name="icon_color" widget="color" optional="hide"/>
+                <field name="scope"
+                       groups="advanced_grid.group_advanced_grid_manager"/>
+                <field name="user_id" optional="hide"
+                       groups="advanced_grid.group_advanced_grid_manager"/>
+                <field name="active" column_invisible="True"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_advanced_grid_rule_form" model="ir.ui.view">
+        <field name="name">advanced.grid.rule.form</field>
+        <field name="model">advanced.grid.rule</field>
+        <field name="arch" type="xml">
+            <form string="Grid Rule">
+                <sheet>
+                    <widget name="web_ribbon" title="Archived" bg_color="text-bg-danger"
+                            invisible="active"/>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1><field name="name" placeholder="e.g. Hot opportunities in red"/></h1>
+                    </div>
+                    <group>
+                        <group string="Applies To">
+                            <field name="model_id" options="{'no_create': True}"/>
+                            <field name="model_name" invisible="1"/>
+                            <field name="scope"
+                                   groups="advanced_grid.group_advanced_grid_manager"/>
+                            <field name="user_id" invisible="scope == 'shared'"
+                                   groups="advanced_grid.group_advanced_grid_manager"/>
+                            <field name="sequence"/>
+                            <field name="active" invisible="1"/>
+                        </group>
+                        <group string="Condition">
+                            <field name="condition_mode" widget="radio"
+                                   options="{'horizontal': true}"/>
+                            <field name="field_id" options="{'no_create': True}"
+                                   domain="[('model_id', '=', model_id), ('store', '=', True)]"
+                                   invisible="condition_mode != 'simple'"
+                                   required="condition_mode == 'simple'"/>
+                            <field name="field_ttype" invisible="1"/>
+                            <field name="operator"
+                                   invisible="condition_mode != 'simple'"
+                                   required="condition_mode == 'simple'"/>
+                            <field name="value"
+                                   invisible="condition_mode != 'simple' or operator in ('set', 'not set')"/>
+                            <field name="domain_raw" widget="domain"
+                                   options="{'model': 'model_name'}"
+                                   invisible="condition_mode != 'domain'"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group string="Style">
+                            <field name="target" widget="radio" options="{'horizontal': true}"/>
+                            <field name="cell_field_id" options="{'no_create': True}"
+                                   domain="[('model_id', '=', model_id)]"
+                                   invisible="target != 'cell'"/>
+                            <field name="background_color" widget="color"/>
+                            <field name="text_color" widget="color"/>
+                            <field name="bold"/>
+                            <field name="italic"/>
+                        </group>
+                        <group string="Icon">
+                            <field name="icon"/>
+                            <field name="icon_color" widget="color" invisible="not icon"/>
+                        </group>
+                    </group>
+                    <group string="Technical" groups="base.group_no_one">
+                        <field name="computed_domain"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_advanced_grid_rule_search" model="ir.ui.view">
+        <field name="name">advanced.grid.rule.search</field>
+        <field name="model">advanced.grid.rule</field>
+        <field name="arch" type="xml">
+            <search string="Grid Rules">
+                <field name="name"/>
+                <field name="model_id"/>
+                <filter name="filter_personal" string="Personal"
+                        domain="[('scope', '=', 'personal')]"/>
+                <filter name="filter_shared" string="Shared"
+                        domain="[('scope', '=', 'shared')]"/>
+                <separator/>
+                <filter name="filter_inactive" string="Archived"
+                        domain="[('active', '=', False)]"/>
+                <group expand="0" string="Group By">
+                    <filter name="group_model" string="Model" context="{'group_by': 'model_id'}"/>
+                    <filter name="group_scope" string="Scope" context="{'group_by': 'scope'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_advanced_grid_rule" model="ir.actions.act_window">
+        <field name="name">Grid Styling Rules</field>
+        <field name="res_model">advanced.grid.rule</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_advanced_grid_rule_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create your first grid rule</p>
+            <p>
+                Colour rows and cells of any list view according to your own criteria.
+                Personal rules are visible to you only.
+            </p>
+        </field>
+    </record>
+
+</odoo>

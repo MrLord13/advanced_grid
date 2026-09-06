@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="module_category_advanced_grid" model="ir.module.category">
+        <field name="name">Advanced Grid</field>
+        <field name="description">Manage company wide list view colour schemes.</field>
+        <field name="sequence">55</field>
+    </record>
+
+    <record id="group_advanced_grid_manager" model="res.groups">
+        <field name="name">Advanced Grid Manager</field>
+        <field name="category_id" ref="module_category_advanced_grid"/>
+        <field name="comment">Can create and edit shared (company wide) grid styling rules.</field>
+    </record>
+
+    <record id="base.group_system" model="res.groups">
+        <field name="implied_ids" eval="[(4, ref('advanced_grid.group_advanced_grid_manager'))]"/>
+    </record>
+
+</odoo>

@@ -1,0 +1,364 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* advanced_grid
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: AliReza Nemati <info@erpishro.com>\n"
+"Language-Team: Persian\n"
+"Language: fa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. module: advanced_grid
+msgid "Advanced Grid"
+msgstr "گرید پیشرفته"
+
+#. module: advanced_grid
+msgid "Advanced Grid Manager"
+msgstr "مدیر گرید پیشرفته"
+
+#. module: advanced_grid
+msgid "Advanced Grid Styling Rule"
+msgstr "قاعده‌ی ظاهری گرید پیشرفته"
+
+#. module: advanced_grid
+msgid "Color Grid"
+msgstr "رنگ‌بندی لیست"
+
+#. module: advanced_grid
+msgid "Grid Styling Rules"
+msgstr "قواعد ظاهری لیست"
+
+#. module: advanced_grid
+msgid "Grid Rules"
+msgstr "قواعد لیست"
+
+#. module: advanced_grid
+msgid "Grid Rule"
+msgstr "قاعده‌ی لیست"
+
+#. module: advanced_grid
+msgid "Personalise the colours and icons of this list"
+msgstr "شخصی‌سازی رنگ‌ها و آیکن‌های این لیست"
+
+#. module: advanced_grid
+msgid "Description"
+msgstr "شرح"
+
+#. module: advanced_grid
+msgid "Model"
+msgstr "مدل"
+
+#. module: advanced_grid
+msgid "Model Name"
+msgstr "نام مدل"
+
+#. module: advanced_grid
+msgid "Applies To"
+msgstr "اعمال بر روی"
+
+#. module: advanced_grid
+msgid "Personal"
+msgstr "شخصی"
+
+#. module: advanced_grid
+msgid "Shared"
+msgstr "اشتراکی"
+
+#. module: advanced_grid
+msgid "Owner"
+msgstr "مالک"
+
+#. module: advanced_grid
+msgid "Scope"
+msgstr "دامنه‌ی اعمال"
+
+#. module: advanced_grid
+msgid "Condition"
+msgstr "شرط"
+
+#. module: advanced_grid
+msgid "Condition Field"
+msgstr "فیلد شرط"
+
+#. module: advanced_grid
+msgid "Simple"
+msgstr "ساده"
+
+#. module: advanced_grid
+msgid "Domain"
+msgstr "دامنه"
+
+#. module: advanced_grid
+msgid "Effective Domain"
+msgstr "دامنه‌ی نهایی"
+
+#. module: advanced_grid
+msgid "Value"
+msgstr "مقدار"
+
+#. module: advanced_grid
+msgid "is equal to"
+msgstr "برابر است با"
+
+#. module: advanced_grid
+msgid "is not equal to"
+msgstr "برابر نیست با"
+
+#. module: advanced_grid
+msgid "is greater than"
+msgstr "بزرگ‌تر است از"
+
+#. module: advanced_grid
+msgid "is greater than or equal to"
+msgstr "بزرگ‌تر یا مساوی است با"
+
+#. module: advanced_grid
+msgid "is less than"
+msgstr "کوچک‌تر است از"
+
+#. module: advanced_grid
+msgid "is less than or equal to"
+msgstr "کوچک‌تر یا مساوی است با"
+
+#. module: advanced_grid
+msgid "contains"
+msgstr "شامل باشد"
+
+#. module: advanced_grid
+msgid "does not contain"
+msgstr "شامل نباشد"
+
+#. module: advanced_grid
+msgid "is set"
+msgstr "مقدار دارد"
+
+#. module: advanced_grid
+msgid "is not set"
+msgstr "مقدار ندارد"
+
+#. module: advanced_grid
+msgid "Style"
+msgstr "ظاهر"
+
+#. module: advanced_grid
+msgid "Whole Row"
+msgstr "کل سطر"
+
+#. module: advanced_grid
+msgid "Single Cell"
+msgstr "تک سلول"
+
+#. module: advanced_grid
+msgid "Column to Style"
+msgstr "ستون هدف"
+
+#. module: advanced_grid
+msgid "Column Name"
+msgstr "نام ستون"
+
+#. module: advanced_grid
+msgid "Background"
+msgstr "رنگ پس‌زمینه"
+
+#. module: advanced_grid
+msgid "Text Colour"
+msgstr "رنگ متن"
+
+#. module: advanced_grid
+msgid "Icon"
+msgstr "آیکن"
+
+#. module: advanced_grid
+msgid "Icon Colour"
+msgstr "رنگ آیکن"
+
+#. module: advanced_grid
+msgid "Bold"
+msgstr "درشت"
+
+#. module: advanced_grid
+msgid "Italic"
+msgstr "کج"
+
+#. module: advanced_grid
+msgid "Sequence"
+msgstr "ترتیب"
+
+#. module: advanced_grid
+msgid "Technical"
+msgstr "فنی"
+
+#. module: advanced_grid
+msgid "Archived"
+msgstr "بایگانی‌شده"
+
+#. module: advanced_grid
+msgid "Group By"
+msgstr "گروه‌بندی بر اساس"
+
+#. module: advanced_grid
+msgid "Create your first grid rule"
+msgstr "اولین قاعده‌ی لیست خود را بسازید"
+
+#. module: advanced_grid
+msgid "Circle"
+msgstr "دایره"
+
+#. module: advanced_grid
+msgid "Square"
+msgstr "مربع"
+
+#. module: advanced_grid
+msgid "Star"
+msgstr "ستاره"
+
+#. module: advanced_grid
+msgid "Flag"
+msgstr "پرچم"
+
+#. module: advanced_grid
+msgid "Bolt"
+msgstr "صاعقه"
+
+#. module: advanced_grid
+msgid "Fire"
+msgstr "آتش"
+
+#. module: advanced_grid
+msgid "Snowflake"
+msgstr "دانه‌ی برف"
+
+#. module: advanced_grid
+msgid "Thermometer"
+msgstr "دماسنج"
+
+#. module: advanced_grid
+msgid "Warning"
+msgstr "هشدار"
+
+#. module: advanced_grid
+msgid "Alert"
+msgstr "اخطار"
+
+#. module: advanced_grid
+msgid "Check"
+msgstr "تأیید"
+
+#. module: advanced_grid
+msgid "Cross"
+msgstr "ضربدر"
+
+#. module: advanced_grid
+msgid "Clock"
+msgstr "ساعت"
+
+#. module: advanced_grid
+msgid "Hourglass"
+msgstr "ساعت شنی"
+
+#. module: advanced_grid
+msgid "Arrow Up"
+msgstr "پیکان بالا"
+
+#. module: advanced_grid
+msgid "Arrow Down"
+msgstr "پیکان پایین"
+
+#. module: advanced_grid
+msgid "Thumbs Up"
+msgstr "شست بالا"
+
+#. module: advanced_grid
+msgid "Thumbs Down"
+msgstr "شست پایین"
+
+#. module: advanced_grid
+msgid "Lock"
+msgstr "قفل"
+
+#. module: advanced_grid
+msgid "User"
+msgstr "کاربر"
+
+#. module: advanced_grid
+msgid "Money"
+msgstr "پول"
+
+#. module: advanced_grid
+msgid "Trophy"
+msgstr "جام"
+
+#. module: advanced_grid
+msgid "Heart"
+msgstr "قلب"
+
+#. module: advanced_grid
+msgid "Bell"
+msgstr "زنگ"
+
+#. module: advanced_grid
+msgid "Bookmark"
+msgstr "نشانک"
+
+#. module: advanced_grid
+msgid "Paperclip"
+msgstr "گیره"
+
+#. module: advanced_grid
+msgid "'%s' is not a valid colour. Use a hex value such as #FF8800."
+msgstr "«%s» یک رنگ معتبر نیست. از مقدار هگز مانند ‎#FF8800 استفاده کنید."
+
+#. module: advanced_grid
+msgid "Only an Advanced Grid Manager can create shared rules."
+msgstr "فقط «مدیر گرید پیشرفته» می‌تواند قاعده‌ی اشتراکی بسازد."
+
+#. module: advanced_grid
+msgid "A personal rule must have an owner."
+msgstr "قاعده‌ی شخصی باید مالک داشته باشد."
+
+#. module: advanced_grid
+msgid "You cannot define more than %s active rules on the same model."
+msgstr "نمی‌توانید بیش از %s قاعده‌ی فعال روی یک مدل تعریف کنید."
+
+#. module: advanced_grid
+msgid ""
+"Rules are applied from top to bottom. When two rules set the same property on"
+" the same record, the last one wins."
+msgstr ""
+"قواعد از بالا به پایین اعمال می‌شوند. اگر دو قاعده یک ویژگی را روی یک رکورد "
+"تعیین کنند، قاعده‌ی پایین‌تر برنده است."
+
+#. module: advanced_grid
+msgid "Personal rules only affect their owner. Shared rules affect every user."
+msgstr ""
+"قواعد شخصی فقط برای مالکشان اعمال می‌شوند؛ قواعد اشتراکی برای همه‌ی کاربران."
+
+#. module: advanced_grid
+msgid ""
+"Only used when the target is a single cell. Defaults to the condition field "
+"when left empty."
+msgstr ""
+"فقط وقتی هدف «تک سلول» است کاربرد دارد. اگر خالی بماند، همان فیلد شرط در نظر "
+"گرفته می‌شود."
+
+#. module: advanced_grid
+msgid ""
+"Colour rows and cells of any list view according to your own criteria. "
+"Personal rules are visible to you only."
+msgstr ""
+"سطرها و سلول‌های هر نمای لیستی را بر اساس معیار خودتان رنگ‌آمیزی کنید. قواعد "
+"شخصی فقط برای خودتان قابل مشاهده است."
+
+#. module: advanced_grid
+msgid "Can create and edit shared (company wide) grid styling rules."
+msgstr "می‌تواند قواعد ظاهری اشتراکی (در سطح شرکت) بسازد و ویرایش کند."
+
+#. module: advanced_grid
+msgid "Manage company wide list view colour schemes."
+msgstr "مدیریت طرح‌های رنگی نماهای لیستی در سطح شرکت."
