@@ -369,18 +369,26 @@ class AdvancedGridRule(models.Model):
 
     @api.model
     def action_open_for_model(self, model_name):
-        """Used by the 'Color Grid' button of the list view."""
+        """Used by the 'Color Grid' button of the list view.
+
+        The action is built from the XML record instead of a hand written dict:
+        `_for_xml_id` returns the fully resolved payload, including the `views`
+        key that the web client requires for an `ir.actions.act_window`.
+        """
         model = self.env["ir.model"]._get(model_name)
-        return {
-            "type": "ir.actions.act_window",
-            "name": _("Color Grid"),
-            "res_model": "advanced.grid.rule",
-            "view_mode": "list,form",
-            "target": "new",
-            "domain": [("model_name", "=", model_name)],
-            "context": {
-                "default_model_id": model.id,
-                "default_scope": "personal",
-                "advanced_grid_model_name": model_name,
-            },
-        }
+        action = self.env["ir.actions.act_window"]._for_xml_id(
+            "advanced_grid.action_advanced_grid_rule"
+        )
+        action.update(
+            {
+                "name": _("Color Grid"),
+                "target": "new",
+                "domain": [("model_name", "=", model_name)],
+                "context": {
+                    "default_model_id": model.id,
+                    "default_scope": "personal",
+                    "advanced_grid_model_name": model_name,
+                },
+            }
+        )
+        return action
