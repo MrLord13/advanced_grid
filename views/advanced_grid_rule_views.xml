@@ -115,7 +115,7 @@
                 <separator/>
                 <filter name="filter_inactive" string="Archived"
                         domain="[('active', '=', False)]"/>
-                <group expand="0" string="Group By">
+                <group name="group_by">
                     <filter name="group_model" string="Model" context="{'group_by': 'model_id'}"/>
                     <filter name="group_scope" string="Scope" context="{'group_by': 'scope'}"/>
                 </group>
