@@ -34,20 +34,10 @@ msgid "Sequence"
 msgstr "ترتیب"
 
 #. module: advanced_grid
-#: model:ir.model.fields,field_description:advanced_grid.field_advanced_grid_rule__model_id
+#: model:ir.model.fields,field_description:advanced_grid.field_advanced_grid_rule__model_name
 #: model_terms:ir.ui.view,arch_db:advanced_grid.view_advanced_grid_rule_search
 msgid "Model"
 msgstr "مدل"
-
-#. module: advanced_grid
-#: model:ir.model.fields,field_description:advanced_grid.field_advanced_grid_rule__model_name
-msgid "Model Name"
-msgstr "نام مدل"
-
-#. module: advanced_grid
-#: model:ir.model.fields,field_description:advanced_grid.field_advanced_grid_rule__model_description
-msgid "List"
-msgstr "لیست"
 
 #. module: advanced_grid
 #: model:ir.model.fields,field_description:advanced_grid.field_advanced_grid_rule__model_modules
@@ -71,7 +61,7 @@ msgid "Condition Mode"
 msgstr "حالت شرط"
 
 #. module: advanced_grid
-#: model:ir.model.fields,field_description:advanced_grid.field_advanced_grid_rule__field_id
+#: model:ir.model.fields,field_description:advanced_grid.field_advanced_grid_rule__field_name
 msgid "Condition Field"
 msgstr "فیلد شرط"
 
@@ -102,14 +92,9 @@ msgid "Target"
 msgstr "هدف"
 
 #. module: advanced_grid
-#: model:ir.model.fields,field_description:advanced_grid.field_advanced_grid_rule__cell_field_id
+#: model:ir.model.fields,field_description:advanced_grid.field_advanced_grid_rule__cell_field_name
 msgid "Column to Style"
 msgstr "ستون هدف"
-
-#. module: advanced_grid
-#: model:ir.model.fields,field_description:advanced_grid.field_advanced_grid_rule__cell_field_name
-msgid "Column Name"
-msgstr "نام ستون"
 
 #. module: advanced_grid
 #: model:ir.model.fields,field_description:advanced_grid.field_advanced_grid_rule__background_color
@@ -170,7 +155,7 @@ msgstr ""
 "کاربران."
 
 #. module: advanced_grid
-#: model:ir.model.fields,help:advanced_grid.field_advanced_grid_rule__cell_field_id
+#: model:ir.model.fields,help:advanced_grid.field_advanced_grid_rule__cell_field_name
 msgid ""
 "Only used when the target is a single cell. Defaults to the condition "
 "field when left empty."
@@ -572,6 +557,12 @@ msgid "You have no personal rule to remove on this list."
 msgstr "روی این لیست هیچ قاعده‌ی شخصی برای حذف ندارید."
 
 #. module: advanced_grid
+#. odoo-python
+#: code:addons/advanced_grid/models/advanced_grid_rule.py:0
+msgid "'%(field)s' is not a valid field of the selected model."
+msgstr "«%(field)s» یک فیلد معتبر از مدل انتخاب‌شده نیست."
+
+#. module: advanced_grid
 #. odoo-javascript
 #: code:addons/advanced_grid/static/src/views/list/list_controller_patch.xml:0
 msgid "Personalise the colours and icons of this list"
@@ -594,3 +585,21 @@ msgstr "بله"
 #: code:addons/advanced_grid/static/src/views/fields/advanced_grid_value_field.js:0
 msgid "No"
 msgstr "خیر"
+
+#. module: advanced_grid
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_field_path_field.js:0
+msgid "Field Path"
+msgstr "مسیر فیلد"
+
+#. module: advanced_grid
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_field_path_field.js:0
+msgid "Follow relations"
+msgstr "دنبال‌کردن روابط"
+
+#. module: advanced_grid
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_field_path_field.xml:0
+msgid "Pick a model first"
+msgstr "ابتدا یک مدل انتخاب کنید"
