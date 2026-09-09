@@ -1,4 +1,4 @@
-# Persian translation for the advanced_grid module.
+# Persian translation of the advanced_grid module.
 # ERPishro.com - AliReza Nemati
 msgid ""
 msgstr ""
@@ -12,456 +12,585 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#. module: advanced_grid
-msgid "Advanced Grid"
-msgstr "گرید پیشرفته"
 
 #. module: advanced_grid
-msgid "Advanced Grid - Color Grid, Icons & Personal List Styling"
-msgstr "گرید پیشرفته — رنگ‌بندی، آیکن و شخصی‌سازی نمای لیستی"
-
-#. module: advanced_grid
-msgid ""
-"Dynamics 365 style personal color coding, row/cell highlighting and icons for"
-" any Odoo list view - without touching the view arch."
-msgstr ""
-"رنگ‌بندی شخصی به سبک داینامیکس ۳۶۵، برجسته‌سازی سطر و سلول و آیکن‌گذاری برای "
-"هر نمای لیستی در اودو — بدون دست‌زدن به ساختار view."
-
-#. module: advanced_grid
-msgid "Advanced Grid Manager"
-msgstr "مدیر گرید پیشرفته"
-
-#. module: advanced_grid
+#: model:ir.model,name:advanced_grid.model_advanced_grid_rule
 msgid "Advanced Grid Styling Rule"
 msgstr "قاعده‌ی ظاهری گرید پیشرفته"
 
 #. module: advanced_grid
-msgid "Manage company wide list view colour schemes."
-msgstr "مدیریت طرح‌های رنگی نماهای لیستی در سطح شرکت."
-
-#. module: advanced_grid
-msgid "Who may publish shared grid styling rules."
-msgstr "چه کسی می‌تواند قواعد ظاهری اشتراکی منتشر کند."
-
-#. module: advanced_grid
-msgid "Can create and edit shared (company wide) grid styling rules."
-msgstr "می‌تواند قواعد ظاهری اشتراکی (در سطح شرکت) بسازد و ویرایش کند."
-
-#. module: advanced_grid
-msgid "Color Grid"
-msgstr "رنگ‌بندی لیست"
-
-#. module: advanced_grid
-msgid "Personalise the colours and icons of this list"
-msgstr "شخصی‌سازی رنگ‌ها و آیکن‌های این لیست"
-
-#. module: advanced_grid
-msgid "Grid Styling Rules"
-msgstr "قواعد ظاهری لیست"
-
-#. module: advanced_grid
-msgid "Grid Rules"
-msgstr "قواعد لیست"
-
-#. module: advanced_grid
-msgid "Grid Rule"
-msgstr "قاعده‌ی لیست"
-
-#. module: advanced_grid
+#: model:ir.model.fields,field_description:advanced_grid.field_advanced_grid_rule__name
 msgid "Description"
 msgstr "شرح"
 
 #. module: advanced_grid
+#: model:ir.model.fields,field_description:advanced_grid.field_advanced_grid_rule__active
 msgid "Active"
 msgstr "فعال"
 
 #. module: advanced_grid
+#: model:ir.model.fields,field_description:advanced_grid.field_advanced_grid_rule__sequence
 msgid "Sequence"
 msgstr "ترتیب"
 
 #. module: advanced_grid
+#: model:ir.model.fields,field_description:advanced_grid.field_advanced_grid_rule__model_id
+#: model_terms:ir.ui.view,arch_db:advanced_grid.view_advanced_grid_rule_search
 msgid "Model"
 msgstr "مدل"
 
 #. module: advanced_grid
+#: model:ir.model.fields,field_description:advanced_grid.field_advanced_grid_rule__model_name
 msgid "Model Name"
 msgstr "نام مدل"
 
 #. module: advanced_grid
+#: model:ir.model.fields,field_description:advanced_grid.field_advanced_grid_rule__model_description
 msgid "List"
 msgstr "لیست"
 
 #. module: advanced_grid
+#: model:ir.model.fields,field_description:advanced_grid.field_advanced_grid_rule__model_modules
 msgid "In Apps"
 msgstr "در ماژول‌های"
 
 #. module: advanced_grid
-msgid "Applies To"
-msgstr "اعمال بر روی"
-
-#. module: advanced_grid
+#: model:ir.model.fields,field_description:advanced_grid.field_advanced_grid_rule__scope
+#: model_terms:ir.ui.view,arch_db:advanced_grid.view_advanced_grid_rule_search
 msgid "Scope"
 msgstr "دامنه‌ی اعمال"
 
 #. module: advanced_grid
-msgid "Personal"
-msgstr "شخصی"
-
-#. module: advanced_grid
-msgid "Shared"
-msgstr "اشتراکی"
-
-#. module: advanced_grid
+#: model:ir.model.fields,field_description:advanced_grid.field_advanced_grid_rule__user_id
 msgid "Owner"
 msgstr "مالک"
 
 #. module: advanced_grid
-msgid "Condition"
-msgstr "شرط"
-
-#. module: advanced_grid
+#: model:ir.model.fields,field_description:advanced_grid.field_advanced_grid_rule__condition_mode
 msgid "Condition Mode"
 msgstr "حالت شرط"
 
 #. module: advanced_grid
+#: model:ir.model.fields,field_description:advanced_grid.field_advanced_grid_rule__field_id
 msgid "Condition Field"
 msgstr "فیلد شرط"
 
 #. module: advanced_grid
+#: model:ir.model.fields,field_description:advanced_grid.field_advanced_grid_rule__operator
 msgid "Operator"
 msgstr "عملگر"
 
 #. module: advanced_grid
-msgid "Simple"
-msgstr "ساده"
-
-#. module: advanced_grid
-msgid "Domain"
-msgstr "دامنه"
-
-#. module: advanced_grid
-msgid "Effective Domain"
-msgstr "دامنه‌ی نهایی"
-
-#. module: advanced_grid
+#: model:ir.model.fields,field_description:advanced_grid.field_advanced_grid_rule__value
 msgid "Value"
 msgstr "مقدار"
 
 #. module: advanced_grid
-msgid "is equal to"
-msgstr "برابر است با"
+#: model:ir.model.fields,field_description:advanced_grid.field_advanced_grid_rule__domain_raw
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__condition_mode__domain
+msgid "Domain"
+msgstr "دامنه"
 
 #. module: advanced_grid
-msgid "is not equal to"
-msgstr "برابر نیست با"
+#: model:ir.model.fields,field_description:advanced_grid.field_advanced_grid_rule__computed_domain
+msgid "Effective Domain"
+msgstr "دامنه‌ی نهایی"
 
 #. module: advanced_grid
-msgid "is greater than"
-msgstr "بزرگ‌تر است از"
-
-#. module: advanced_grid
-msgid "is greater than or equal to"
-msgstr "بزرگ‌تر یا مساوی است با"
-
-#. module: advanced_grid
-msgid "is less than"
-msgstr "کوچک‌تر است از"
-
-#. module: advanced_grid
-msgid "is less than or equal to"
-msgstr "کوچک‌تر یا مساوی است با"
-
-#. module: advanced_grid
-msgid "contains"
-msgstr "شامل باشد"
-
-#. module: advanced_grid
-msgid "does not contain"
-msgstr "شامل نباشد"
-
-#. module: advanced_grid
-msgid "is set"
-msgstr "مقدار دارد"
-
-#. module: advanced_grid
-msgid "is not set"
-msgstr "مقدار ندارد"
-
-#. module: advanced_grid
-msgid "Style"
-msgstr "ظاهر"
-
-#. module: advanced_grid
+#: model:ir.model.fields,field_description:advanced_grid.field_advanced_grid_rule__target
 msgid "Target"
 msgstr "هدف"
 
 #. module: advanced_grid
-msgid "Whole Row"
-msgstr "کل سطر"
-
-#. module: advanced_grid
-msgid "Single Cell"
-msgstr "تک سلول"
-
-#. module: advanced_grid
+#: model:ir.model.fields,field_description:advanced_grid.field_advanced_grid_rule__cell_field_id
 msgid "Column to Style"
 msgstr "ستون هدف"
 
 #. module: advanced_grid
+#: model:ir.model.fields,field_description:advanced_grid.field_advanced_grid_rule__cell_field_name
 msgid "Column Name"
 msgstr "نام ستون"
 
 #. module: advanced_grid
+#: model:ir.model.fields,field_description:advanced_grid.field_advanced_grid_rule__background_color
 msgid "Background"
 msgstr "رنگ پس‌زمینه"
 
 #. module: advanced_grid
+#: model:ir.model.fields,field_description:advanced_grid.field_advanced_grid_rule__text_color
 msgid "Text Colour"
 msgstr "رنگ متن"
 
 #. module: advanced_grid
+#: model:ir.model.fields,field_description:advanced_grid.field_advanced_grid_rule__bold
 msgid "Bold"
 msgstr "درشت"
 
 #. module: advanced_grid
+#: model:ir.model.fields,field_description:advanced_grid.field_advanced_grid_rule__italic
 msgid "Italic"
 msgstr "کج"
 
 #. module: advanced_grid
+#: model:ir.model.fields,field_description:advanced_grid.field_advanced_grid_rule__icon
+#: model_terms:ir.ui.view,arch_db:advanced_grid.view_advanced_grid_rule_form
 msgid "Icon"
 msgstr "آیکن"
 
 #. module: advanced_grid
+#: model:ir.model.fields,field_description:advanced_grid.field_advanced_grid_rule__icon_color
 msgid "Icon Colour"
 msgstr "رنگ آیکن"
 
 #. module: advanced_grid
-msgid "Technical"
-msgstr "فنی"
+#: model:ir.model.fields,field_description:advanced_grid.field_res_users__advanced_grid_rule_ids
+#: model_terms:ir.ui.view,arch_db:advanced_grid.view_users_form_advanced_grid
+msgid "List Personalisation"
+msgstr "شخصی‌سازی لیست"
 
 #. module: advanced_grid
-msgid "Archived"
-msgstr "بایگانی‌شده"
+#: model:ir.model.fields,field_description:advanced_grid.field_res_users__advanced_grid_rule_count
+msgid "Personalised Lists"
+msgstr "لیست‌های شخصی‌سازی‌شده"
 
 #. module: advanced_grid
-msgid "e.g. Hot opportunities in red"
-msgstr "مثلاً: فرصت‌های داغ با رنگ قرمز"
-
-#. module: advanced_grid
-msgid "Create your first grid rule"
-msgstr "اولین قاعده‌ی لیست خود را بسازید"
-
-#. module: advanced_grid
+#: model:ir.model.fields,help:advanced_grid.field_advanced_grid_rule__sequence
 msgid ""
-"Colour rows and cells of any list view according to your own criteria. "
-"Personal rules are visible to you only."
+"Rules are applied from top to bottom. When two rules set the same "
+"property on the same record, the last one wins."
 msgstr ""
-"سطرها و سلول‌های هر نمای لیستی را بر اساس معیار خودتان رنگ‌آمیزی کنید. قواعد "
-"شخصی فقط برای خودتان قابل مشاهده است."
+"قواعد از بالا به پایین اعمال می‌شوند. اگر دو قاعده یک ویژگی را روی یک "
+"رکورد تعیین کنند، قاعده‌ی پایین‌تر برنده است."
 
 #. module: advanced_grid
+#: model:ir.model.fields,help:advanced_grid.field_advanced_grid_rule__scope
+msgid "Personal rules only affect their owner. Shared rules affect every user."
+msgstr ""
+"قواعد شخصی فقط برای مالکشان اعمال می‌شوند؛ قواعد اشتراکی برای همه‌ی "
+"کاربران."
+
+#. module: advanced_grid
+#: model:ir.model.fields,help:advanced_grid.field_advanced_grid_rule__cell_field_id
+msgid ""
+"Only used when the target is a single cell. Defaults to the condition "
+"field when left empty."
+msgstr ""
+"فقط وقتی هدف «تک سلول» است کاربرد دارد. اگر خالی بماند، همان فیلد شرط در "
+"نظر گرفته می‌شود."
+
+#. module: advanced_grid
+#: model:ir.model.fields,help:advanced_grid.field_res_users__advanced_grid_rule_ids
+msgid ""
+"Every list view this user has personalised with their own colours and "
+"icons."
+msgstr ""
+"همه‌ی نماهای لیستی که این کاربر با رنگ‌ها و آیکن‌های خودش شخصی‌سازی کرده "
+"است."
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__scope__personal
+#: model_terms:ir.ui.view,arch_db:advanced_grid.view_advanced_grid_rule_search
+msgid "Personal"
+msgstr "شخصی"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__scope__shared
+#: model_terms:ir.ui.view,arch_db:advanced_grid.view_advanced_grid_rule_search
+msgid "Shared"
+msgstr "اشتراکی"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__condition_mode__simple
+msgid "Simple"
+msgstr "ساده"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__target__row
+msgid "Whole Row"
+msgstr "کل سطر"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__target__cell
+msgid "Single Cell"
+msgstr "تک سلول"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__operator__=
+msgid "is equal to"
+msgstr "برابر است با"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__operator__!=
+msgid "is not equal to"
+msgstr "برابر نیست با"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__operator__>
+msgid "is greater than"
+msgstr "بزرگ‌تر است از"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__operator__>=
+msgid "is greater than or equal to"
+msgstr "بزرگ‌تر یا مساوی است با"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__operator__<
+msgid "is less than"
+msgstr "کوچک‌تر است از"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__operator__<=
+msgid "is less than or equal to"
+msgstr "کوچک‌تر یا مساوی است با"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__operator__ilike
+msgid "contains"
+msgstr "شامل باشد"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__operator__not_ilike
+msgid "does not contain"
+msgstr "شامل نباشد"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__operator__set
+msgid "is set"
+msgstr "مقدار دارد"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__operator__not_set
+msgid "is not set"
+msgstr "مقدار ندارد"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-circle
+msgid "Circle"
+msgstr "دایره"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-square
+msgid "Square"
+msgstr "مربع"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-star
+msgid "Star"
+msgstr "ستاره"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-flag
+msgid "Flag"
+msgstr "پرچم"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-bolt
+msgid "Bolt"
+msgstr "صاعقه"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-fire
+msgid "Fire"
+msgstr "آتش"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-snowflake-o
+msgid "Snowflake"
+msgstr "دانه‌ی برف"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-thermometer-half
+msgid "Thermometer"
+msgstr "دماسنج"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-exclamation-triangle
+msgid "Warning"
+msgstr "هشدار"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-exclamation-circle
+msgid "Alert"
+msgstr "اخطار"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-check-circle
+msgid "Check"
+msgstr "تأیید"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-times-circle
+msgid "Cross"
+msgstr "ضربدر"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-clock-o
+msgid "Clock"
+msgstr "ساعت"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-hourglass-half
+msgid "Hourglass"
+msgstr "ساعت شنی"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-arrow-up
+msgid "Arrow Up"
+msgstr "پیکان بالا"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-arrow-down
+msgid "Arrow Down"
+msgstr "پیکان پایین"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-thumbs-up
+msgid "Thumbs Up"
+msgstr "شست بالا"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-thumbs-down
+msgid "Thumbs Down"
+msgstr "شست پایین"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-lock
+msgid "Lock"
+msgstr "قفل"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-user
+msgid "User"
+msgstr "کاربر"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-money
+msgid "Money"
+msgstr "پول"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-trophy
+msgid "Trophy"
+msgstr "جام"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-heart
+msgid "Heart"
+msgstr "قلب"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-bell
+msgid "Bell"
+msgstr "زنگ"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-bookmark
+msgid "Bookmark"
+msgstr "نشانک"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-paperclip
+msgid "Paperclip"
+msgstr "گیره"
+
+#. module: advanced_grid
+#: model_terms:ir.ui.view,arch_db:advanced_grid.view_advanced_grid_rule_list
+#: model_terms:ir.ui.view,arch_db:advanced_grid.view_advanced_grid_rule_search
+msgid "Grid Rules"
+msgstr "قواعد لیست"
+
+#. module: advanced_grid
+#: model_terms:ir.ui.view,arch_db:advanced_grid.view_advanced_grid_rule_form
+msgid "Grid Rule"
+msgstr "قاعده‌ی لیست"
+
+#. module: advanced_grid
+#: model_terms:ir.ui.view,arch_db:advanced_grid.view_advanced_grid_rule_list
 msgid "Delete"
 msgstr "حذف"
 
 #. module: advanced_grid
+#: model_terms:ir.ui.view,arch_db:advanced_grid.view_advanced_grid_rule_list
 msgid "Delete the selected rules? This cannot be undone."
 msgstr "قواعد انتخاب‌شده حذف شوند؟ این عمل برگشت‌پذیر نیست."
 
 #. module: advanced_grid
+#: model_terms:ir.ui.view,arch_db:advanced_grid.view_advanced_grid_rule_list
 msgid "Reset This List"
 msgstr "بازنشانی این لیست"
 
 #. module: advanced_grid
+#: model_terms:ir.ui.view,arch_db:advanced_grid.view_advanced_grid_rule_list
 msgid "Remove all of your personal rules on this list?"
 msgstr "همه‌ی قواعد شخصی شما روی این لیست حذف شود؟"
 
 #. module: advanced_grid
+#: model_terms:ir.ui.view,arch_db:advanced_grid.view_advanced_grid_rule_form
+msgid "Applies To"
+msgstr "اعمال بر روی"
+
+#. module: advanced_grid
+#: model_terms:ir.ui.view,arch_db:advanced_grid.view_advanced_grid_rule_form
+msgid "Condition"
+msgstr "شرط"
+
+#. module: advanced_grid
+#: model_terms:ir.ui.view,arch_db:advanced_grid.view_advanced_grid_rule_form
+msgid "Style"
+msgstr "ظاهر"
+
+#. module: advanced_grid
+#: model_terms:ir.ui.view,arch_db:advanced_grid.view_advanced_grid_rule_form
+msgid "Technical"
+msgstr "فنی"
+
+#. module: advanced_grid
+#: model_terms:ir.ui.view,arch_db:advanced_grid.view_advanced_grid_rule_form
+msgid "e.g. Hot opportunities in red"
+msgstr "مثلاً: فرصت‌های داغ با رنگ قرمز"
+
+#. module: advanced_grid
+#: model_terms:ir.ui.view,arch_db:advanced_grid.view_advanced_grid_rule_form
+#: model_terms:ir.ui.view,arch_db:advanced_grid.view_advanced_grid_rule_search
+msgid "Archived"
+msgstr "بایگانی‌شده"
+
+#. module: advanced_grid
+#: model_terms:ir.ui.view,arch_db:advanced_grid.view_users_form_advanced_grid
+msgid "Personalised list views"
+msgstr "نماهای لیستی شخصی‌سازی‌شده"
+
+#. module: advanced_grid
+#: model_terms:ir.ui.view,arch_db:advanced_grid.view_users_form_advanced_grid
+msgid "Clear All"
+msgstr "پاک‌کردن همه"
+
+#. module: advanced_grid
+#: model_terms:ir.ui.view,arch_db:advanced_grid.view_users_form_advanced_grid
+msgid "Remove every personal list customisation of this user?"
+msgstr "تمام شخصی‌سازی‌های لیستی این کاربر حذف شود؟"
+
+#. module: advanced_grid
+#: model:ir.actions.act_window,name:advanced_grid.action_advanced_grid_rule
+#: model:ir.ui.menu,name:advanced_grid.menu_advanced_grid_rule
+msgid "Grid Styling Rules"
+msgstr "قواعد ظاهری لیست"
+
+#. module: advanced_grid
+#: model_terms:ir.actions.act_window,help:advanced_grid.action_advanced_grid_rule
+msgid "Create your first grid rule"
+msgstr "اولین قاعده‌ی لیست خود را بسازید"
+
+#. module: advanced_grid
+#: model_terms:ir.actions.act_window,help:advanced_grid.action_advanced_grid_rule
+msgid ""
+"Colour rows and cells of any list view according to your own criteria. "
+"Personal rules are visible to you only."
+msgstr ""
+"سطرها و سلول‌های هر نمای لیستی را بر اساس معیار خودتان رنگ‌آمیزی کنید. "
+"قواعد شخصی فقط برای خودتان قابل مشاهده است."
+
+#. module: advanced_grid
+#: model:ir.module.category,name:advanced_grid.module_category_advanced_grid
+#: model:res.groups.privilege,name:advanced_grid.res_groups_privilege_advanced_grid
+msgid "Advanced Grid"
+msgstr "گرید پیشرفته"
+
+#. module: advanced_grid
+#: model:ir.module.category,description:advanced_grid.module_category_advanced_grid
+msgid "Manage company wide list view colour schemes."
+msgstr "مدیریت طرح‌های رنگی نماهای لیستی در سطح شرکت."
+
+#. module: advanced_grid
+#: model:res.groups.privilege,description:advanced_grid.res_groups_privilege_advanced_grid
+msgid "Who may publish shared grid styling rules."
+msgstr "چه کسی می‌تواند قواعد ظاهری اشتراکی منتشر کند."
+
+#. module: advanced_grid
+#: model:res.groups,name:advanced_grid.group_advanced_grid_manager
+msgid "Advanced Grid Manager"
+msgstr "مدیر گرید پیشرفته"
+
+#. module: advanced_grid
+#: model:res.groups,comment:advanced_grid.group_advanced_grid_manager
+msgid "Can create and edit shared (company wide) grid styling rules."
+msgstr "می‌تواند قواعد ظاهری اشتراکی (در سطح شرکت) بسازد و ویرایش کند."
+
+#. module: advanced_grid
+#. odoo-python
+#. odoo-javascript
+#: code:addons/advanced_grid/models/advanced_grid_rule.py:0
+#: code:addons/advanced_grid/static/src/views/list/list_controller_patch.xml:0
+msgid "Color Grid"
+msgstr "رنگ‌بندی لیست"
+
+#. module: advanced_grid
+#. odoo-python
+#: code:addons/advanced_grid/models/advanced_grid_rule.py:0
+msgid "'%s' is not a valid colour. Use a hex value such as #FF8800."
+msgstr "«%s» یک رنگ معتبر نیست. از مقدار هگز مانند ‎#FF8800 استفاده کنید."
+
+#. module: advanced_grid
+#. odoo-python
+#: code:addons/advanced_grid/models/advanced_grid_rule.py:0
+msgid "Only an Advanced Grid Manager can create shared rules."
+msgstr "فقط «مدیر گرید پیشرفته» می‌تواند قاعده‌ی اشتراکی بسازد."
+
+#. module: advanced_grid
+#. odoo-python
+#: code:addons/advanced_grid/models/advanced_grid_rule.py:0
+msgid "A personal rule must have an owner."
+msgstr "قاعده‌ی شخصی باید مالک داشته باشد."
+
+#. module: advanced_grid
+#. odoo-python
+#: code:addons/advanced_grid/models/advanced_grid_rule.py:0
+msgid "You cannot define more than %s active rules on the same model."
+msgstr "نمی‌توانید بیش از %s قاعده‌ی فعال روی یک مدل تعریف کنید."
+
+#. module: advanced_grid
+#. odoo-python
+#: code:addons/advanced_grid/models/advanced_grid_rule.py:0
 msgid "Select at least one rule to delete."
 msgstr "برای حذف، حداقل یک قاعده را انتخاب کنید."
 
 #. module: advanced_grid
+#. odoo-python
+#: code:addons/advanced_grid/models/advanced_grid_rule.py:0
 msgid ""
-"You can only delete your own personal rules. Shared rules are managed by an "
-"Advanced Grid Manager."
+"You can only delete your own personal rules. Shared rules are managed by "
+"an Advanced Grid Manager."
 msgstr ""
 "شما فقط می‌توانید قواعد شخصی خودتان را حذف کنید. قواعد اشتراکی توسط «مدیر "
 "گرید پیشرفته» مدیریت می‌شود."
 
 #. module: advanced_grid
+#. odoo-python
+#: code:addons/advanced_grid/models/advanced_grid_rule.py:0
 msgid "You have no personal rule to remove on this list."
 msgstr "روی این لیست هیچ قاعده‌ی شخصی برای حذف ندارید."
 
 #. module: advanced_grid
-msgid "List Personalisation"
-msgstr "شخصی‌سازی لیست"
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/list/list_controller_patch.xml:0
+msgid "Personalise the colours and icons of this list"
+msgstr "شخصی‌سازی رنگ‌ها و آیکن‌های این لیست"
 
 #. module: advanced_grid
-msgid "Personalised list views"
-msgstr "نماهای لیستی شخصی‌سازی‌شده"
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_value_field.js:0
+msgid "Grid Rule Value"
+msgstr "مقدار قاعده"
 
 #. module: advanced_grid
-msgid ""
-"Colours and icons this user defined for themselves. They are visible to "
-"nobody else."
-msgstr ""
-"رنگ‌ها و آیکن‌هایی که این کاربر برای خودش تعریف کرده است. برای هیچ کاربر "
-"دیگری قابل مشاهده نیست."
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_value_field.js:0
+msgid "Yes"
+msgstr "بله"
 
 #. module: advanced_grid
-msgid "Personalised Lists"
-msgstr "لیست‌های شخصی‌سازی‌شده"
-
-#. module: advanced_grid
-msgid "Clear All"
-msgstr "پاک‌کردن همه"
-
-#. module: advanced_grid
-msgid "Remove every personal list customisation of this user?"
-msgstr "تمام شخصی‌سازی‌های لیستی این کاربر حذف شود؟"
-
-#. module: advanced_grid
-msgid "Every list view this user has personalised with their own colours and icons."
-msgstr ""
-"همه‌ی نماهای لیستی که این کاربر با رنگ‌ها و آیکن‌های خودش شخصی‌سازی کرده است."
-
-#. module: advanced_grid
-msgid ""
-"Rules are applied from top to bottom. When two rules set the same property on"
-" the same record, the last one wins."
-msgstr ""
-"قواعد از بالا به پایین اعمال می‌شوند. اگر دو قاعده یک ویژگی را روی یک رکورد "
-"تعیین کنند، قاعده‌ی پایین‌تر برنده است."
-
-#. module: advanced_grid
-msgid "Personal rules only affect their owner. Shared rules affect every user."
-msgstr ""
-"قواعد شخصی فقط برای مالکشان اعمال می‌شوند؛ قواعد اشتراکی برای همه‌ی کاربران."
-
-#. module: advanced_grid
-msgid ""
-"Only used when the target is a single cell. Defaults to the condition field "
-"when left empty."
-msgstr ""
-"فقط وقتی هدف «تک سلول» است کاربرد دارد. اگر خالی بماند، همان فیلد شرط در نظر "
-"گرفته می‌شود."
-
-#. module: advanced_grid
-msgid "'%s' is not a valid colour. Use a hex value such as #FF8800."
-msgstr "«%s» یک رنگ معتبر نیست. از مقدار هگز مانند ‎#FF8800 استفاده کنید."
-
-#. module: advanced_grid
-msgid "Only an Advanced Grid Manager can create shared rules."
-msgstr "فقط «مدیر گرید پیشرفته» می‌تواند قاعده‌ی اشتراکی بسازد."
-
-#. module: advanced_grid
-msgid "A personal rule must have an owner."
-msgstr "قاعده‌ی شخصی باید مالک داشته باشد."
-
-#. module: advanced_grid
-msgid "You cannot define more than %s active rules on the same model."
-msgstr "نمی‌توانید بیش از %s قاعده‌ی فعال روی یک مدل تعریف کنید."
-
-#. module: advanced_grid
-msgid "Circle"
-msgstr "دایره"
-
-#. module: advanced_grid
-msgid "Square"
-msgstr "مربع"
-
-#. module: advanced_grid
-msgid "Star"
-msgstr "ستاره"
-
-#. module: advanced_grid
-msgid "Flag"
-msgstr "پرچم"
-
-#. module: advanced_grid
-msgid "Bolt"
-msgstr "صاعقه"
-
-#. module: advanced_grid
-msgid "Fire"
-msgstr "آتش"
-
-#. module: advanced_grid
-msgid "Snowflake"
-msgstr "دانه‌ی برف"
-
-#. module: advanced_grid
-msgid "Thermometer"
-msgstr "دماسنج"
-
-#. module: advanced_grid
-msgid "Warning"
-msgstr "هشدار"
-
-#. module: advanced_grid
-msgid "Alert"
-msgstr "اخطار"
-
-#. module: advanced_grid
-msgid "Check"
-msgstr "تأیید"
-
-#. module: advanced_grid
-msgid "Cross"
-msgstr "ضربدر"
-
-#. module: advanced_grid
-msgid "Clock"
-msgstr "ساعت"
-
-#. module: advanced_grid
-msgid "Hourglass"
-msgstr "ساعت شنی"
-
-#. module: advanced_grid
-msgid "Arrow Up"
-msgstr "پیکان بالا"
-
-#. module: advanced_grid
-msgid "Arrow Down"
-msgstr "پیکان پایین"
-
-#. module: advanced_grid
-msgid "Thumbs Up"
-msgstr "شست بالا"
-
-#. module: advanced_grid
-msgid "Thumbs Down"
-msgstr "شست پایین"
-
-#. module: advanced_grid
-msgid "Lock"
-msgstr "قفل"
-
-#. module: advanced_grid
-msgid "User"
-msgstr "کاربر"
-
-#. module: advanced_grid
-msgid "Money"
-msgstr "پول"
-
-#. module: advanced_grid
-msgid "Trophy"
-msgstr "جام"
-
-#. module: advanced_grid
-msgid "Heart"
-msgstr "قلب"
-
-#. module: advanced_grid
-msgid "Bell"
-msgstr "زنگ"
-
-#. module: advanced_grid
-msgid "Bookmark"
-msgstr "نشانک"
-
-#. module: advanced_grid
-msgid "Paperclip"
-msgstr "گیره"
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_value_field.js:0
+msgid "No"
+msgstr "خیر"
