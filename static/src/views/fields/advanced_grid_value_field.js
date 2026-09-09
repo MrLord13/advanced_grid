@@ -7,9 +7,6 @@ import { _t } from "@web/core/l10n/translation";
 import { standardFieldProps } from "@web/views/fields/standard_field_props";
 import { RecordSelector } from "@web/core/record_selectors/record_selector";
 
-/** fieldId -> Promise<{ttype, relation, selection}> */
-const FIELD_INFO_CACHE = new Map();
-
 const RELATIONAL_TYPES = ["many2one", "many2many", "one2many"];
 const NUMERIC_TYPES = ["integer", "float", "monetary"];
 
@@ -18,9 +15,14 @@ const NUMERIC_TYPES = ["integer", "float", "monetary"];
  *
  * The stored value stays a plain char (an id for relational fields, the
  * technical key for selections), but the editor adapts to the type of the
- * field chosen in `field_id` - the same experience as Odoo's own custom
+ * field chosen in `field_name` - the same experience as Odoo's own custom
  * filters, where picking a many2one gives you an autocomplete instead of a
  * free text input.
+ *
+ * Field metadata comes from the `field` service, i.e. a `fields_get` call on
+ * the target model. `ir.model.fields` is deliberately never read: since Odoo
+ * 19 it is restricted to `base.group_erp_manager`, so an ordinary user would
+ * hit an AccessError.
  */
 export class AdvancedGridValueField extends Component {
     static template = "advanced_grid.ValueField";
@@ -31,7 +33,7 @@ export class AdvancedGridValueField extends Component {
     };
 
     setup() {
-        this.orm = useService("orm");
+        this.fieldService = useService("field");
         this.nameService = useService("name");
         this.state = useState({
             ttype: false,
@@ -46,78 +48,62 @@ export class AdvancedGridValueField extends Component {
     // ------------------------------------------------------------------
     // Data
     // ------------------------------------------------------------------
-    /**
-     * In Odoo 19 a many2one value is `{id, display_name}`; older shapes are
-     * handled too so the widget survives a data format change.
-     */
-    conditionFieldId(props) {
-        const raw = props.record.data.field_id;
-        if (!raw) {
-            return false;
-        }
-        if (typeof raw === "number") {
-            return raw;
-        }
-        if (Array.isArray(raw)) {
-            return raw[0];
-        }
-        return raw.id || false;
-    }
-
     get rawValue() {
         return this.props.record.data[this.props.name] || "";
     }
 
     async load(props) {
-        const fieldId = this.conditionFieldId(props);
+        const resModel = props.record.data.model_name || "";
+        const path = props.record.data.field_name || "";
         const rawValue = props.record.data[props.name] || "";
-        if (fieldId === this._loadedFieldId && rawValue === this._loadedValue) {
+        if (
+            resModel === this._loadedModel &&
+            path === this._loadedPath &&
+            rawValue === this._loadedValue
+        ) {
             return;
         }
-        this._loadedFieldId = fieldId;
+        this._loadedModel = resModel;
+        this._loadedPath = path;
         this._loadedValue = rawValue;
 
         let info = { ttype: false, relation: false, selection: [] };
-        if (fieldId) {
-            if (!FIELD_INFO_CACHE.has(fieldId)) {
-                FIELD_INFO_CACHE.set(fieldId, this.fetchFieldInfo(fieldId));
-            }
+        if (resModel && path) {
             try {
-                info = await FIELD_INFO_CACHE.get(fieldId);
+                const { fieldDef } = await this.fieldService.loadFieldInfo(
+                    resModel,
+                    path
+                );
+                if (fieldDef) {
+                    info = {
+                        ttype: fieldDef.type,
+                        relation: fieldDef.relation || false,
+                        selection: this.buildSelection(fieldDef),
+                    };
+                }
             } catch {
-                FIELD_INFO_CACHE.delete(fieldId);
+                // Unknown or unreadable path: fall back to a text input.
             }
         }
         Object.assign(this.state, info);
         this.state.displayValue = await this.computeDisplayValue(rawValue, info);
     }
 
-    async fetchFieldInfo(fieldId) {
-        const [record] = await this.orm.read(
-            "ir.model.fields",
-            [fieldId],
-            ["ttype", "relation", "model", "name"]
-        );
-        const info = {
-            ttype: record.ttype,
-            relation: record.relation || false,
-            selection: [],
-        };
-        if (record.ttype === "boolean") {
-            info.selection = [
+    /**
+     * `fields_get` already returns the selection labels in the user's
+     * language, so nothing has to be translated here.
+     */
+    buildSelection(fieldDef) {
+        if (fieldDef.type === "boolean") {
+            return [
                 ["True", _t("Yes")],
                 ["False", _t("No")],
             ];
-        } else if (record.ttype === "selection") {
-            // fields_get is available to every user and already returns the
-            // labels in the user's language.
-            const fieldsInfo = await this.orm.call(record.model, "fields_get", [
-                [record.name],
-                ["selection"],
-            ]);
-            info.selection = (fieldsInfo[record.name] || {}).selection || [];
         }
-        return info;
+        if (fieldDef.type === "selection") {
+            return fieldDef.selection || [];
+        }
+        return [];
     }
 
     async computeDisplayValue(rawValue, info) {
@@ -128,9 +114,10 @@ export class AdvancedGridValueField extends Component {
             const resId = Number.parseInt(rawValue, 10);
             if (!Number.isNaN(resId)) {
                 try {
-                    const names = await this.nameService.loadDisplayNames(info.relation, [
-                        resId,
-                    ]);
+                    const names = await this.nameService.loadDisplayNames(
+                        info.relation,
+                        [resId]
+                    );
                     return names[resId] || rawValue;
                 } catch {
                     return rawValue;

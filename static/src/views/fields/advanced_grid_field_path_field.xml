@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="advanced_grid.FieldPathField">
+        <div class="o_ag_field_path w-100">
+            <ModelFieldSelector t-if="resModel"
+                                resModel="resModel"
+                                path="path"
+                                readonly="props.readonly"
+                                allowEmpty="true"
+                                followRelations="props.followRelations"
+                                update.bind="update"/>
+            <span t-else="" class="text-muted">Pick a model first</span>
+        </div>
+    </t>
+
+</templates>

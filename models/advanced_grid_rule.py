@@ -16,6 +16,8 @@ COLOR_RE = re.compile(r"^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$")
 # Safety net so a user cannot slow down every list view of a model.
 MAX_ACTIVE_RULES_PER_MODEL = 40
 
+RELATIONAL_TYPES = ("many2one", "one2many", "many2many")
+
 # Curated FontAwesome 4 icons (already bundled with Odoo).
 ICON_SELECTION = [
     ("fa-circle", "Circle"),
@@ -73,20 +75,21 @@ class AdvancedGridRule(models.Model):
              "property on the same record, the last one wins.",
     )
 
-    model_id = fields.Many2one(
-        "ir.model",
+    # Since Odoo 19 `ir.model` and `ir.model.fields` are readable by
+    # `base.group_erp_manager` only, so an ordinary user cannot be offered a
+    # many2one on them. The model is stored as a plain technical name and
+    # picked through the same raw-SQL selection `ir.filters` uses, while the
+    # field paths are picked client side through `fields_get`, which every
+    # user is allowed to call.
+    model_name = fields.Selection(
+        selection="_list_all_models",
         string="Model",
         required=True,
-        ondelete="cascade",
         index=True,
     )
-    model_name = fields.Char(
-        related="model_id.model", string="Model Name", store=True, index=True
+    model_modules = fields.Char(
+        string="In Apps", compute="_compute_model_modules", store=True
     )
-    model_description = fields.Char(
-        related="model_id.name", string="List", store=True
-    )
-    model_modules = fields.Char(related="model_id.modules", string="In Apps")
 
     scope = fields.Selection(
         [("personal", "Personal"), ("shared", "Shared")],
@@ -110,13 +113,7 @@ class AdvancedGridRule(models.Model):
         default="simple",
         required=True,
     )
-    field_id = fields.Many2one(
-        "ir.model.fields",
-        string="Condition Field",
-        ondelete="cascade",
-        domain="[('model_id', '=', model_id), ('store', '=', True)]",
-    )
-    field_ttype = fields.Selection(related="field_id.ttype")
+    field_name = fields.Char(string="Condition Field")
     operator = fields.Selection(OPERATOR_SELECTION, default="=")
     value = fields.Char(string="Value")
     domain_raw = fields.Char(string="Domain", default="[]")
@@ -132,16 +129,10 @@ class AdvancedGridRule(models.Model):
         default="row",
         required=True,
     )
-    cell_field_id = fields.Many2one(
-        "ir.model.fields",
+    cell_field_name = fields.Char(
         string="Column to Style",
-        ondelete="cascade",
-        domain="[('model_id', '=', model_id)]",
         help="Only used when the target is a single cell. "
              "Defaults to the condition field when left empty.",
-    )
-    cell_field_name = fields.Char(
-        compute="_compute_cell_field_name", store=True, string="Column Name"
     )
 
     background_color = fields.Char(string="Background", default="#FFF3CD")
@@ -152,23 +143,59 @@ class AdvancedGridRule(models.Model):
     icon_color = fields.Char(string="Icon Colour")
 
     # ==================================================================
+    # Selections
+    # ==================================================================
+    @api.model
+    def _list_all_models(self):
+        """Same approach as ``ir.filters._list_all_models``.
+
+        A raw query is used on purpose: it lets any internal user pick a model
+        without granting them read access on ``ir.model``.
+        """
+        lang = self.env.lang or "en_US"
+        self.env.cr.execute(
+            "SELECT model, COALESCE(name->>%s, name->>'en_US') FROM ir_model ORDER BY 2",
+            [lang],
+        )
+        return self.env.cr.fetchall()
+
+    # ==================================================================
     # Compute / constraints
     # ==================================================================
-    @api.depends("target", "cell_field_id", "field_id")
-    def _compute_cell_field_name(self):
+    @api.depends("model_name")
+    def _compute_model_modules(self):
         for rule in self:
-            if rule.target == "cell":
-                fld = rule.cell_field_id or rule.field_id
-                rule.cell_field_name = fld.name or False
-            else:
-                rule.cell_field_name = False
+            modules = False
+            if rule.model_name:
+                # sudo: ir.model is closed to regular users, but the module
+                # list is purely informative metadata.
+                model = self.env["ir.model"].sudo()._get(rule.model_name)
+                modules = model.modules or False
+            rule.model_modules = modules
 
-    @api.depends(
-        "condition_mode", "field_id", "field_ttype", "operator", "value", "domain_raw"
-    )
+    @api.depends("condition_mode", "field_name", "operator", "value", "domain_raw",
+                 "model_name")
     def _compute_computed_domain(self):
         for rule in self:
             rule.computed_domain = repr(rule._build_domain())
+
+    def _resolve_field(self):
+        """Return the ORM field targeted by ``field_name``, dotted paths included.
+
+        Reading the registry needs no access right, unlike ``ir.model.fields``.
+        """
+        self.ensure_one()
+        if not self.field_name or not self.model_name or self.model_name not in self.env:
+            return None
+        model = self.env[self.model_name]
+        field = None
+        for part in self.field_name.split("."):
+            field = model._fields.get(part)
+            if field is None:
+                return None
+            if field.type in RELATIONAL_TYPES:
+                model = self.env[field.comodel_name]
+        return field
 
     def _build_domain(self):
         """Return a plain python domain (list of tuples)."""
@@ -180,22 +207,22 @@ class AdvancedGridRule(models.Model):
                 return []
             return domain if isinstance(domain, (list, tuple)) else []
 
-        if not self.field_id or not self.operator:
+        if not self.field_name or not self.operator:
             return []
 
-        fname = self.field_id.name
         if self.operator == "set":
-            return [(fname, "!=", False)]
+            return [(self.field_name, "!=", False)]
         if self.operator == "not set":
-            return [(fname, "=", False)]
+            return [(self.field_name, "=", False)]
 
-        return [(fname, self.operator, self._coerce_value())]
+        return [(self.field_name, self.operator, self._coerce_value())]
 
     def _coerce_value(self):
         """Convert the char `value` into something the ORM understands."""
         self.ensure_one()
         raw = (self.value or "").strip()
-        ttype = self.field_id.ttype
+        field = self._resolve_field()
+        ttype = field.type if field else "char"
 
         if ttype == "boolean":
             return raw.lower() in ("1", "true", "yes", "t")
@@ -209,7 +236,7 @@ class AdvancedGridRule(models.Model):
                 return float(raw)
             except ValueError:
                 return 0.0
-        if ttype in ("many2one", "many2many", "one2many"):
+        if ttype in RELATIONAL_TYPES:
             if raw.isdigit() and self.operator in ("=", "!="):
                 return int(raw)
             return raw
@@ -225,6 +252,17 @@ class AdvancedGridRule(models.Model):
                         % value
                     )
 
+    @api.constrains("condition_mode", "field_name", "model_name")
+    def _check_field_name(self):
+        for rule in self:
+            if rule.condition_mode != "simple" or not rule.field_name:
+                continue
+            if rule._resolve_field() is None:
+                raise ValidationError(
+                    _("'%(field)s' is not a valid field of the selected model.",
+                      field=rule.field_name)
+                )
+
     @api.constrains("scope", "user_id")
     def _check_scope(self):
         manager = self.env.user.has_group("advanced_grid.group_advanced_grid_manager")
@@ -236,12 +274,12 @@ class AdvancedGridRule(models.Model):
             if rule.scope == "personal" and not rule.user_id:
                 raise ValidationError(_("A personal rule must have an owner."))
 
-    @api.constrains("model_id", "active", "user_id", "scope")
+    @api.constrains("model_name", "active", "user_id", "scope")
     def _check_rule_count(self):
         for rule in self.filtered("active"):
             count = self.with_context(active_test=True).search_count(
                 [
-                    ("model_id", "=", rule.model_id.id),
+                    ("model_name", "=", rule.model_name),
                     ("scope", "=", rule.scope),
                     ("user_id", "=", rule.user_id.id),
                 ]
@@ -259,14 +297,14 @@ class AdvancedGridRule(models.Model):
         elif not self.user_id:
             self.user_id = self.env.user
 
-    @api.onchange("model_id")
-    def _onchange_model_id(self):
-        self.field_id = False
-        self.cell_field_id = False
+    @api.onchange("model_name")
+    def _onchange_model_name(self):
+        self.field_name = False
+        self.cell_field_name = False
         self.value = False
 
-    @api.onchange("field_id")
-    def _onchange_field_id(self):
+    @api.onchange("field_name")
+    def _onchange_field_name(self):
         # The stored value is an id / technical key tied to the previous field.
         self.value = False
 
@@ -321,7 +359,7 @@ class AdvancedGridRule(models.Model):
                 "name": rule.name,
                 "sequence": rule.sequence,
                 "target": rule.target,
-                "field": rule.cell_field_name or False,
+                "field": rule._styled_column() or False,
                 "background_color": rule.background_color or "",
                 "text_color": rule.text_color or "",
                 "bold": rule.bold,
@@ -360,14 +398,15 @@ class AdvancedGridRule(models.Model):
                 )
                 continue
 
+            column = rule._styled_column()
             for res_id in matched:
                 entry = matches.setdefault(
                     res_id, {"row": [], "cells": {}, "icon": None}
                 )
                 if rule.target == "row":
                     entry["row"].append(rule.id)
-                elif rule.cell_field_name:
-                    entry["cells"].setdefault(rule.cell_field_name, []).append(rule.id)
+                elif column:
+                    entry["cells"].setdefault(column, []).append(rule.id)
                 if rule.icon and not entry["icon"]:
                     entry["icon"] = {
                         "icon": rule.icon,
@@ -377,6 +416,17 @@ class AdvancedGridRule(models.Model):
 
         return {"rules": payload, "matches": matches}
 
+    def _styled_column(self):
+        """Column name a cell rule paints; only direct fields can be columns."""
+        self.ensure_one()
+        if self.target != "cell":
+            return False
+        column = self.cell_field_name or self.field_name or ""
+        return column if column and "." not in column else False
+
+    # ==================================================================
+    # Actions
+    # ==================================================================
     def action_delete_selected(self):
         """Header button of the Color Grid dialog.
 
@@ -422,7 +472,6 @@ class AdvancedGridRule(models.Model):
         `_for_xml_id` returns the fully resolved payload, including the `views`
         key that the web client requires for an `ir.actions.act_window`.
         """
-        model = self.env["ir.model"]._get(model_name)
         action = self.env["ir.actions.act_window"]._for_xml_id(
             "advanced_grid.action_advanced_grid_rule"
         )
@@ -432,7 +481,7 @@ class AdvancedGridRule(models.Model):
                 "target": "new",
                 "domain": [("model_name", "=", model_name)],
                 "context": {
-                    "default_model_id": model.id,
+                    "default_model_name": model_name,
                     "default_scope": "personal",
                     "advanced_grid_model_name": model_name,
                 },

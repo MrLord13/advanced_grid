@@ -16,19 +16,16 @@
                 </header>
                 <field name="sequence" widget="handle"/>
                 <field name="name"/>
-                <field name="model_id" options="{'no_create': True}"/>
-                <field name="model_name" column_invisible="True"/>
+                <field name="model_name" optional="hide"/>
                 <field name="condition_mode"/>
-                <field name="field_id" options="{'no_create': True}"
-                       domain="[('model_id', '=', model_id), ('store', '=', True)]"
+                <field name="field_name" widget="advanced_grid_field_path"
                        readonly="condition_mode != 'simple'"/>
-                <field name="field_ttype" column_invisible="True"/>
                 <field name="operator" readonly="condition_mode != 'simple'"/>
                 <field name="value" widget="advanced_grid_value"
                        readonly="condition_mode != 'simple' or operator in ('set', 'not set')"/>
                 <field name="target"/>
-                <field name="cell_field_id" options="{'no_create': True}"
-                       domain="[('model_id', '=', model_id)]"
+                <field name="cell_field_name" widget="advanced_grid_field_path"
+                       options="{'follow_relations': false}"
                        readonly="target != 'cell'"/>
                 <field name="background_color" widget="color"/>
                 <field name="text_color" widget="color" optional="hide"/>
@@ -59,8 +56,7 @@
                     </div>
                     <group>
                         <group string="Applies To">
-                            <field name="model_id" options="{'no_create': True}"/>
-                            <field name="model_name" invisible="1"/>
+                            <field name="model_name"/>
                             <field name="scope"
                                    groups="advanced_grid.group_advanced_grid_manager"/>
                             <field name="user_id" invisible="scope == 'shared'"
@@ -71,11 +67,9 @@
                         <group string="Condition">
                             <field name="condition_mode" widget="radio"
                                    options="{'horizontal': true}"/>
-                            <field name="field_id" options="{'no_create': True}"
-                                   domain="[('model_id', '=', model_id), ('store', '=', True)]"
+                            <field name="field_name" widget="advanced_grid_field_path"
                                    invisible="condition_mode != 'simple'"
                                    required="condition_mode == 'simple'"/>
-                            <field name="field_ttype" invisible="1"/>
                             <field name="operator"
                                    invisible="condition_mode != 'simple'"
                                    required="condition_mode == 'simple'"/>
@@ -89,8 +83,8 @@
                     <group>
                         <group string="Style">
                             <field name="target" widget="radio" options="{'horizontal': true}"/>
-                            <field name="cell_field_id" options="{'no_create': True}"
-                                   domain="[('model_id', '=', model_id)]"
+                            <field name="cell_field_name" widget="advanced_grid_field_path"
+                                   options="{'follow_relations': false}"
                                    invisible="target != 'cell'"/>
                             <field name="background_color" widget="color"/>
                             <field name="text_color" widget="color"/>
@@ -103,6 +97,7 @@
                         </group>
                     </group>
                     <group string="Technical" groups="base.group_no_one">
+                        <field name="model_modules"/>
                         <field name="computed_domain"/>
                     </group>
                 </sheet>
@@ -116,7 +111,7 @@
         <field name="arch" type="xml">
             <search string="Grid Rules">
                 <field name="name"/>
-                <field name="model_id"/>
+                <field name="model_name"/>
                 <filter name="filter_personal" string="Personal"
                         domain="[('scope', '=', 'personal')]"/>
                 <filter name="filter_shared" string="Shared"
@@ -125,7 +120,7 @@
                 <filter name="filter_inactive" string="Archived"
                         domain="[('active', '=', False)]"/>
                 <group name="group_by">
-                    <filter name="group_model" string="Model" context="{'group_by': 'model_id'}"/>
+                    <filter name="group_model" string="Model" context="{'group_by': 'model_name'}"/>
                     <filter name="group_scope" string="Scope" context="{'group_by': 'scope'}"/>
                 </group>
             </search>
