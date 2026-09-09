@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    "name": "Advanced Grid - Color Grid, Icons & Personal List Styling",
+    "name": "Advanced Grid - Custom List Styling",
     "summary": "Dynamics 365 style personal color coding, row/cell highlighting and "
                "icons for any Odoo list view - without touching the view arch.",
     "description": """
@@ -17,7 +17,7 @@ Bring the Microsoft Dynamics 365 "Color Grid" experience to Odoo 19.
 * Zero impact on the standard Odoo behaviour: no view arch is modified,
   no core method is replaced, only additive OWL patches.
 """,
-    "version": "19.0.2.3.0",
+    "version": "19.0.2.3.1",
     "category": "ERPishro Modules",
     "author": "AliReza Nemati",
     "maintainer": "ERPishro.com",
