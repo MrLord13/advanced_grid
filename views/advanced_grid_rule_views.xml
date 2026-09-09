@@ -24,7 +24,8 @@
                        readonly="condition_mode != 'simple'"/>
                 <field name="field_ttype" column_invisible="True"/>
                 <field name="operator" readonly="condition_mode != 'simple'"/>
-                <field name="value" readonly="condition_mode != 'simple' or operator in ('set', 'not set')"/>
+                <field name="value" widget="advanced_grid_value"
+                       readonly="condition_mode != 'simple' or operator in ('set', 'not set')"/>
                 <field name="target"/>
                 <field name="cell_field_id" options="{'no_create': True}"
                        domain="[('model_id', '=', model_id)]"
@@ -78,7 +79,7 @@
                             <field name="operator"
                                    invisible="condition_mode != 'simple'"
                                    required="condition_mode == 'simple'"/>
-                            <field name="value"
+                            <field name="value" widget="advanced_grid_value"
                                    invisible="condition_mode != 'simple' or operator in ('set', 'not set')"/>
                             <field name="domain_raw" widget="domain"
                                    options="{'model': 'model_name'}"
@@ -138,10 +139,7 @@
         <field name="search_view_id" ref="view_advanced_grid_rule_search"/>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">Create your first grid rule</p>
-            <p>
-                Colour rows and cells of any list view according to your own criteria.
-                Personal rules are visible to you only.
-            </p>
+            <p>Colour rows and cells of any list view according to your own criteria. Personal rules are visible to you only.</p>
         </field>
     </record>
 

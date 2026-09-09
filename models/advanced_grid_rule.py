@@ -263,6 +263,12 @@ class AdvancedGridRule(models.Model):
     def _onchange_model_id(self):
         self.field_id = False
         self.cell_field_id = False
+        self.value = False
+
+    @api.onchange("field_id")
+    def _onchange_field_id(self):
+        # The stored value is an id / technical key tied to the previous field.
+        self.value = False
 
     @api.model_create_multi
     def create(self, vals_list):

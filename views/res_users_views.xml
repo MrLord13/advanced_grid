@@ -6,6 +6,9 @@
         has personalised. Because the field is an x2many, the standard per-row
         trash icon of the list renderer is available here, so rules can be
         removed straight from this tab.
+
+        Only translatable attributes (string, confirm, help) are used here on
+        purpose: free text nodes make fragile translation terms.
     -->
     <record id="view_users_form_advanced_grid" model="ir.ui.view">
         <field name="name">res.users.form.advanced.grid</field>
@@ -16,13 +19,9 @@
                 <page name="page_advanced_grid" string="List Personalisation"
                       invisible="not id">
                     <div class="d-flex align-items-center mb-2">
-                        <div class="flex-grow-1">
-                            <span class="o_form_label">Personalised list views</span>
-                            <div class="text-muted">
-                                Colours and icons this user defined for themselves.
-                                They are visible to nobody else.
-                            </div>
-                        </div>
+                        <label for="advanced_grid_rule_ids"
+                               string="Personalised list views"
+                               class="o_form_label flex-grow-1"/>
                         <button name="action_advanced_grid_clear_personalisation"
                                 type="object"
                                 string="Clear All"

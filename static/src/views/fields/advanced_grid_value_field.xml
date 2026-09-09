@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="advanced_grid.ValueField">
+        <div class="o_ag_value_field w-100">
+            <span t-if="props.readonly" t-esc="state.displayValue"/>
+            <RecordSelector t-elif="editor === 'record'"
+                            resModel="state.relation"
+                            resId="recordId"
+                            update.bind="updateRecord"
+                            placeholder="props.placeholder"/>
+            <select t-elif="editor === 'selection'"
+                    class="o_input w-100"
+                    t-on-change="(ev) => this.updateRaw(ev.target.value)">
+                <option value=""/>
+                <option t-foreach="state.selection" t-as="option" t-key="option[0]"
+                        t-att-value="option[0]"
+                        t-att-selected="option[0] === rawValue"
+                        t-esc="option[1]"/>
+            </select>
+            <input t-else=""
+                   class="o_input w-100"
+                   t-att-type="inputType"
+                   t-att-value="rawValue"
+                   t-att-placeholder="props.placeholder"
+                   t-on-change="(ev) => this.updateRaw(ev.target.value)"/>
+        </div>
+    </t>
+
+</templates>
