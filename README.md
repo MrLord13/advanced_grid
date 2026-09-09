@@ -51,6 +51,22 @@ carrying rules is published once in `session_info`.
 * Matching is done with a normal `search()` in the user's own environment,
   so record rules and access rights are fully respected.
 
+## No extra access rights needed
+
+Since Odoo 19 both `ir.model` and `ir.model.fields` are readable by
+`base.group_erp_manager` only (`0,0,0,0` for `base.group_user` in base's
+`ir.model.access.csv`). The module therefore never exposes them to users:
+
+* the model is stored as a technical name and picked through a raw-SQL
+  selection, the same approach as `ir.filters.model_id`;
+* field paths are picked with `ModelFieldSelector`, which resolves fields
+  through a `fields_get` call - allowed for everyone;
+* the value editor gets its type information from the same `field` service;
+* server side, field types are resolved from the ORM registry, which needs no
+  access right at all.
+
+No ACL of the standard installation is widened by installing this module.
+
 ## Security
 
 | Group | Personal rules | Shared rules |
@@ -67,6 +83,9 @@ Two `ir.rule` records split read (own + shared) from write (own personal only).
 * The `Domain` mode is parsed with `ast.literal_eval`, so dynamic helpers such
   as `context_today()` are not accepted — by design, for safety.
 * Max 40 active rules per model / scope / user.
+* Relational condition fields store an id, so only `=`, `!=`, `is set` and
+  `is not set` are meaningful there; use Domain mode for text matching.
+* Cell styling only accepts direct fields - a dotted path is not a column.
 * Grouped list totals rows are not styled (only record rows are).
 
 ## Roadmap (not in 1.0)
