@@ -4,7 +4,7 @@ import logging
 import re
 
 from odoo import _, api, fields, models
-from odoo.exceptions import AccessError, ValidationError
+from odoo.exceptions import AccessError, UserError, ValidationError
 
 _logger = logging.getLogger(__name__)
 
@@ -83,6 +83,10 @@ class AdvancedGridRule(models.Model):
     model_name = fields.Char(
         related="model_id.model", string="Model Name", store=True, index=True
     )
+    model_description = fields.Char(
+        related="model_id.name", string="List", store=True
+    )
+    model_modules = fields.Char(related="model_id.modules", string="In Apps")
 
     scope = fields.Selection(
         [("personal", "Personal"), ("shared", "Shared")],
@@ -366,6 +370,43 @@ class AdvancedGridRule(models.Model):
                     }
 
         return {"rules": payload, "matches": matches}
+
+    def action_delete_selected(self):
+        """Header button of the Color Grid dialog.
+
+        Needed because the web client sets `loadActionMenus: target !== "new"`,
+        so the cog menu - and therefore the standard Delete entry - is never
+        loaded inside a dialog. Header buttons are rendered from the arch and
+        are not subject to that restriction.
+        """
+        if not self:
+            raise UserError(_("Select at least one rule to delete."))
+        if self.env.user.has_group("advanced_grid.group_advanced_grid_manager"):
+            deletable = self
+        else:
+            deletable = self.filtered(
+                lambda r: r.scope == "personal" and r.user_id == self.env.user
+            )
+        if not deletable:
+            raise UserError(
+                _("You can only delete your own personal rules. Shared rules are "
+                  "managed by an Advanced Grid Manager.")
+            )
+        deletable.unlink()
+        return False
+
+    def action_reset_model_rules(self):
+        """Delete every personal rule of the current user for this list."""
+        model_name = self.env.context.get("advanced_grid_model_name")
+        domain = [("scope", "=", "personal"), ("user_id", "=", self.env.uid)]
+        if model_name:
+            domain.append(("model_name", "=", model_name))
+        rules = self.with_context(active_test=False).search(domain)
+        if not rules:
+            raise UserError(_("You have no personal rule to remove on this list."))
+        rules.unlink()
+        # Closing the dialog triggers the client side refresh of the list.
+        return {"type": "ir.actions.act_window_close"}
 
     @api.model
     def action_open_for_model(self, model_name):

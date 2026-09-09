@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--
+        A dedicated tab next to "Security" listing every list view this user
+        has personalised. Because the field is an x2many, the standard per-row
+        trash icon of the list renderer is available here, so rules can be
+        removed straight from this tab.
+    -->
+    <record id="view_users_form_advanced_grid" model="ir.ui.view">
+        <field name="name">res.users.form.advanced.grid</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='page_security']" position="after">
+                <page name="page_advanced_grid" string="List Personalisation"
+                      invisible="not id">
+                    <div class="d-flex align-items-center mb-2">
+                        <div class="flex-grow-1">
+                            <span class="o_form_label">Personalised list views</span>
+                            <div class="text-muted">
+                                Colours and icons this user defined for themselves.
+                                They are visible to nobody else.
+                            </div>
+                        </div>
+                        <button name="action_advanced_grid_clear_personalisation"
+                                type="object"
+                                string="Clear All"
+                                icon="fa-trash-o"
+                                class="btn btn-secondary"
+                                invisible="advanced_grid_rule_count == 0"
+                                confirm="Remove every personal list customisation of this user?"/>
+                    </div>
+                    <field name="advanced_grid_rule_count" invisible="1"/>
+                    <field name="advanced_grid_rule_ids" nolabel="1"
+                           context="{'default_user_id': id, 'default_scope': 'personal'}">
+                        <list editable="bottom">
+                            <field name="sequence" widget="handle"/>
+                            <field name="model_description"/>
+                            <field name="model_modules" optional="show"/>
+                            <field name="model_name" optional="hide"/>
+                            <field name="name"/>
+                            <field name="target"/>
+                            <field name="background_color" widget="color"/>
+                            <field name="text_color" widget="color" optional="hide"/>
+                            <field name="icon"/>
+                            <field name="active" optional="hide"/>
+                            <field name="model_id" column_invisible="True"/>
+                            <field name="scope" column_invisible="True"/>
+                        </list>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

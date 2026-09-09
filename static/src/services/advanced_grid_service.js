@@ -106,6 +106,7 @@ export const advancedGridService = {
                 enabledModels.add(resModel);
                 signatureByModel.delete(resModel);
                 cssByModel.delete(resModel);
+                refreshStyleSheet();
                 state.version++;
             },
 

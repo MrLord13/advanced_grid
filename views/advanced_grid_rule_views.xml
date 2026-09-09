@@ -6,6 +6,14 @@
         <field name="model">advanced.grid.rule</field>
         <field name="arch" type="xml">
             <list string="Grid Rules" editable="bottom" multi_edit="1">
+                <header>
+                    <button name="action_delete_selected" type="object"
+                            string="Delete" icon="fa-trash-o" class="text-danger"
+                            confirm="Delete the selected rules? This cannot be undone."/>
+                    <button name="action_reset_model_rules" type="object"
+                            display="always" string="Reset This List" icon="fa-undo"
+                            confirm="Remove all of your personal rules on this list?"/>
+                </header>
                 <field name="sequence" widget="handle"/>
                 <field name="name"/>
                 <field name="model_id" options="{'no_create': True}"/>
