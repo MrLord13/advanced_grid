@@ -386,7 +386,9 @@ msgid "Grid Rules"
 msgstr "قواعد لیست"
 
 #. module: advanced_grid
+#. odoo-javascript
 #: model_terms:ir.ui.view,arch_db:advanced_grid.view_advanced_grid_rule_form
+#: code:addons/advanced_grid/static/src/views/list/list_controller_patch.js:0
 msgid "Grid Rule"
 msgstr "قاعده‌ی لیست"
 
@@ -557,6 +559,18 @@ msgstr "%s (رونوشت)"
 #. module: advanced_grid
 #. odoo-javascript
 #: code:addons/advanced_grid/static/src/views/list/list_controller_patch.xml:0
+msgid "Form View"
+msgstr "نمای فرم"
+
+#. module: advanced_grid
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/list/list_controller_patch.xml:0
+msgid "Open the full form, with the Domain editor and every advanced option"
+msgstr "باز کردن فرم کامل، همراه با ویرایشگر دامنه و تمام گزینه‌های پیشرفته"
+
+#. module: advanced_grid
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/list/list_controller_patch.xml:0
 msgid "Duplicate"
 msgstr "تکثیر"
 
@@ -625,6 +639,18 @@ msgstr "همه‌ی قواعد شخصی شما روی این لیست حذف ش�
 #: code:addons/advanced_grid/static/src/views/list/list_controller_patch.js:0
 msgid "Reset"
 msgstr "بازنشانی"
+
+#. module: advanced_grid
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/list/list_controller_patch.js:0
+msgid "Select a single rule to open its form."
+msgstr "برای باز کردن فرم، فقط یک قاعده را انتخاب کنید."
+
+#. module: advanced_grid
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/list/list_controller_patch.js:0
+msgid "New Grid Rule"
+msgstr "قاعده‌ی جدید لیست"
 
 #. module: advanced_grid
 #. odoo-javascript
