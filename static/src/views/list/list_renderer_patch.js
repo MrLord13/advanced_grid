@@ -30,7 +30,7 @@ patch(ListRenderer.prototype, {
     setup() {
         super.setup(...arguments);
         this.advancedGrid = useService("advanced_grid");
-        this.agState = useState({ matches: {} });
+        this.agState = useState({ matches: {}, order: {} });
         this.agShared = useState(this.advancedGrid.state);
 
         useEffect(
@@ -53,12 +53,51 @@ patch(ListRenderer.prototype, {
         if (!list || !this.advancedGrid.isEnabled(list.resModel)) {
             if (Object.keys(this.agState.matches).length) {
                 this.agState.matches = {};
+                this.agState.order = {};
             }
             return;
         }
         const resIds = collectResIds(list);
-        const matches = await this.advancedGrid.evaluate(list.resModel, resIds);
+        const { matches, order } = await this.advancedGrid.evaluate(
+            list.resModel,
+            resIds
+        );
         this.agState.matches = matches;
+        this.agState.order = order;
+    },
+
+    /**
+     * Priority is top-down: the rule sitting highest in the Advanced List wins.
+     *
+     * The server returns every matching rule id already ordered by sequence,
+     * so the first entry of each array is the highest priority one.
+     */
+    agRowRule(record) {
+        const match = this.agGetMatch(record);
+        return match && match.row && match.row.length ? match.row[0] : false;
+    },
+
+    /**
+     * A cell rule only paints its column when it outranks the row rule that
+     * would otherwise cover the whole row. Otherwise the row rule keeps the
+     * cell, which is what "the topmost rule wins" means for a single cell.
+     */
+    agCellRule(record, columnName) {
+        const match = this.agGetMatch(record);
+        if (!match || !match.cells) {
+            return false;
+        }
+        const candidates = match.cells[columnName];
+        if (!candidates || !candidates.length) {
+            return false;
+        }
+        const candidate = candidates[0];
+        const rowRule = this.agRowRule(record);
+        if (!rowRule) {
+            return candidate;
+        }
+        const order = this.agState.order;
+        return order[candidate] < order[rowRule] ? candidate : false;
     },
 
     /**
@@ -74,25 +113,23 @@ patch(ListRenderer.prototype, {
 
     getRowClass(record) {
         const classNames = super.getRowClass(...arguments);
-        const match = this.agGetMatch(record);
-        if (!match || !match.row || !match.row.length) {
+        const ruleId = this.agRowRule(record);
+        if (!ruleId) {
             return classNames;
         }
-        const extra = match.row.map((id) => `o_ag_rule_${id}`).join(" ");
-        return `${classNames} o_ag_styled_row ${extra}`;
+        return `${classNames} o_ag_styled_row o_ag_row_${ruleId}`;
     },
 
     getCellClass(column, record) {
         const classNames = super.getCellClass(...arguments);
-        const match = this.agGetMatch(record);
-        if (!match || !match.cells || column.type !== "field") {
+        if (column.type !== "field") {
             return classNames;
         }
-        const ruleIds = match.cells[column.name];
-        if (!ruleIds || !ruleIds.length) {
+        const ruleId = this.agCellRule(record, column.name);
+        if (!ruleId) {
             return classNames;
         }
-        return `${classNames} ${ruleIds.map((id) => `o_ag_rule_${id}`).join(" ")}`;
+        return `${classNames} o_ag_cell o_ag_cell_${ruleId}`;
     },
 
     /**
@@ -105,6 +142,7 @@ patch(ListRenderer.prototype, {
         return !!first && first.id === column.id;
     },
 
+    /** The icon of the highest priority matching rule, if any. */
     agRowIcon(record) {
         const match = this.agGetMatch(record);
         if (!match || !match.icon) {

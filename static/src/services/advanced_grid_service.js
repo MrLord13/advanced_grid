@@ -17,33 +17,55 @@ function safeColor(value) {
         : null;
 }
 
-function ruleToCss(rule) {
-    const declarations = [];
+function declarations(rule) {
+    const decls = [];
     const bg = safeColor(rule.background_color);
     const fg = safeColor(rule.text_color);
     if (bg) {
-        declarations.push(`background-color:${bg} !important`);
+        decls.push(`background-color:${bg} !important`);
     }
     if (fg) {
-        declarations.push(`color:${fg} !important`);
+        decls.push(`color:${fg} !important`);
     }
     if (rule.bold) {
-        declarations.push("font-weight:700 !important");
+        decls.push("font-weight:700 !important");
     }
     if (rule.italic) {
-        declarations.push("font-style:italic !important");
+        decls.push("font-style:italic !important");
     }
-    if (!declarations.length) {
-        return "";
+    return decls.join(";");
+}
+
+/**
+ * Row and cell selectors are built with the SAME specificity - four classes
+ * and two elements each - and every row block is emitted before every cell
+ * block. So when both a row class and a cell class end up on the same <td>,
+ * the cell wins purely on source order.
+ *
+ * That matters: the previous selectors gave rows a higher specificity than
+ * cells, which made a row rule beat a cell rule no matter how the user
+ * ordered them. Arbitration now happens in the renderer, by sequence, and CSS
+ * only has to apply the decision.
+ */
+function buildCss(rules) {
+    let rowCss = "";
+    let cellCss = "";
+    for (const rule of rules) {
+        const body = declarations(rule);
+        if (!body) {
+            continue;
+        }
+        if (rule.target === "row") {
+            rowCss +=
+                `.o_list_renderer tr.o_data_row.o_ag_row_${rule.id} > ` +
+                `td:not(.o_list_record_selector){${body}}\n`;
+        } else {
+            cellCss +=
+                `.o_list_renderer tr.o_data_row td.o_ag_cell.o_ag_cell_${rule.id}` +
+                `{${body}}\n`;
+        }
     }
-    const body = declarations.join(";");
-    if (rule.target === "row") {
-        return (
-            `.o_list_renderer tr.o_data_row.o_ag_rule_${rule.id} > td` +
-            `:not(.o_list_record_selector){${body}}\n`
-        );
-    }
-    return `.o_list_renderer tr.o_data_row td.o_ag_rule_${rule.id}{${body}}\n`;
+    return rowCss + cellCss;
 }
 
 export const advancedGridService = {
@@ -75,24 +97,18 @@ export const advancedGridService = {
         }
 
         function applyRules(resModel, rules) {
-            const sorted = [...rules].sort(
-                (a, b) => a.sequence - b.sequence || a.id - b.id
-            );
-            const signature = JSON.stringify(sorted);
+            const signature = JSON.stringify(rules);
             if (signatureByModel.get(resModel) === signature) {
                 return;
             }
             signatureByModel.set(resModel, signature);
-            cssByModel.set(resModel, sorted.map(ruleToCss).join(""));
+            cssByModel.set(resModel, buildCss(rules));
             refreshStyleSheet();
         }
 
         return {
             state,
 
-            /**
-             * True when it is worth asking the server for this model.
-             */
             isEnabled(resModel) {
                 return enabledModels.has(resModel);
             },
@@ -111,11 +127,14 @@ export const advancedGridService = {
             },
 
             /**
-             * @returns {Object} res_id -> {row: [ids], cells: {field: [ids]}, icon}
+             * @returns {Object} {matches, order}
+             *   matches: res_id -> {row: [ids], cells: {field: [ids]}, icon}
+             *   order:   rule id -> priority index, 0 being the top of the list
              */
             async evaluate(resModel, resIds) {
+                const empty = { matches: {}, order: {} };
                 if (!resModel || !enabledModels.has(resModel) || !resIds.length) {
-                    return {};
+                    return empty;
                 }
                 let result;
                 try {
@@ -126,13 +145,22 @@ export const advancedGridService = {
                     );
                 } catch {
                     // A styling feature must never make a list view fail.
-                    return {};
+                    return empty;
                 }
                 if (!result || !result.rules) {
-                    return {};
+                    return empty;
                 }
-                applyRules(resModel, result.rules);
-                return result.matches || {};
+                // The server already returns the rules ordered by sequence,
+                // but sorting again keeps the client independent of that.
+                const rules = [...result.rules].sort(
+                    (a, b) => a.sequence - b.sequence || a.id - b.id
+                );
+                applyRules(resModel, rules);
+                const order = {};
+                rules.forEach((rule, index) => {
+                    order[rule.id] = index;
+                });
+                return { matches: result.matches || {}, order };
             },
 
             /**
@@ -147,13 +175,6 @@ export const advancedGridService = {
                     color: safeColor(icon.color),
                     title: icon.title || "",
                 };
-            },
-
-            async getModelId(resModel) {
-                const ids = await orm.search("ir.model", [["model", "=", resModel]], {
-                    limit: 1,
-                });
-                return ids.length ? ids[0] : false;
             },
         };
     },

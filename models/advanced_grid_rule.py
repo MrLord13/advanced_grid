@@ -71,8 +71,9 @@ class AdvancedGridRule(models.Model):
     active = fields.Boolean(default=True)
     sequence = fields.Integer(
         default=10,
-        help="Rules are applied from top to bottom. When two rules set the same "
-             "property on the same record, the last one wins.",
+        help="Priority order. When several rules match the same row, the one "
+             "sitting highest in the list wins - including over a rule that "
+             "paints a single column.",
     )
 
     # Since Odoo 19 `ir.model` and `ir.model.fields` are readable by

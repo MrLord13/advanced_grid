@@ -16,7 +16,7 @@ Author: **AliReza Nemati** — [ERPishro.com](https://erpishro.com)
 | Status icons at row start | FontAwesome icon injected in the first field cell |
 | Personal view customisation | `Personal` scope — invisible to other users |
 | Admin-published scheme | `Shared` scope — reserved to *Advanced Grid Manager* |
-| Rule ordering | `sequence` handle, last matching rule wins per property |
+| Rule ordering | `sequence` handle, the topmost matching rule wins |
 
 ## Installation
 
@@ -30,9 +30,13 @@ Author: **AliReza Nemati** — [ERPishro.com](https://erpishro.com)
    (including grouped lists, one pass per group).
 2. A single RPC `advanced.grid.rule.advanced_grid_evaluate(model, res_ids)`
    returns the rule definitions plus the matched ids per rule.
-3. The service writes **one** `<style>` tag containing a CSS class per rule
-   (`.o_ag_rule_<id>`), and the patched `getRowClass` / `getCellClass` simply
-   append those class names.
+3. The renderer arbitrates by sequence: the topmost matching row rule gives
+   the `<tr>` its class, and a cell rule only claims its column when it
+   outranks that row rule.
+4. The service writes **one** `<style>` tag holding a class per rule. Row and
+   cell selectors are built with *identical* specificity (four classes, two
+   elements) and every row block is emitted before every cell block, so the
+   cascade merely applies the decision the renderer already made.
 
 No RPC is issued at all for models that have no rule: the list of models
 carrying rules is published once in `session_info`.

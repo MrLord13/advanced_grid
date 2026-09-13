@@ -141,11 +141,13 @@ msgstr "لیست‌های شخصی‌سازی‌شده"
 #. module: advanced_grid
 #: model:ir.model.fields,help:advanced_grid.field_advanced_grid_rule__sequence
 msgid ""
-"Rules are applied from top to bottom. When two rules set the same "
-"property on the same record, the last one wins."
+"Priority order. When several rules match the same row, the one sitting "
+"highest in the list wins - including over a rule that paints a single "
+"column."
 msgstr ""
-"قواعد از بالا به پایین اعمال می‌شوند. اگر دو قاعده یک ویژگی را روی یک "
-"رکورد تعیین کنند، قاعده‌ی پایین‌تر برنده است."
+"ترتیب اولویت. وقتی چند قاعده با یک سطر مطابقت دارند، قاعده‌ای که بالاتر "
+"در لیست است برنده می‌شود — حتی نسبت به قاعده‌ای که فقط یک ستون را رنگ "
+"می‌کند."
 
 #. module: advanced_grid
 #: model:ir.model.fields,help:advanced_grid.field_advanced_grid_rule__scope
