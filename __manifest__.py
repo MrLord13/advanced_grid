@@ -17,7 +17,7 @@ Bring the Microsoft Dynamics 365 "Color Grid" experience to Odoo 19.
 * Zero impact on the standard Odoo behaviour: no view arch is modified,
   no core method is replaced, only additive OWL patches.
 """,
-    "version": "19.0.2.7.2",
+    "version": "19.0.2.8.2",
     "category": "ERPishro Modules",
     "author": "AliReza Nemati",
     "maintainer": "ERPishro.com",
@@ -41,6 +41,8 @@ Bring the Microsoft Dynamics 365 "Color Grid" experience to Odoo 19.
             "advanced_grid/static/src/views/list/list_controller_patch.xml",
             "advanced_grid/static/src/views/fields/advanced_grid_field_path_field.js",
             "advanced_grid/static/src/views/fields/advanced_grid_field_path_field.xml",
+            "advanced_grid/static/src/views/fields/advanced_grid_icon_field.js",
+            "advanced_grid/static/src/views/fields/advanced_grid_icon_field.xml",
             "advanced_grid/static/src/views/fields/advanced_grid_value_field.js",
             "advanced_grid/static/src/views/fields/advanced_grid_value_field.xml",
         ],
