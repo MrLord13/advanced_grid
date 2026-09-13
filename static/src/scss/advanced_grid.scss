@@ -26,3 +26,56 @@
 .o_ag_color_grid_button {
     white-space: nowrap;
 }
+
+// ---------------------------------------------------------------------------
+// Icon picker
+// ---------------------------------------------------------------------------
+.o_ag_icon_field {
+    .o_ag_icon_toggle {
+        min-width: 10rem;
+        max-width: 100%;
+        text-align: start;
+
+        > span {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+    }
+}
+
+.o_ag_icon_picker_popover {
+    max-width: 22rem;
+}
+
+.o_ag_icon_picker {
+    width: 20rem;
+
+    .o_ag_icon_grid {
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+        gap: 2px;
+        max-height: 15rem;
+        overflow-y: auto;
+    }
+
+    .o_ag_icon_option {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        aspect-ratio: 1;
+        padding: 0;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        font-size: 1rem;
+
+        &:hover {
+            background-color: var(--bs-tertiary-bg, #f0f0f0);
+        }
+
+        &.active {
+            border-color: var(--bs-primary, #714b67);
+            background-color: var(--bs-tertiary-bg, #f0f0f0);
+        }
+    }
+}

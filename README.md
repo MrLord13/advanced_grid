@@ -13,7 +13,7 @@ Author: **AliReza Nemati** — [ERPishro.com](https://erpishro.com)
 | `Color Grid` command bar button | `Color Grid` button next to **New** in every list view |
 | Row colouring by field value | Rule with target **Whole Row** |
 | Cell colouring | Rule with target **Single Cell** + column selection |
-| Status icons at row start | FontAwesome icon injected in the first field cell |
+| Status icons at row start | 78 FontAwesome icons, picked from a searchable visual grid |
 | Personal view customisation | `Personal` scope — invisible to other users |
 | Admin-published scheme | `Shared` scope — reserved to *Advanced Grid Manager* |
 | Rule ordering | `sequence` handle, the topmost matching rule wins |

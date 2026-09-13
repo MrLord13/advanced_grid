@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="advanced_grid.IconField">
+        <div class="o_ag_icon_field">
+            <t t-if="props.readonly">
+                <span t-if="value" class="d-inline-flex align-items-center gap-2">
+                    <i t-attf-class="fa {{ value }}" t-att-style="iconStyle" role="img"/>
+                    <span t-esc="label"/>
+                </span>
+                <span t-else="" class="text-muted">-</span>
+            </t>
+            <button t-else=""
+                    type="button"
+                    class="btn btn-secondary btn-sm o_ag_icon_toggle d-inline-flex align-items-center gap-2"
+                    t-on-click="open">
+                <i t-if="value" t-attf-class="fa {{ value }}" t-att-style="iconStyle" role="img"/>
+                <span t-esc="value ? label : emptyLabel"/>
+                <i class="fa fa-caret-down ms-auto" role="img"/>
+            </button>
+        </div>
+    </t>
+
+    <t t-name="advanced_grid.IconPicker">
+        <div class="o_ag_icon_picker p-2">
+            <input type="text"
+                   class="form-control form-control-sm mb-2"
+                   t-ref="autofocus"
+                   placeholder="Search an icon"
+                   t-model="state.query"/>
+            <div class="o_ag_icon_grid">
+                <button type="button"
+                        class="btn o_ag_icon_option o_ag_icon_none"
+                        t-att-class="{ active: !props.selected }"
+                        title="No icon"
+                        t-on-click="() => this.select(false)">
+                    <i class="fa fa-ban text-muted" role="img"/>
+                </button>
+                <button t-foreach="filteredOptions" t-as="option" t-key="option[0]"
+                        type="button"
+                        class="btn o_ag_icon_option"
+                        t-att-class="{ active: option[0] === props.selected }"
+                        t-att-title="option[1]"
+                        t-on-click="() => this.select(option[0])">
+                    <i t-attf-class="fa {{ option[0] }}" t-att-style="props.iconStyle" role="img"/>
+                </button>
+            </div>
+            <div t-if="!filteredOptions.length" class="text-muted small px-1 py-2">
+                No icon matches your search
+            </div>
+        </div>
+    </t>
+
+</templates>

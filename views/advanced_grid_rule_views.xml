@@ -26,7 +26,7 @@
                 <field name="text_color" widget="color" optional="hide"/>
                 <field name="bold"/>
                 <field name="italic" optional="hide"/>
-                <field name="icon"/>
+                <field name="icon" widget="advanced_grid_icon"/>
                 <field name="icon_color" widget="color" optional="hide"/>
                 <field name="scope"
                        groups="advanced_grid.group_advanced_grid_manager"/>
@@ -88,7 +88,7 @@
                             <field name="italic"/>
                         </group>
                         <group string="Icon">
-                            <field name="icon"/>
+                            <field name="icon" widget="advanced_grid_icon"/>
                             <field name="icon_color" widget="color" invisible="not icon"/>
                         </group>
                     </group>
