@@ -13,6 +13,9 @@
                 <field name="field_name" widget="advanced_grid_field_path"
                        readonly="condition_mode != 'simple'"/>
                 <field name="operator" readonly="condition_mode != 'simple'"/>
+                <field name="domain_raw" widget="domain" optional="hide"
+                       options="{'model': 'model_name', 'in_dialog': True, 'foldable': True}"
+                       readonly="condition_mode != 'domain'"/>
                 <field name="value" widget="advanced_grid_value"
                        readonly="condition_mode != 'simple' or operator in ('set', 'not set')"/>
                 <field name="target"/>
@@ -67,7 +70,8 @@
                                    required="condition_mode == 'simple'"/>
                             <field name="value" widget="advanced_grid_value"
                                    invisible="condition_mode != 'simple' or operator in ('set', 'not set')"/>
-                            <field name="domain_raw" widget="domain"
+                            <field name="domain_raw" widget="domain" nolabel="1"
+                                   colspan="2"
                                    options="{'model': 'model_name'}"
                                    invisible="condition_mode != 'domain'"/>
                         </group>

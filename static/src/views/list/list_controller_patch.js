@@ -71,6 +71,36 @@ patch(ListController.prototype, {
     },
 
     /**
+     * Opens the full form of a rule in a stacked dialog.
+     *
+     * The Color Grid list is `editable="bottom"`, so clicking a row edits it
+     * inline and the form view is never reached - yet the form is where the
+     * advanced options live, the Domain editor above all. With nothing
+     * selected the form opens on a new rule instead.
+     */
+    agOpenRuleForm() {
+        const ruleIds = this.agSelectedRuleIds;
+        if (ruleIds.length > 1) {
+            this.agNotification.add(_t("Select a single rule to open its form."), {
+                type: "warning",
+            });
+            return;
+        }
+        this.actionService.doAction(
+            {
+                type: "ir.actions.act_window",
+                name: ruleIds.length ? _t("Grid Rule") : _t("New Grid Rule"),
+                res_model: RULE_MODEL,
+                res_id: ruleIds[0] || false,
+                views: [[false, "form"]],
+                target: "new",
+                context: this.props.context,
+            },
+            { onClose: () => this.model.load() }
+        );
+    },
+
+    /**
      * Rules are handled with a plain ORM call rather than a view button.
      *
      * A view button goes through `doActionButton`, which turns any falsy

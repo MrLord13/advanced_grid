@@ -16,6 +16,13 @@
             <t t-if="props.showButtons and agIsRuleList">
                 <button type="button"
                         class="btn btn-secondary o_ag_rule_button"
+                        title="Open the full form, with the Domain editor and every advanced option"
+                        t-on-click="agOpenRuleForm">
+                    <i class="fa fa-pencil-square-o me-1" role="img"/>
+                    <span class="d-none d-md-inline">Form View</span>
+                </button>
+                <button type="button"
+                        class="btn btn-secondary o_ag_rule_button"
                         title="Duplicate the selected rules"
                         t-att-disabled="!agHasSelection"
                         t-on-click="agDuplicateRules">
