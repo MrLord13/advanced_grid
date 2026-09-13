@@ -13,6 +13,31 @@
                 <i class="fa fa-paint-brush me-1" role="img"/>
                 <span class="d-none d-md-inline">Color Grid</span>
             </button>
+            <t t-if="props.showButtons and agIsRuleList">
+                <button type="button"
+                        class="btn btn-secondary o_ag_rule_button"
+                        title="Duplicate the selected rules"
+                        t-att-disabled="!agHasSelection"
+                        t-on-click="agDuplicateRules">
+                    <i class="fa fa-clone me-1" role="img"/>
+                    <span class="d-none d-md-inline">Duplicate</span>
+                </button>
+                <button type="button"
+                        class="btn btn-secondary o_ag_rule_button text-danger"
+                        title="Delete the selected rules"
+                        t-att-disabled="!agHasSelection"
+                        t-on-click="agDeleteRules">
+                    <i class="fa fa-trash-o me-1" role="img"/>
+                    <span class="d-none d-md-inline">Delete</span>
+                </button>
+                <button type="button"
+                        class="btn btn-link o_ag_rule_button"
+                        title="Remove every personal rule on this list"
+                        t-on-click="agResetRules">
+                    <i class="fa fa-undo me-1" role="img"/>
+                    <span class="d-none d-md-inline">Reset This List</span>
+                </button>
+            </t>
         </xpath>
     </t>
 

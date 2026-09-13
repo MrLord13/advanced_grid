@@ -2,14 +2,23 @@
 
 import { patch } from "@web/core/utils/patch";
 import { useService } from "@web/core/utils/hooks";
+import { _t } from "@web/core/l10n/translation";
 import { ListController } from "@web/views/list/list_controller";
+import { ConfirmationDialog } from "@web/core/confirmation_dialog/confirmation_dialog";
+
+const RULE_MODEL = "advanced.grid.rule";
 
 patch(ListController.prototype, {
     setup() {
         super.setup(...arguments);
         this.advancedGrid = useService("advanced_grid");
+        this.agDialog = useService("dialog");
+        this.agNotification = useService("notification");
     },
 
+    // ==================================================================
+    // "Color Grid" button, shown on ordinary list views
+    // ==================================================================
     /**
      * The button is hidden on transient / abstract models and inside x2many
      * dialogs, where personal styling rules would make little sense.
@@ -19,7 +28,7 @@ patch(ListController.prototype, {
         return (
             !!resModel &&
             !resModel.startsWith("ir.") &&
-            resModel !== "advanced.grid.rule" &&
+            resModel !== RULE_MODEL &&
             !this.env.inDialog
         );
     },
@@ -28,11 +37,7 @@ patch(ListController.prototype, {
         const resModel = this.props.resModel;
         let action;
         try {
-            action = await this.orm.call(
-                "advanced.grid.rule",
-                "action_open_for_model",
-                [resModel]
-            );
+            action = await this.orm.call(RULE_MODEL, "action_open_for_model", [resModel]);
         } catch {
             return;
         }
@@ -41,6 +46,76 @@ patch(ListController.prototype, {
                 this.advancedGrid.markEnabled(resModel);
                 await this.model.load();
             },
+        });
+    },
+
+    // ==================================================================
+    // Toolbar of the Color Grid dialog itself
+    // ==================================================================
+    get agIsRuleList() {
+        return this.props.resModel === RULE_MODEL;
+    },
+
+    get agSelectedRuleIds() {
+        const root = this.model.root;
+        if (!root || !root.selection) {
+            return [];
+        }
+        return root.selection
+            .map((record) => record.resId)
+            .filter((resId) => typeof resId === "number");
+    },
+
+    get agHasSelection() {
+        return this.agSelectedRuleIds.length > 0;
+    },
+
+    /**
+     * Rules are handled with a plain ORM call rather than a view button.
+     *
+     * A view button goes through `doActionButton`, which turns any falsy
+     * python return value into `{type: "ir.actions.act_window_close"}` - that
+     * is what used to close the Color Grid dialog after each action. Calling
+     * the method directly leaves the dialog untouched.
+     */
+    async agCallOnSelection(method) {
+        const ruleIds = this.agSelectedRuleIds;
+        if (!ruleIds.length) {
+            this.agNotification.add(_t("Select at least one rule first."), {
+                type: "warning",
+            });
+            return;
+        }
+        await this.orm.call(RULE_MODEL, method, [ruleIds]);
+        await this.model.load();
+    },
+
+    agDuplicateRules() {
+        return this.agCallOnSelection("action_duplicate_selected");
+    },
+
+    agDeleteRules() {
+        this.agDialog.add(ConfirmationDialog, {
+            title: _t("Delete rules"),
+            body: _t("Delete the selected rules? This cannot be undone."),
+            confirmLabel: _t("Delete"),
+            confirm: () => this.agCallOnSelection("action_delete_selected"),
+            cancel: () => {},
+        });
+    },
+
+    agResetRules() {
+        this.agDialog.add(ConfirmationDialog, {
+            title: _t("Reset this list"),
+            body: _t("Remove all of your personal rules on this list?"),
+            confirmLabel: _t("Reset"),
+            confirm: async () => {
+                await this.orm.call(RULE_MODEL, "action_reset_model_rules", [[]], {
+                    context: this.props.context,
+                });
+                await this.model.load();
+            },
+            cancel: () => {},
         });
     },
 });
