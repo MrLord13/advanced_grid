@@ -435,10 +435,12 @@ class AdvancedGridRule(models.Model):
         return vals_list
 
     def action_duplicate_selected(self):
-        """Header button of the Color Grid dialog.
+        """Called straight over RPC by the Color Grid toolbar.
 
-        Like Delete, this exists because the cog menu - which normally carries
-        the standard Duplicate entry - is not loaded inside a dialog.
+        These helpers are deliberately not wired as view buttons: a view button
+        result goes through `doActionButton`, which replaces any falsy python
+        return value with `{type: "ir.actions.act_window_close"}` and therefore
+        closes the dialog after every click.
         """
         if not self:
             raise UserError(_("Select at least one rule to duplicate."))
@@ -453,12 +455,10 @@ class AdvancedGridRule(models.Model):
         return False
 
     def action_delete_selected(self):
-        """Header button of the Color Grid dialog.
+        """Called straight over RPC by the Color Grid toolbar.
 
-        Needed because the web client sets `loadActionMenus: target !== "new"`,
-        so the cog menu - and therefore the standard Delete entry - is never
-        loaded inside a dialog. Header buttons are rendered from the arch and
-        are not subject to that restriction.
+        The standard Delete entry lives in the cog menu, which the web client
+        never loads inside a dialog (`loadActionMenus: target !== "new"`).
         """
         if not self:
             raise UserError(_("Select at least one rule to delete."))
@@ -486,8 +486,7 @@ class AdvancedGridRule(models.Model):
         if not rules:
             raise UserError(_("You have no personal rule to remove on this list."))
         rules.unlink()
-        # Closing the dialog triggers the client side refresh of the list.
-        return {"type": "ir.actions.act_window_close"}
+        return False
 
     @api.model
     def action_open_for_model(self, model_name):
