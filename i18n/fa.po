@@ -392,6 +392,11 @@ msgstr "قاعده‌ی لیست"
 
 #. module: advanced_grid
 #: model_terms:ir.ui.view,arch_db:advanced_grid.view_advanced_grid_rule_list
+msgid "Duplicate"
+msgstr "تکثیر"
+
+#. module: advanced_grid
+#: model_terms:ir.ui.view,arch_db:advanced_grid.view_advanced_grid_rule_list
 msgid "Delete"
 msgstr "حذف"
 
@@ -508,7 +513,7 @@ msgstr "می‌تواند قواعد ظاهری اشتراکی (در سطح شر
 #: code:addons/advanced_grid/models/advanced_grid_rule.py:0
 #: code:addons/advanced_grid/static/src/views/list/list_controller_patch.xml:0
 msgid "Color Grid"
-msgstr "رنگ‌بندی لیست"
+msgstr "لیست پیشرفته"
 
 #. module: advanced_grid
 #. odoo-python
@@ -561,6 +566,18 @@ msgstr "روی این لیست هیچ قاعده‌ی شخصی برای حذف �
 #: code:addons/advanced_grid/models/advanced_grid_rule.py:0
 msgid "'%(field)s' is not a valid field of the selected model."
 msgstr "«%(field)s» یک فیلد معتبر از مدل انتخاب‌شده نیست."
+
+#. module: advanced_grid
+#. odoo-python
+#: code:addons/advanced_grid/models/advanced_grid_rule.py:0
+msgid "Select at least one rule to duplicate."
+msgstr "برای تکثیر، حداقل یک قاعده را انتخاب کنید."
+
+#. module: advanced_grid
+#. odoo-python
+#: code:addons/advanced_grid/models/advanced_grid_rule.py:0
+msgid "%s (copy)"
+msgstr "%s (رونوشت)"
 
 #. module: advanced_grid
 #. odoo-javascript
