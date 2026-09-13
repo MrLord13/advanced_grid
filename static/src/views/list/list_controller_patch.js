@@ -7,6 +7,9 @@ import { ListController } from "@web/views/list/list_controller";
 import { ConfirmationDialog } from "@web/core/confirmation_dialog/confirmation_dialog";
 
 const RULE_MODEL = "advanced.grid.rule";
+// Brand mark shown in the header of the Advanced List dialog.
+const BRAND_NAME = "ERPishro.com";
+const BRAND_LOGO = "/advanced_grid/static/src/img/erpishro_mark.png";
 
 patch(ListController.prototype, {
     setup() {
@@ -54,6 +57,28 @@ patch(ListController.prototype, {
     // ==================================================================
     get agIsRuleList() {
         return this.props.resModel === RULE_MODEL;
+    },
+
+    get agBrandName() {
+        return BRAND_NAME;
+    },
+
+    get agBrandLogo() {
+        return BRAND_LOGO;
+    },
+
+    /**
+     * The brand mark is portalled into the dialog title, so it must only be
+     * rendered for the dialog opened by the Color Grid button - never for the
+     * same list shown inline (users form tab) or full screen (Technical menu),
+     * where the portal target would not exist.
+     */
+    get agShowBrand() {
+        return (
+            this.agIsRuleList &&
+            !!this.env.inDialog &&
+            !!(this.props.context && this.props.context.advanced_grid_model_name)
+        );
     },
 
     get agSelectedRuleIds() {

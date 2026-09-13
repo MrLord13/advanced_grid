@@ -4,6 +4,15 @@
     <t t-name="advanced_grid.ListViewColorGridButton"
        t-inherit="web.ListView"
        t-inherit-mode="extension">
+        <xpath expr="//Layout" position="before">
+            <t t-if="agShowBrand"
+               t-portal="'#' + env.dialogId + ' .modal-header .modal-title'">
+                <span class="o_ag_brand">
+                    <span class="o_ag_brand_text" t-out="agBrandName"/>
+                    <img class="o_ag_brand_logo" t-att-src="agBrandLogo" alt="ERPishro"/>
+                </span>
+            </t>
+        </xpath>
         <xpath expr="//t[@t-set-slot='control-panel-create-button']" position="inside">
             <button t-if="props.showButtons and agShowColorGridButton"
                     type="button"

@@ -79,3 +79,30 @@
         }
     }
 }
+
+// ---------------------------------------------------------------------------
+// Brand mark, portalled into the title of the Advanced List dialog
+// ---------------------------------------------------------------------------
+.modal-title .o_ag_brand {
+    float: right;          // fallback for browsers without logical float values
+    float: inline-end;     // RTL aware: sits opposite the dialog title
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-inline-start: 1rem;
+    font-size: 0.8125rem;
+    font-weight: 400;
+    line-height: 1;
+    color: var(--bs-secondary-color, #6c757d);
+
+    .o_ag_brand_logo {
+        width: 22px;
+        height: 22px;
+        object-fit: contain;
+    }
+
+    .o_ag_brand_text {
+        white-space: nowrap;
+        direction: ltr;
+    }
+}
