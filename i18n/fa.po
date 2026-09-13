@@ -257,9 +257,19 @@ msgid "Circle"
 msgstr "دایره"
 
 #. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-circle-o
+msgid "Circle Outline"
+msgstr "دایره توخالی"
+
+#. module: advanced_grid
 #: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-square
 msgid "Square"
 msgstr "مربع"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-square-o
+msgid "Square Outline"
+msgstr "مربع توخالی"
 
 #. module: advanced_grid
 #: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-star
@@ -267,29 +277,44 @@ msgid "Star"
 msgstr "ستاره"
 
 #. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-star-o
+msgid "Star Outline"
+msgstr "ستاره توخالی"
+
+#. module: advanced_grid
 #: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-flag
 msgid "Flag"
 msgstr "پرچم"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-bolt
-msgid "Bolt"
-msgstr "صاعقه"
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-flag-o
+msgid "Flag Outline"
+msgstr "پرچم توخالی"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-fire
-msgid "Fire"
-msgstr "آتش"
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-bookmark
+msgid "Bookmark"
+msgstr "نشانک"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-snowflake-o
-msgid "Snowflake"
-msgstr "دانه‌ی برف"
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-check-circle
+msgid "Check"
+msgstr "تأیید"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-thermometer-half
-msgid "Thermometer"
-msgstr "دماسنج"
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-check-square-o
+msgid "Checkbox"
+msgstr "چک‌باکس"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-times-circle
+msgid "Cross"
+msgstr "ضربدر"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-ban
+msgid "Blocked"
+msgstr "مسدود"
 
 #. module: advanced_grid
 #: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-exclamation-triangle
@@ -302,14 +327,84 @@ msgid "Alert"
 msgstr "اخطار"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-check-circle
-msgid "Check"
-msgstr "تأیید"
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-question-circle
+msgid "Question"
+msgstr "پرسش"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-times-circle
-msgid "Cross"
-msgstr "ضربدر"
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-info-circle
+msgid "Information"
+msgstr "اطلاعات"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-bell
+msgid "Bell"
+msgstr "زنگ"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-shield
+msgid "Shield"
+msgstr "سپر"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-eye
+msgid "Visible"
+msgstr "قابل مشاهده"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-eye-slash
+msgid "Hidden"
+msgstr "پنهان"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-fire
+msgid "Fire"
+msgstr "آتش"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-bolt
+msgid "Bolt"
+msgstr "صاعقه"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-snowflake-o
+msgid "Snowflake"
+msgstr "دانه‌ی برف"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-thermometer-half
+msgid "Thermometer"
+msgstr "دماسنج"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-tint
+msgid "Drop"
+msgstr "قطره"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-sun-o
+msgid "Sun"
+msgstr "خورشید"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-moon-o
+msgid "Moon"
+msgstr "ماه"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-leaf
+msgid "Leaf"
+msgstr "برگ"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-rocket
+msgid "Rocket"
+msgstr "موشک"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-lightbulb-o
+msgid "Idea"
+msgstr "ایده"
 
 #. module: advanced_grid
 #: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-clock-o
@@ -322,6 +417,26 @@ msgid "Hourglass"
 msgstr "ساعت شنی"
 
 #. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-calendar
+msgid "Calendar"
+msgstr "تقویم"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-calendar-check-o
+msgid "Scheduled"
+msgstr "زمان‌بندی‌شده"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-history
+msgid "History"
+msgstr "تاریخچه"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-refresh
+msgid "Refresh"
+msgstr "بازخوانی"
+
+#. module: advanced_grid
 #: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-arrow-up
 msgid "Arrow Up"
 msgstr "پیکان بالا"
@@ -332,19 +447,29 @@ msgid "Arrow Down"
 msgstr "پیکان پایین"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-thumbs-up
-msgid "Thumbs Up"
-msgstr "شست بالا"
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-arrow-circle-up
+msgid "Circled Arrow Up"
+msgstr "پیکان بالا در دایره"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-thumbs-down
-msgid "Thumbs Down"
-msgstr "شست پایین"
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-arrow-circle-down
+msgid "Circled Arrow Down"
+msgstr "پیکان پایین در دایره"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-lock
-msgid "Lock"
-msgstr "قفل"
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-long-arrow-up
+msgid "Long Arrow Up"
+msgstr "پیکان بلند بالا"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-long-arrow-down
+msgid "Long Arrow Down"
+msgstr "پیکان بلند پایین"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-level-up
+msgid "Escalate"
+msgstr "ارجاع به بالا"
 
 #. module: advanced_grid
 #: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-user
@@ -352,9 +477,89 @@ msgid "User"
 msgstr "کاربر"
 
 #. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-users
+msgid "Team"
+msgstr "تیم"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-user-circle
+msgid "Contact"
+msgstr "مخاطب"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-building
+msgid "Company"
+msgstr "شرکت"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-briefcase
+msgid "Business"
+msgstr "کسب‌وکار"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-handshake-o
+msgid "Agreement"
+msgstr "توافق"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-phone
+msgid "Phone"
+msgstr "تلفن"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-envelope
+msgid "Email"
+msgstr "ایمیل"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-comments-o
+msgid "Comments"
+msgstr "نظرات"
+
+#. module: advanced_grid
 #: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-money
 msgid "Money"
 msgstr "پول"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-credit-card
+msgid "Card"
+msgstr "کارت"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-usd
+msgid "Currency"
+msgstr "ارز"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-line-chart
+msgid "Line Chart"
+msgstr "نمودار خطی"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-bar-chart
+msgid "Bar Chart"
+msgstr "نمودار میله‌ای"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-pie-chart
+msgid "Pie Chart"
+msgstr "نمودار دایره‌ای"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-shopping-cart
+msgid "Cart"
+msgstr "سبد خرید"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-tag
+msgid "Tag"
+msgstr "برچسب"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-tags
+msgid "Tags"
+msgstr "برچسب‌ها"
 
 #. module: advanced_grid
 #: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-trophy
@@ -367,19 +572,74 @@ msgid "Heart"
 msgstr "قلب"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-bell
-msgid "Bell"
-msgstr "زنگ"
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-thumbs-up
+msgid "Thumbs Up"
+msgstr "شست بالا"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-bookmark
-msgid "Bookmark"
-msgstr "نشانک"
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-thumbs-down
+msgid "Thumbs Down"
+msgstr "شست پایین"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-truck
+msgid "Delivery"
+msgstr "ارسال"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-cube
+msgid "Product"
+msgstr "محصول"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-cubes
+msgid "Stock"
+msgstr "موجودی"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-archive
+msgid "Archive Box"
+msgstr "جعبه بایگانی"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-wrench
+msgid "Repair"
+msgstr "تعمیر"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-cog
+msgid "Settings"
+msgstr "تنظیمات"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-lock
+msgid "Lock"
+msgstr "قفل"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-unlock
+msgid "Unlock"
+msgstr "بازکردن قفل"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-key
+msgid "Key"
+msgstr "کلید"
 
 #. module: advanced_grid
 #: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-paperclip
 msgid "Paperclip"
 msgstr "گیره"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-map-marker
+msgid "Location"
+msgstr "موقعیت"
+
+#. module: advanced_grid
+#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-medkit
+msgid "Medical"
+msgstr "پزشکی"
 
 #. module: advanced_grid
 #: model_terms:ir.ui.view,arch_db:advanced_grid.view_advanced_grid_rule_list
@@ -653,6 +913,36 @@ msgstr "برای باز کردن فرم، فقط یک قاعده را انتخا
 #: code:addons/advanced_grid/static/src/views/list/list_controller_patch.js:0
 msgid "New Grid Rule"
 msgstr "قاعده‌ی جدید لیست"
+
+#. module: advanced_grid
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_field.js:0
+msgid "Icon Picker"
+msgstr "انتخابگر آیکن"
+
+#. module: advanced_grid
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_field.js:0
+msgid "Choose an icon"
+msgstr "یک آیکن انتخاب کنید"
+
+#. module: advanced_grid
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_field.xml:0
+msgid "Search an icon"
+msgstr "جست‌وجوی آیکن"
+
+#. module: advanced_grid
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_field.xml:0
+msgid "No icon"
+msgstr "بدون آیکن"
+
+#. module: advanced_grid
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_field.xml:0
+msgid "No icon matches your search"
+msgstr "هیچ آیکنی با جست‌وجوی شما مطابقت ندارد"
 
 #. module: advanced_grid
 #. odoo-javascript
