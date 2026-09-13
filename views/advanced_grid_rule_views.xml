@@ -7,6 +7,8 @@
         <field name="arch" type="xml">
             <list string="Grid Rules" editable="bottom" multi_edit="1">
                 <header>
+                    <button name="action_duplicate_selected" type="object"
+                            string="Duplicate" icon="fa-clone"/>
                     <button name="action_delete_selected" type="object"
                             string="Delete" icon="fa-trash-o" class="text-danger"
                             confirm="Delete the selected rules? This cannot be undone."/>

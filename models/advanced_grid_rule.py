@@ -427,6 +427,31 @@ class AdvancedGridRule(models.Model):
     # ==================================================================
     # Actions
     # ==================================================================
+    def copy_data(self, default=None):
+        vals_list = super().copy_data(default=default)
+        for rule, vals in zip(self, vals_list):
+            if not (default or {}).get("name"):
+                vals["name"] = _("%s (copy)", rule.name)
+        return vals_list
+
+    def action_duplicate_selected(self):
+        """Header button of the Color Grid dialog.
+
+        Like Delete, this exists because the cog menu - which normally carries
+        the standard Duplicate entry - is not loaded inside a dialog.
+        """
+        if not self:
+            raise UserError(_("Select at least one rule to duplicate."))
+        manager = self.env.user.has_group("advanced_grid.group_advanced_grid_manager")
+        for rule in self:
+            default = {"sequence": rule.sequence + 1}
+            if not manager:
+                # A regular user may only own personal rules, so duplicating a
+                # shared rule gives them their own editable copy of it.
+                default.update(scope="personal", user_id=self.env.uid)
+            rule.copy(default)
+        return False
+
     def action_delete_selected(self):
         """Header button of the Color Grid dialog.
 
