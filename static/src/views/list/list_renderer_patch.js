@@ -142,13 +142,39 @@ patch(ListRenderer.prototype, {
         return !!first && first.id === column.id;
     },
 
-    /** The icon of the highest priority matching rule, if any. */
-    agRowIcon(record) {
+    /**
+     * @param {string} slot "" for the start of the row, or a column name
+     * @returns {Object|null} the icon of the highest priority rule for that slot
+     */
+    agIconFor(record, slot) {
         const match = this.agGetMatch(record);
-        if (!match || !match.icon) {
+        if (!match || !match.icons) {
             return null;
         }
-        return this.advancedGrid.sanitizeIcon(match.icon);
+        return this.advancedGrid.sanitizeIcon(match.icons[slot]);
+    },
+
+    /**
+     * Icons to draw inside a given cell.
+     *
+     * A row rule puts its icon at the start of the record, in the first field
+     * column. A cell rule puts its icon in the column it styles, right next to
+     * the value it comments on - a flag beside a country, for instance. When
+     * the styled column happens to be the first one, both can show up.
+     */
+    agCellIcons(column, record) {
+        const icons = [];
+        if (this.agIsFirstFieldColumn(column, record)) {
+            const rowIcon = this.agIconFor(record, "");
+            if (rowIcon) {
+                icons.push(rowIcon);
+            }
+        }
+        const cellIcon = this.agIconFor(record, column.name);
+        if (cellIcon) {
+            icons.push(cellIcon);
+        }
+        return icons;
     },
 
     agIconStyle(icon) {

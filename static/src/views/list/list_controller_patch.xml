@@ -8,8 +8,8 @@
             <t t-if="agShowBrand"
                t-portal="'#' + env.dialogId + ' .modal-header .modal-title'">
                 <span class="o_ag_brand">
-                    <span class="o_ag_brand_text" t-out="agBrandName"/>
                     <img class="o_ag_brand_logo" t-att-src="agBrandLogo" alt="ERPishro"/>
+                    <span class="o_ag_brand_text" t-out="agBrandName"/>
                 </span>
             </t>
         </xpath>

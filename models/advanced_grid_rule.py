@@ -191,8 +191,9 @@ class AdvancedGridRule(models.Model):
     )
     cell_field_name = fields.Char(
         string="Column to Style",
-        help="Only used when the target is a single cell. "
-             "Defaults to the condition field when left empty.",
+        help="Only used when the target is a single cell. Defaults to the "
+             "condition field when left empty. The icon of the rule, if any, "
+             "is drawn inside this column.",
     )
 
     background_color = fields.Char(string="Background", default="#FFF3CD")
@@ -402,7 +403,8 @@ class AdvancedGridRule(models.Model):
         :return: {
             'rules': [{...serialisable rule definition...}],
             'matches': {res_id: {'row': [rule_id], 'cells': {fname: [rule_id]},
-                                 'icon': {...} | None}},
+                                 'icons': {slot: {...}}}},
+            where an icon slot is "" for the start of the row, or a column name.
         }
         """
         empty = {"rules": [], "matches": {}}
@@ -459,20 +461,30 @@ class AdvancedGridRule(models.Model):
                 continue
 
             column = rule._styled_column()
+            # Where the icon is drawn: "" means the start of the row, any other
+            # value is the column the icon belongs to. A cell rule therefore
+            # puts its icon next to the value it comments on, not at the far
+            # left of the record.
+            icon_slot = "" if rule.target == "row" else (column or "")
             for res_id in matched:
                 entry = matches.setdefault(
-                    res_id, {"row": [], "cells": {}, "icon": None}
+                    res_id, {"row": [], "cells": {}, "icons": {}}
                 )
                 if rule.target == "row":
                     entry["row"].append(rule.id)
                 elif column:
                     entry["cells"].setdefault(column, []).append(rule.id)
-                if rule.icon and not entry["icon"]:
-                    entry["icon"] = {
-                        "icon": rule.icon,
-                        "color": rule.icon_color or "",
-                        "title": rule.name,
-                    }
+                if rule.icon:
+                    # setdefault keeps the highest priority rule per slot,
+                    # since rules are iterated in sequence order.
+                    entry["icons"].setdefault(
+                        icon_slot,
+                        {
+                            "icon": rule.icon,
+                            "color": rule.icon_color or "",
+                            "title": rule.name,
+                        },
+                    )
 
         return {"rules": payload, "matches": matches}
 

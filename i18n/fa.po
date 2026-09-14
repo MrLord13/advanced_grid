@@ -160,10 +160,12 @@ msgstr ""
 #: model:ir.model.fields,help:advanced_grid.field_advanced_grid_rule__cell_field_name
 msgid ""
 "Only used when the target is a single cell. Defaults to the condition "
-"field when left empty."
+"field when left empty. The icon of the rule, if any, is drawn inside this "
+"column."
 msgstr ""
 "فقط وقتی هدف «تک سلول» است کاربرد دارد. اگر خالی بماند، همان فیلد شرط در "
-"نظر گرفته می‌شود."
+"نظر گرفته می‌شود. آیکن قاعده — در صورت وجود — داخل همین ستون نمایش داده "
+"می‌شود."
 
 #. module: advanced_grid
 #: model:ir.model.fields,help:advanced_grid.field_res_users__advanced_grid_rule_ids

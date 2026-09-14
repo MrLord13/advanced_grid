@@ -2,7 +2,8 @@
 <templates xml:space="preserve">
 
     <!--
-        The icon is injected inside the first *field* cell. Nothing is added to
+        Icons are injected inside the cell they belong to: the first field cell
+        for a row rule, the styled column for a cell rule. Nothing is added to
         the <tr> itself and no extra <td> is created, so the column count, the
         header alignment and the frozen column widths keep working exactly as
         they do in stock Odoo.
@@ -11,14 +12,14 @@
        t-inherit="web.ListRenderer.RecordRow"
        t-inherit-mode="extension">
         <xpath expr="//t[@t-if='!isInvisible']" position="before">
-            <t t-set="agIcon"
-               t-value="agIsFirstFieldColumn(column, record) ? agRowIcon(record) : null"/>
-            <i t-if="agIcon"
-               class="fa o_ag_row_icon me-1"
-               t-attf-class="{{ agIcon.icon }}"
-               t-att-style="agIconStyle(agIcon)"
-               t-att-title="agIcon.title"
-               role="img"/>
+            <t t-foreach="agCellIcons(column, record)" t-as="agIcon"
+               t-key="agIcon_index">
+                <i class="fa o_ag_icon me-1"
+                   t-attf-class="{{ agIcon.icon }}"
+                   t-att-style="agIconStyle(agIcon)"
+                   t-att-title="agIcon.title"
+                   role="img"/>
+            </t>
         </xpath>
     </t>
 
