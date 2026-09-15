@@ -254,394 +254,514 @@ msgid "is not set"
 msgstr "مقدار ندارد"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-circle
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_catalog.js:0
 msgid "Circle"
 msgstr "دایره"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-circle-o
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_catalog.js:0
 msgid "Circle Outline"
 msgstr "دایره توخالی"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-square
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_catalog.js:0
 msgid "Square"
 msgstr "مربع"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-square-o
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_catalog.js:0
 msgid "Square Outline"
 msgstr "مربع توخالی"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-star
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_catalog.js:0
 msgid "Star"
 msgstr "ستاره"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-star-o
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_catalog.js:0
 msgid "Star Outline"
 msgstr "ستاره توخالی"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-flag
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_catalog.js:0
 msgid "Flag"
 msgstr "پرچم"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-flag-o
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_catalog.js:0
 msgid "Flag Outline"
 msgstr "پرچم توخالی"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-bookmark
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_catalog.js:0
 msgid "Bookmark"
 msgstr "نشانک"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-check-circle
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_catalog.js:0
 msgid "Check"
 msgstr "تأیید"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-check-square-o
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_catalog.js:0
 msgid "Checkbox"
 msgstr "چک‌باکس"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-times-circle
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_catalog.js:0
 msgid "Cross"
 msgstr "ضربدر"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-ban
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_catalog.js:0
 msgid "Blocked"
 msgstr "مسدود"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-exclamation-triangle
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_catalog.js:0
 msgid "Warning"
 msgstr "هشدار"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-exclamation-circle
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_catalog.js:0
 msgid "Alert"
 msgstr "اخطار"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-question-circle
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_catalog.js:0
 msgid "Question"
 msgstr "پرسش"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-info-circle
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_catalog.js:0
 msgid "Information"
 msgstr "اطلاعات"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-bell
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_catalog.js:0
 msgid "Bell"
 msgstr "زنگ"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-shield
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_catalog.js:0
 msgid "Shield"
 msgstr "سپر"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-eye
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_catalog.js:0
 msgid "Visible"
 msgstr "قابل مشاهده"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-eye-slash
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_catalog.js:0
 msgid "Hidden"
 msgstr "پنهان"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-fire
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_catalog.js:0
 msgid "Fire"
 msgstr "آتش"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-bolt
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_catalog.js:0
 msgid "Bolt"
 msgstr "صاعقه"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-snowflake-o
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_catalog.js:0
 msgid "Snowflake"
 msgstr "دانه‌ی برف"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-thermometer-half
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_catalog.js:0
 msgid "Thermometer"
 msgstr "دماسنج"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-tint
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_catalog.js:0
 msgid "Drop"
 msgstr "قطره"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-sun-o
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_catalog.js:0
 msgid "Sun"
 msgstr "خورشید"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-moon-o
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_catalog.js:0
 msgid "Moon"
 msgstr "ماه"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-leaf
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_catalog.js:0
 msgid "Leaf"
 msgstr "برگ"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-rocket
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_catalog.js:0
 msgid "Rocket"
 msgstr "موشک"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-lightbulb-o
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_catalog.js:0
 msgid "Idea"
 msgstr "ایده"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-clock-o
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_catalog.js:0
 msgid "Clock"
 msgstr "ساعت"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-hourglass-half
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_catalog.js:0
 msgid "Hourglass"
 msgstr "ساعت شنی"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-calendar
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_catalog.js:0
 msgid "Calendar"
 msgstr "تقویم"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-calendar-check-o
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_catalog.js:0
 msgid "Scheduled"
 msgstr "زمان‌بندی‌شده"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-history
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_catalog.js:0
 msgid "History"
 msgstr "تاریخچه"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-refresh
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_catalog.js:0
 msgid "Refresh"
 msgstr "بازخوانی"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-arrow-up
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_catalog.js:0
 msgid "Arrow Up"
 msgstr "پیکان بالا"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-arrow-down
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_catalog.js:0
 msgid "Arrow Down"
 msgstr "پیکان پایین"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-arrow-circle-up
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_catalog.js:0
 msgid "Circled Arrow Up"
 msgstr "پیکان بالا در دایره"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-arrow-circle-down
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_catalog.js:0
 msgid "Circled Arrow Down"
 msgstr "پیکان پایین در دایره"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-long-arrow-up
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_catalog.js:0
 msgid "Long Arrow Up"
 msgstr "پیکان بلند بالا"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-long-arrow-down
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_catalog.js:0
 msgid "Long Arrow Down"
 msgstr "پیکان بلند پایین"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-level-up
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_catalog.js:0
 msgid "Escalate"
 msgstr "ارجاع به بالا"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-user
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_catalog.js:0
 msgid "User"
 msgstr "کاربر"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-users
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_catalog.js:0
 msgid "Team"
 msgstr "تیم"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-user-circle
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_catalog.js:0
 msgid "Contact"
 msgstr "مخاطب"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-building
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_catalog.js:0
 msgid "Company"
 msgstr "شرکت"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-briefcase
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_catalog.js:0
 msgid "Business"
 msgstr "کسب‌وکار"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-handshake-o
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_catalog.js:0
 msgid "Agreement"
 msgstr "توافق"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-phone
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_catalog.js:0
 msgid "Phone"
 msgstr "تلفن"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-envelope
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_catalog.js:0
 msgid "Email"
 msgstr "ایمیل"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-comments-o
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_catalog.js:0
 msgid "Comments"
 msgstr "نظرات"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-money
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_catalog.js:0
 msgid "Money"
 msgstr "پول"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-credit-card
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_catalog.js:0
 msgid "Card"
 msgstr "کارت"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-usd
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_catalog.js:0
 msgid "Currency"
 msgstr "ارز"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-line-chart
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_catalog.js:0
 msgid "Line Chart"
 msgstr "نمودار خطی"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-bar-chart
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_catalog.js:0
 msgid "Bar Chart"
 msgstr "نمودار میله‌ای"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-pie-chart
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_catalog.js:0
 msgid "Pie Chart"
 msgstr "نمودار دایره‌ای"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-shopping-cart
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_catalog.js:0
 msgid "Cart"
 msgstr "سبد خرید"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-tag
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_catalog.js:0
 msgid "Tag"
 msgstr "برچسب"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-tags
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_catalog.js:0
 msgid "Tags"
 msgstr "برچسب‌ها"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-trophy
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_catalog.js:0
 msgid "Trophy"
 msgstr "جام"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-heart
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_catalog.js:0
 msgid "Heart"
 msgstr "قلب"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-thumbs-up
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_catalog.js:0
 msgid "Thumbs Up"
 msgstr "شست بالا"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-thumbs-down
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_catalog.js:0
 msgid "Thumbs Down"
 msgstr "شست پایین"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-truck
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_catalog.js:0
 msgid "Delivery"
 msgstr "ارسال"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-cube
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_catalog.js:0
 msgid "Product"
 msgstr "محصول"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-cubes
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_catalog.js:0
 msgid "Stock"
 msgstr "موجودی"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-archive
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_catalog.js:0
 msgid "Archive Box"
 msgstr "جعبه بایگانی"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-wrench
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_catalog.js:0
 msgid "Repair"
 msgstr "تعمیر"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-cog
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_catalog.js:0
 msgid "Settings"
 msgstr "تنظیمات"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-lock
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_catalog.js:0
 msgid "Lock"
 msgstr "قفل"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-unlock
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_catalog.js:0
 msgid "Unlock"
 msgstr "بازکردن قفل"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-key
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_catalog.js:0
 msgid "Key"
 msgstr "کلید"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-paperclip
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_catalog.js:0
 msgid "Paperclip"
 msgstr "گیره"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-map-marker
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_catalog.js:0
 msgid "Location"
 msgstr "موقعیت"
 
 #. module: advanced_grid
-#: model:ir.model.fields.selection,name:advanced_grid.selection__advanced_grid_rule__icon__fa-medkit
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_catalog.js:0
 msgid "Medical"
 msgstr "پزشکی"
+
+#. module: advanced_grid
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_catalog.js:0
+msgid "Status"
+msgstr "وضعیت"
+
+#. module: advanced_grid
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_catalog.js:0
+msgid "Temperature and energy"
+msgstr "دما و انرژی"
+
+#. module: advanced_grid
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_catalog.js:0
+msgid "Time"
+msgstr "زمان"
+
+#. module: advanced_grid
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_catalog.js:0
+msgid "Direction"
+msgstr "جهت"
+
+#. module: advanced_grid
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_catalog.js:0
+msgid "People"
+msgstr "افراد"
+
+#. module: advanced_grid
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_catalog.js:0
+msgid "Money and sales"
+msgstr "مالی و فروش"
+
+#. module: advanced_grid
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_catalog.js:0
+msgid "Operations"
+msgstr "عملیات"
 
 #. module: advanced_grid
 #: model_terms:ir.ui.view,arch_db:advanced_grid.view_advanced_grid_rule_list
@@ -821,6 +941,12 @@ msgid "%s (copy)"
 msgstr "%s (رونوشت)"
 
 #. module: advanced_grid
+#. odoo-python
+#: code:addons/advanced_grid/models/advanced_grid_rule.py:0
+msgid "'%(icon)s' is not a valid icon."
+msgstr "«%(icon)s» یک آیکن معتبر نیست."
+
+#. module: advanced_grid
 #. odoo-javascript
 #: code:addons/advanced_grid/static/src/views/list/list_controller_patch.xml:0
 msgid "Form View"
@@ -951,6 +1077,12 @@ msgstr "بدون آیکن"
 #: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_field.xml:0
 msgid "No icon matches your search"
 msgstr "هیچ آیکنی با جست‌وجوی شما مطابقت ندارد"
+
+#. module: advanced_grid
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/views/fields/advanced_grid_icon_field.js:0
+msgid "Country flags"
+msgstr "پرچم کشورها"
 
 #. module: advanced_grid
 #. odoo-javascript
