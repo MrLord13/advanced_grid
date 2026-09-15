@@ -1119,3 +1119,357 @@ msgstr "دنبال‌کردن روابط"
 #: code:addons/advanced_grid/static/src/views/fields/advanced_grid_field_path_field.xml:0
 msgid "Pick a model first"
 msgstr "ابتدا یک مدل انتخاب کنید"
+
+#. module: advanced_grid
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/help/advanced_grid_help_content.js:0
+msgid "What this module does"
+msgstr "این ماژول چه کاری می‌کند"
+
+#. module: advanced_grid
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/help/advanced_grid_help_content.js:0
+msgid ""
+"It lets you colour the rows and the cells of any list view according to "
+"your own criteria."
+msgstr ""
+"به شما اجازه می‌دهد سطرها و سلول‌های هر نمای لیستی را بر اساس معیار "
+"خودتان رنگ‌آمیزی کنید."
+
+#. module: advanced_grid
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/help/advanced_grid_help_content.js:0
+msgid ""
+"Rules are personal by default: what you configure is visible to you and "
+"to nobody else."
+msgstr ""
+"قواعد به‌صورت پیش‌فرض شخصی هستند: آنچه تنظیم می‌کنید فقط برای خودتان دیده "
+"می‌شود و برای هیچ‌کس دیگر."
+
+#. module: advanced_grid
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/help/advanced_grid_help_content.js:0
+msgid "No view is modified, so the standard behaviour of Odoo is never altered."
+msgstr ""
+"هیچ ویویی تغییر داده نمی‌شود، پس رفتار استاندارد اودو هرگز دست‌کاری "
+"نمی‌شود."
+
+#. module: advanced_grid
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/help/advanced_grid_help_content.js:0
+msgid "Creating your first rule"
+msgstr "ساختن اولین قاعده"
+
+#. module: advanced_grid
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/help/advanced_grid_help_content.js:0
+msgid "Open any list view and click the Color Grid button, next to New."
+msgstr ""
+"هر نمای لیستی را باز کنید و روی دکمه‌ی «لیست پیشرفته» کنار «جدید» کلیک "
+"کنید."
+
+#. module: advanced_grid
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/help/advanced_grid_help_content.js:0
+msgid "Add a line: the model is already filled in with the list you came from."
+msgstr "یک سطر اضافه کنید: مدل از قبل با همان لیستی که از آن آمده‌اید پر شده است."
+
+#. module: advanced_grid
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/help/advanced_grid_help_content.js:0
+msgid "Give the rule a short description, so you recognise it later."
+msgstr "برای قاعده یک شرح کوتاه بنویسید تا بعداً آن را بشناسید."
+
+#. module: advanced_grid
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/help/advanced_grid_help_content.js:0
+msgid "Pick the field the condition applies to, then the operator and the value."
+msgstr "فیلدی که شرط روی آن اعمال می‌شود را انتخاب کنید، سپس عملگر و مقدار را."
+
+#. module: advanced_grid
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/help/advanced_grid_help_content.js:0
+msgid ""
+"Choose a background colour, and optionally a text colour, bold, italic or "
+"an icon."
+msgstr "یک رنگ پس‌زمینه انتخاب کنید، و در صورت تمایل رنگ متن، درشت، کج یا یک آیکن."
+
+#. module: advanced_grid
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/help/advanced_grid_help_content.js:0
+msgid "Close the dialog: the list is repainted immediately."
+msgstr "پنجره را ببندید: لیست بلافاصله دوباره رنگ می‌شود."
+
+#. module: advanced_grid
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/help/advanced_grid_help_content.js:0
+msgid "Simple condition or domain"
+msgstr "شرط ساده یا دامنه"
+
+#. module: advanced_grid
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/help/advanced_grid_help_content.js:0
+msgid ""
+"Simple mode builds a single condition out of a field, an operator and a "
+"value."
+msgstr "حالت ساده از یک فیلد، یک عملگر و یک مقدار، یک شرط تکی می‌سازد."
+
+#. module: advanced_grid
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/help/advanced_grid_help_content.js:0
+msgid ""
+"The value editor adapts to the field: an autocomplete for a linked "
+"record, a dropdown for a selection, a date picker for a date."
+msgstr ""
+"ویرایشگر مقدار خودش را با نوع فیلد تطبیق می‌دهد: تکمیل خودکار برای رکورد "
+"مرتبط، فهرست بازشو برای فیلد انتخابی، و تقویم برای تاریخ."
+
+#. module: advanced_grid
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/help/advanced_grid_help_content.js:0
+msgid ""
+"Domain mode opens the same editor as the custom filters of Odoo, for "
+"conditions that combine several criteria with and/or."
+msgstr ""
+"حالت دامنه همان ویرایشگر فیلترهای سفارشی اودو را باز می‌کند، برای "
+"شرط‌هایی که چند معیار را با «و» یا «یا» ترکیب می‌کنند."
+
+#. module: advanced_grid
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/help/advanced_grid_help_content.js:0
+msgid ""
+"Use domain mode whenever one condition is not enough, or to search on the "
+"name of a linked record."
+msgstr ""
+"هر وقت یک شرط کافی نبود، یا خواستید روی نام یک رکورد مرتبط جست‌وجو کنید، "
+"از حالت دامنه استفاده کنید."
+
+#. module: advanced_grid
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/help/advanced_grid_help_content.js:0
+msgid ""
+"The domain editor is only available in the form view: select a rule and "
+"click Form View in the toolbar."
+msgstr ""
+"ویرایشگر دامنه فقط در نمای فرم در دسترس است: یک قاعده را انتخاب کنید و در "
+"نوار ابزار روی «نمای فرم» بزنید."
+
+#. module: advanced_grid
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/help/advanced_grid_help_content.js:0
+msgid "Whole row or single cell"
+msgstr "کل سطر یا تک سلول"
+
+#. module: advanced_grid
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/help/advanced_grid_help_content.js:0
+msgid "A row rule paints every cell of the matching records."
+msgstr "قاعده‌ی سطری همه‌ی سلول‌های رکوردهای منطبق را رنگ می‌کند."
+
+#. module: advanced_grid
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/help/advanced_grid_help_content.js:0
+msgid "A cell rule paints one column only, which you choose in Column to Style."
+msgstr ""
+"قاعده‌ی سلولی فقط یک ستون را رنگ می‌کند، همان ستونی که در «ستون هدف» "
+"انتخاب می‌کنید."
+
+#. module: advanced_grid
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/help/advanced_grid_help_content.js:0
+msgid ""
+"A cell rule is the way to highlight one value without drowning the whole "
+"line in colour."
+msgstr "قاعده‌ی سلولی راه برجسته‌کردن یک مقدار است، بدون اینکه کل سطر غرق رنگ شود."
+
+#. module: advanced_grid
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/help/advanced_grid_help_content.js:0
+msgid "Icons and country flags"
+msgstr "آیکن‌ها و پرچم کشورها"
+
+#. module: advanced_grid
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/help/advanced_grid_help_content.js:0
+msgid ""
+"Any rule can carry an icon, picked from a searchable grid grouped by "
+"theme."
+msgstr ""
+"هر قاعده می‌تواند یک آیکن داشته باشد، انتخاب‌شده از یک شبکه‌ی قابل "
+"جست‌وجو که بر اساس موضوع دسته‌بندی شده است."
+
+#. module: advanced_grid
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/help/advanced_grid_help_content.js:0
+msgid ""
+"The last category holds the flag of every country of your database, so "
+"you can flag records by country."
+msgstr ""
+"آخرین دسته، پرچم همه‌ی کشورهای دیتابیس شما را دارد، پس می‌توانید رکوردها "
+"را بر اساس کشور پرچم‌گذاری کنید."
+
+#. module: advanced_grid
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/help/advanced_grid_help_content.js:0
+msgid ""
+"A row rule draws its icon at the start of the record; a cell rule draws "
+"it inside its own column, right next to the value."
+msgstr ""
+"قاعده‌ی سطری آیکنش را ابتدای رکورد می‌گذارد؛ قاعده‌ی سلولی آن را داخل "
+"ستون خودش، درست کنار مقدار، قرار می‌دهد."
+
+#. module: advanced_grid
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/help/advanced_grid_help_content.js:0
+msgid "Icons never change the height of the rows."
+msgstr "آیکن‌ها هرگز ارتفاع سطرها را تغییر نمی‌دهند."
+
+#. module: advanced_grid
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/help/advanced_grid_help_content.js:0
+msgid "Priority between rules"
+msgstr "اولویت بین قواعد"
+
+#. module: advanced_grid
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/help/advanced_grid_help_content.js:0
+msgid ""
+"Rules are evaluated from top to bottom and the first one that matches "
+"wins."
+msgstr ""
+"قواعد از بالا به پایین ارزیابی می‌شوند و اولین قاعده‌ای که منطبق شود "
+"برنده است."
+
+#. module: advanced_grid
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/help/advanced_grid_help_content.js:0
+msgid "Drag a rule with the handle on its left to move it up or down."
+msgstr "برای جابه‌جایی یک قاعده به بالا یا پایین، آن را با دسته‌ی کنارش بکشید."
+
+#. module: advanced_grid
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/help/advanced_grid_help_content.js:0
+msgid ""
+"A cell rule only paints its column when it sits above the row rule that "
+"also matches; otherwise the row colour keeps the cell."
+msgstr ""
+"قاعده‌ی سلولی فقط وقتی ستونش را رنگ می‌کند که بالاتر از قاعده‌ی سطری "
+"منطبق باشد؛ در غیر این صورت رنگ سطر روی سلول می‌ماند."
+
+#. module: advanced_grid
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/help/advanced_grid_help_content.js:0
+msgid "Reordering takes effect once you close the dialog."
+msgstr "تغییر ترتیب پس از بستن پنجره اعمال می‌شود."
+
+#. module: advanced_grid
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/help/advanced_grid_help_content.js:0
+msgid "Personal and shared rules"
+msgstr "قواعد شخصی و اشتراکی"
+
+#. module: advanced_grid
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/help/advanced_grid_help_content.js:0
+msgid "Your rules are personal: other users keep their own lists untouched."
+msgstr "قواعد شما شخصی هستند: لیست کاربران دیگر دست‌نخورده باقی می‌ماند."
+
+#. module: advanced_grid
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/help/advanced_grid_help_content.js:0
+msgid ""
+"A user belonging to the Advanced Grid Manager group can publish shared "
+"rules, which apply to everybody."
+msgstr ""
+"کاربری که در گروه «مدیر گرید پیشرفته» باشد می‌تواند قواعد اشتراکی منتشر "
+"کند که برای همه اعمال می‌شود."
+
+#. module: advanced_grid
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/help/advanced_grid_help_content.js:0
+msgid "Duplicating a shared rule gives you a personal copy you are free to edit."
+msgstr ""
+"تکثیر یک قاعده‌ی اشتراکی، یک رونوشت شخصی به شما می‌دهد که آزادانه "
+"می‌توانید ویرایشش کنید."
+
+#. module: advanced_grid
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/help/advanced_grid_help_content.js:0
+msgid "Managing your rules"
+msgstr "مدیریت قواعد"
+
+#. module: advanced_grid
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/help/advanced_grid_help_content.js:0
+msgid ""
+"Select one or more rules and click Duplicate to copy them, or Delete to "
+"remove them."
+msgstr ""
+"یک یا چند قاعده را انتخاب کنید و برای کپی روی «تکثیر» و برای حذف روی "
+"«حذف» بزنید."
+
+#. module: advanced_grid
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/help/advanced_grid_help_content.js:0
+msgid ""
+"Reset This List removes every personal rule you created on the current "
+"list, in one click."
+msgstr ""
+"«بازنشانی این لیست» با یک کلیک همه‌ی قواعد شخصی‌ای که روی لیست جاری "
+"ساخته‌اید را پاک می‌کند."
+
+#. module: advanced_grid
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/help/advanced_grid_help_content.js:0
+msgid ""
+"Settings, Users, then the List Personalisation tab shows every list a "
+"user has customised, and lets you clear them."
+msgstr ""
+"در تنظیمات، کاربران، تب «شخصی‌سازی لیست» همه‌ی لیست‌هایی که یک کاربر "
+"شخصی‌سازی کرده را نشان می‌دهد و امکان پاک کردنشان را می‌دهد."
+
+#. module: advanced_grid
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/help/advanced_grid_help_content.js:0
+msgid "Excel export"
+msgstr "خروجی اکسل"
+
+#. module: advanced_grid
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/help/advanced_grid_help_content.js:0
+msgid "The xlsx export carries the same colours, bold and italic as the list."
+msgstr "خروجی xlsx همان رنگ‌ها، درشت و کج لیست را با خود می‌برد."
+
+#. module: advanced_grid
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/help/advanced_grid_help_content.js:0
+msgid "Icons have no equivalent in a spreadsheet and are therefore not exported."
+msgstr "آیکن‌ها در صفحه‌گسترده معادلی ندارند و بنابراین خروجی گرفته نمی‌شوند."
+
+#. module: advanced_grid
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/help/advanced_grid_help_content.js:0
+msgid ""
+"Grouped exports, exports that include sub-lines and the import compatible "
+"export are exported without colours."
+msgstr ""
+"خروجی‌های گروه‌بندی‌شده، خروجی‌هایی که زیرسطر دارند، و خروجی سازگار با "
+"ورود اطلاعات، بدون رنگ ساخته می‌شوند."
+
+#. module: advanced_grid
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/help/advanced_grid_help_dialog.js:0
+msgid "Advanced List - User guide"
+msgstr "لیست پیشرفته — راهنمای کاربر"
+
+#. module: advanced_grid
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/help/advanced_grid_help_dialog.js:0
+msgid "Close"
+msgstr "بستن"
+
+#. module: advanced_grid
+#. odoo-javascript
+#: code:addons/advanced_grid/static/src/help/advanced_grid_help_dialog.xml:0
+msgid "How to use the Advanced List"
+msgstr "نحوه‌ی استفاده از لیست پیشرفته"
