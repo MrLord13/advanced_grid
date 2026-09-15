@@ -979,12 +979,6 @@ msgstr "بازنشانی این لیست"
 #. module: advanced_grid
 #. odoo-javascript
 #: code:addons/advanced_grid/static/src/views/list/list_controller_patch.xml:0
-msgid "ERPishro"
-msgstr "ERPishro"
-
-#. module: advanced_grid
-#. odoo-javascript
-#: code:addons/advanced_grid/static/src/views/list/list_controller_patch.xml:0
 msgid "Duplicate the selected rules"
 msgstr "تکثیر قواعد انتخاب‌شده"
 
