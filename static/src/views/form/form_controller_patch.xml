@@ -7,7 +7,7 @@
         <xpath expr="//Layout" position="before">
             <t t-if="agShowBrand"
                t-portal="'#' + env.dialogId + ' .modal-header .modal-title'">
-                <img class="o_ag_brand" t-att-src="agBrandLogo" t-att-alt="agBrandAlt"/>
+                <t t-call="advanced_grid.BrandBox"/>
             </t>
         </xpath>
     </t>

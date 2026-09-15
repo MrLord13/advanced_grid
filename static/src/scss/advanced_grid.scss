@@ -148,13 +148,72 @@
 }
 
 // ---------------------------------------------------------------------------
-// Brand logo, portalled into the title of the Advanced List / Grid Rule dialog
+// Brand logo and help button, portalled into the title of the module dialogs
 // ---------------------------------------------------------------------------
-.modal-title img.o_ag_brand {
+.modal-title .o_ag_brand {
     float: right;          // fallback for browsers without logical float values
     float: inline-end;     // RTL aware: sits opposite the dialog title
-    height: 26px;
-    width: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
     margin-inline-start: 1rem;
+
+    .o_ag_brand_logo {
+        height: 26px;
+        width: auto;
+        object-fit: contain;
+    }
+
+    .o_ag_help_button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 1.75rem;
+        height: 1.75rem;
+        padding: 0;
+        border: 0;
+        border-radius: 50%;
+        font-size: 1.05rem;
+        line-height: 1;
+        color: var(--bs-secondary-color, #6c757d);
+
+        &:hover,
+        &:focus {
+            color: var(--bs-primary, #714b67);
+            background-color: var(--bs-tertiary-bg, #f0f0f0);
+        }
+    }
+}
+
+// ---------------------------------------------------------------------------
+// User guide dialog
+// ---------------------------------------------------------------------------
+.o_ag_help {
+    .o_ag_help_section + .o_ag_help_section {
+        margin-top: 1.25rem;
+    }
+
+    .o_ag_help_title {
+        margin-bottom: 0.4rem;
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--bs-primary, #714b67);
+    }
+
+    .o_ag_help_items,
+    .o_ag_help_steps {
+        margin-bottom: 0;
+        padding-inline-start: 1.25rem;
+
+        li {
+            margin-bottom: 0.2rem;
+            line-height: 1.7;
+        }
+    }
+}
+
+.o_ag_help_logo {
+    height: 24px;
+    width: auto;
     object-fit: contain;
 }

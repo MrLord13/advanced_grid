@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="advanced_grid.HelpDialog">
+        <Dialog size="'lg'" title="title" contentClass="'o_ag_help_dialog'">
+            <div class="o_ag_help">
+                <t t-foreach="sections" t-as="section" t-key="section.id">
+                    <section class="o_ag_help_section">
+                        <h5 class="o_ag_help_title" t-esc="section.title"/>
+                        <ol t-if="section.steps" class="o_ag_help_steps">
+                            <li t-foreach="section.steps" t-as="step" t-key="step_index"
+                                t-esc="step"/>
+                        </ol>
+                        <ul t-if="section.items" class="o_ag_help_items">
+                            <li t-foreach="section.items" t-as="item" t-key="item_index"
+                                t-esc="item"/>
+                        </ul>
+                    </section>
+                </t>
+            </div>
+            <t t-set-slot="footer">
+                <img class="o_ag_help_logo me-auto" t-att-src="logo" alt="ERPishro.com"/>
+                <button class="btn btn-primary" t-on-click="() => props.close()"
+                        t-esc="closeLabel"/>
+            </t>
+        </Dialog>
+    </t>
+
+    <t t-name="advanced_grid.BrandBox">
+        <span class="o_ag_brand">
+            <img class="o_ag_brand_logo" t-att-src="agBrandLogo" t-att-alt="agBrandAlt"/>
+            <button type="button"
+                    class="btn o_ag_help_button"
+                    title="How to use the Advanced List"
+                    t-on-click="agOpenHelp">
+                <i class="fa fa-question-circle" role="img"/>
+            </button>
+        </span>
+    </t>
+
+</templates>

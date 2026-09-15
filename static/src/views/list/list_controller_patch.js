@@ -6,6 +6,7 @@ import { _t } from "@web/core/l10n/translation";
 import { ListController } from "@web/views/list/list_controller";
 import { ConfirmationDialog } from "@web/core/confirmation_dialog/confirmation_dialog";
 import { BRAND_ALT, brandLogoSrc } from "../brand";
+import { AdvancedGridHelpDialog } from "../../help/advanced_grid_help_dialog";
 
 const RULE_MODEL = "advanced.grid.rule";
 
@@ -63,6 +64,10 @@ patch(ListController.prototype, {
 
     get agBrandAlt() {
         return BRAND_ALT;
+    },
+
+    agOpenHelp() {
+        this.agDialog.add(AdvancedGridHelpDialog, {});
     },
 
     /**

@@ -1,12 +1,23 @@
 /** @odoo-module **/
 
 import { patch } from "@web/core/utils/patch";
+import { useService } from "@web/core/utils/hooks";
 import { FormController } from "@web/views/form/form_controller";
 import { BRAND_ALT, brandLogoSrc } from "../brand";
+import { AdvancedGridHelpDialog } from "../../help/advanced_grid_help_dialog";
 
 const RULE_MODEL = "advanced.grid.rule";
 
 patch(FormController.prototype, {
+    setup() {
+        super.setup(...arguments);
+        this.agDialog = useService("dialog");
+    },
+
+    agOpenHelp() {
+        this.agDialog.add(AdvancedGridHelpDialog, {});
+    },
+
     get agBrandLogo() {
         return brandLogoSrc();
     },
