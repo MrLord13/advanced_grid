@@ -55,6 +55,31 @@ carrying rules is published once in `session_info`.
 * Matching is done with a normal `search()` in the user's own environment,
   so record rules and access rights are fully respected.
 
+## Excel export
+
+The xlsx export carries the same colours as the list. `ExcelExport` is extended
+and only `ExportXlsxWriter.write` is overridden, so the standard `write_cell`
+keeps doing the type handling, the binary field check and the string length
+guard; the chosen format is simply swapped for an equivalent one enriched with
+the rule's background, font colour, bold and italic.
+
+The same top-down arbitration as the list view applies: the highest rule wins,
+and a cell rule only paints its column when it outranks the row rule.
+
+Not styled, on purpose:
+
+* **Grouped exports** - rows come from a tree, mapping them back to records is
+  not reliable.
+* **Exports with x2many sub-fields** - `export_data` emits several rows per
+  record, so the row/record mapping is ambiguous. Detected by comparing row and
+  record counts; the export still runs, just without colours.
+* **"Export compatible with import"** - a technical payload meant to be
+  re-imported, left untouched.
+* **Icons** - a FontAwesome glyph has no xlsx equivalent. Only colours,
+  bold and italic are transferred.
+* Exports over 20 000 rows, where evaluating the rules would cost more than
+  the colours are worth.
+
 ## No extra access rights needed
 
 Since Odoo 19 both `ir.model` and `ir.model.fields` are readable by
