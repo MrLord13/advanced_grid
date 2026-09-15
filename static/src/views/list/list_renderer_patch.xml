@@ -7,19 +7,32 @@
         the <tr> itself and no extra <td> is created, so the column count, the
         header alignment and the frozen column widths keep working exactly as
         they do in stock Odoo.
+
+        The wrapper is positioned absolutely by the stylesheet, which is what
+        keeps the icons beside the value instead of above it - a field widget
+        is often a full width block, so an inline icon would wrap to its own
+        line and grow every row.
     -->
     <t t-name="advanced_grid.ListRendererRecordRow"
        t-inherit="web.ListRenderer.RecordRow"
        t-inherit-mode="extension">
         <xpath expr="//t[@t-if='!isInvisible']" position="before">
-            <t t-foreach="agCellIcons(column, record)" t-as="agIcon"
-               t-key="agIcon_index">
-                <i class="fa o_ag_icon me-1"
-                   t-attf-class="{{ agIcon.icon }}"
-                   t-att-style="agIconStyle(agIcon)"
-                   t-att-title="agIcon.title"
-                   role="img"/>
-            </t>
+            <t t-set="agIcons" t-value="agCellIcons(column, record)"/>
+            <span t-if="agIcons.length" class="o_ag_icons">
+                <t t-foreach="agIcons" t-as="agIcon" t-key="agIcon_index">
+                    <img t-if="agIcon.kind === 'flag'"
+                         class="o_ag_icon o_ag_flag"
+                         t-att-src="agIcon.value"
+                         t-att-title="agIcon.title"
+                         alt=""/>
+                    <i t-else=""
+                       class="fa o_ag_icon"
+                       t-attf-class="{{ agIcon.value }}"
+                       t-att-style="agIconStyle(agIcon)"
+                       t-att-title="agIcon.title"
+                       role="img"/>
+                </t>
+            </span>
         </xpath>
     </t>
 

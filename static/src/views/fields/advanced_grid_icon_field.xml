@@ -5,7 +5,8 @@
         <div class="o_ag_icon_field">
             <t t-if="props.readonly">
                 <span t-if="value" class="d-inline-flex align-items-center gap-2">
-                    <i t-attf-class="fa {{ value }}" t-att-style="iconStyle" role="img"/>
+                    <img t-if="isFlag and flagSrc" class="o_ag_flag" t-att-src="flagSrc" alt=""/>
+                    <i t-elif="!isFlag" t-attf-class="fa {{ value }}" t-att-style="iconStyle" role="img"/>
                     <span t-esc="label"/>
                 </span>
                 <span t-else="" class="text-muted">-</span>
@@ -14,7 +15,8 @@
                     type="button"
                     class="btn btn-secondary btn-sm o_ag_icon_toggle d-inline-flex align-items-center gap-2"
                     t-on-click="open">
-                <i t-if="value" t-attf-class="fa {{ value }}" t-att-style="iconStyle" role="img"/>
+                <img t-if="isFlag and flagSrc" class="o_ag_flag" t-att-src="flagSrc" alt=""/>
+                <i t-elif="value" t-attf-class="fa {{ value }}" t-att-style="iconStyle" role="img"/>
                 <span t-esc="value ? label : emptyLabel"/>
                 <i class="fa fa-caret-down ms-auto" role="img"/>
             </button>
@@ -22,31 +24,50 @@
     </t>
 
     <t t-name="advanced_grid.IconPicker">
-        <div class="o_ag_icon_picker p-2">
+        <div class="o_ag_icon_picker p-2" t-ref="root">
+            <div class="o_ag_icon_tabs d-flex align-items-center gap-1 mb-2">
+                <button type="button"
+                        class="btn btn-light o_ag_icon_tab"
+                        title="No icon"
+                        t-on-click="() => this.select(false)">
+                    <i class="fa fa-ban text-muted" role="img"/>
+                </button>
+                <button t-foreach="sections" t-as="section" t-key="section.id"
+                        type="button"
+                        class="btn btn-light o_ag_icon_tab"
+                        t-att-title="section.label"
+                        t-on-click="() => this.scrollTo(section.id)">
+                    <i t-attf-class="fa {{ section.tab }}" role="img"/>
+                </button>
+            </div>
+
             <input type="text"
                    class="form-control form-control-sm mb-2"
                    t-ref="autofocus"
                    placeholder="Search an icon"
                    t-model="state.query"/>
-            <div class="o_ag_icon_grid">
-                <button type="button"
-                        class="btn o_ag_icon_option o_ag_icon_none"
-                        t-att-class="{ active: !props.selected }"
-                        title="No icon"
-                        t-on-click="() => this.select(false)">
-                    <i class="fa fa-ban text-muted" role="img"/>
-                </button>
-                <button t-foreach="filteredOptions" t-as="option" t-key="option[0]"
-                        type="button"
-                        class="btn o_ag_icon_option"
-                        t-att-class="{ active: option[0] === props.selected }"
-                        t-att-title="option[1]"
-                        t-on-click="() => this.select(option[0])">
-                    <i t-attf-class="fa {{ option[0] }}" t-att-style="props.iconStyle" role="img"/>
-                </button>
-            </div>
-            <div t-if="!filteredOptions.length" class="text-muted small px-1 py-2">
-                No icon matches your search
+
+            <div class="o_ag_icon_scroller">
+                <t t-foreach="sections" t-as="section" t-key="section.id">
+                    <div class="o_ag_icon_section_title" t-att-data-category="section.id"
+                         t-esc="section.label"/>
+                    <div class="o_ag_icon_grid">
+                        <button t-foreach="section.entries" t-as="entry" t-key="entry.value"
+                                type="button"
+                                class="btn o_ag_icon_option"
+                                t-att-class="{ active: entry.value === props.selected }"
+                                t-att-title="entry.label"
+                                t-on-click="() => this.select(entry.value)">
+                            <img t-if="entry.src" class="o_ag_flag" t-att-src="entry.src"
+                                 loading="lazy" alt=""/>
+                            <i t-else="" t-attf-class="fa {{ entry.value }}"
+                               t-att-style="props.iconStyle" role="img"/>
+                        </button>
+                    </div>
+                </t>
+                <div t-if="!hasResults" class="text-muted small px-1 py-2">
+                    No icon matches your search
+                </div>
             </div>
         </div>
     </t>

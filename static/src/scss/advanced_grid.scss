@@ -3,11 +3,37 @@
 // advanced_grid service into a single <style> tag, never inline.
 
 .o_list_renderer {
+    // Icons are pulled out of the flow: a field widget is often a full width
+    // block, so an inline icon would wrap onto its own line and make every
+    // row taller. The cell reserves room with padding instead.
+    td.o_data_cell.o_ag_has_icon {
+        position: relative;
+    }
+
+    td.o_ag_has_icon.o_ag_icons_1 { padding-inline-start: 1.65rem; }
+    td.o_ag_has_icon.o_ag_icons_2 { padding-inline-start: 3rem; }
+
+    .o_ag_icons {
+        position: absolute;
+        inset-inline-start: 0.35rem;
+        top: 50%;
+        transform: translateY(-50%);
+        display: inline-flex;
+        align-items: center;
+        gap: 0.25rem;
+        line-height: 1;
+        pointer-events: none;
+    }
+
     .o_ag_icon {
-        display: inline-block;
         width: 1em;
         text-align: center;
-        vertical-align: baseline;
+    }
+
+    .o_ag_flag {
+        width: 1.1em;
+        height: auto;
+        object-fit: contain;
     }
 
     // A coloured row would otherwise lose the standard selection feedback,
@@ -31,6 +57,12 @@
 // Icon picker
 // ---------------------------------------------------------------------------
 .o_ag_icon_field {
+    .o_ag_flag {
+        width: 1.1rem;
+        height: auto;
+        object-fit: contain;
+    }
+
     .o_ag_icon_toggle {
         min-width: 10rem;
         max-width: 100%;
@@ -51,12 +83,47 @@
 .o_ag_icon_picker {
     width: 20rem;
 
+    .o_ag_icon_tab {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 2rem;
+        height: 2rem;
+        padding: 0;
+        border-radius: 4px;
+        flex: 0 0 auto;
+    }
+
+    .o_ag_icon_scroller {
+        max-height: 17rem;
+        overflow-y: auto;
+        overscroll-behavior: contain;
+    }
+
+    .o_ag_icon_section_title {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+        padding: 0.35rem 0.25rem 0.2rem;
+        background: var(--bs-body-bg, #fff);
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.02em;
+        color: var(--bs-secondary-color, #6c757d);
+    }
+
     .o_ag_icon_grid {
         display: grid;
         grid-template-columns: repeat(8, 1fr);
         gap: 2px;
-        max-height: 15rem;
-        overflow-y: auto;
+        margin-bottom: 0.35rem;
+    }
+
+    .o_ag_flag {
+        width: 1.15rem;
+        height: auto;
+        object-fit: contain;
     }
 
     .o_ag_icon_option {

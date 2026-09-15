@@ -1,16 +1,21 @@
 /** @odoo-module **/
 
-import { Component, useState } from "@odoo/owl";
+import { Component, onWillStart, useRef, useState } from "@odoo/owl";
 import { registry } from "@web/core/registry";
 import { _t } from "@web/core/l10n/translation";
 import { usePopover } from "@web/core/popover/popover_hook";
-import { useAutofocus } from "@web/core/utils/hooks";
+import { useAutofocus, useService } from "@web/core/utils/hooks";
 import { standardFieldProps } from "@web/views/fields/standard_field_props";
+import {
+    FLAG_CATEGORY_ID,
+    ICON_CATEGORIES,
+    iconLabel,
+    loadFlagIcons,
+} from "./advanced_grid_icon_catalog";
 
 // The colour comes from our own hex validated field, but it is re-checked
 // before being written into an inline style.
 const COLOR_RE = /^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$/;
-const ICON_RE = /^fa-[a-z0-9-]+$/;
 
 function safeIconStyle(color) {
     return typeof color === "string" && COLOR_RE.test(color.trim())
@@ -19,12 +24,11 @@ function safeIconStyle(color) {
 }
 
 /**
- * Popover content: a search box and a grid of clickable icons.
+ * Popover content: category shortcuts, a search box, and sections of icons.
  */
 export class AdvancedGridIconPicker extends Component {
     static template = "advanced_grid.IconPicker";
     static props = {
-        options: Array,
         selected: [String, Boolean],
         iconStyle: { type: String, optional: true },
         onSelect: Function,
@@ -32,20 +36,65 @@ export class AdvancedGridIconPicker extends Component {
     };
 
     setup() {
-        this.state = useState({ query: "" });
+        this.orm = useService("orm");
+        this.rootRef = useRef("root");
+        this.state = useState({ query: "", flags: [] });
         useAutofocus();
+        onWillStart(async () => {
+            this.state.flags = await loadFlagIcons(this.orm);
+        });
     }
 
-    get filteredOptions() {
+    get flagCategoryLabel() {
+        return _t("Country flags");
+    }
+
+    /**
+     * @returns {Array} [{id, label, tab, entries: [{value, label, src}]}]
+     */
+    get sections() {
         const query = this.state.query.trim().toLowerCase();
-        if (!query) {
-            return this.props.options;
+        const matches = (entry) =>
+            !query ||
+            entry.label.toLowerCase().includes(query) ||
+            entry.value.toLowerCase().includes(query);
+
+        const sections = [];
+        for (const category of ICON_CATEGORIES) {
+            const entries = category.icons
+                .map(([value, label]) => ({ value, label: label() }))
+                .filter(matches);
+            if (entries.length) {
+                sections.push({
+                    id: category.id,
+                    label: category.label,
+                    tab: category.tab,
+                    entries,
+                });
+            }
         }
-        return this.props.options.filter(
-            ([value, label]) =>
-                label.toLowerCase().includes(query) ||
-                value.slice(3).replace(/-/g, " ").includes(query)
-        );
+        const flags = this.state.flags.filter(matches);
+        if (flags.length) {
+            sections.push({
+                id: FLAG_CATEGORY_ID,
+                label: this.flagCategoryLabel,
+                tab: false,
+                entries: flags,
+            });
+        }
+        return sections;
+    }
+
+    get hasResults() {
+        return this.sections.length > 0;
+    }
+
+    scrollTo(categoryId) {
+        const root = this.rootRef.el;
+        const section = root && root.querySelector(`[data-category="${categoryId}"]`);
+        if (section) {
+            section.scrollIntoView({ block: "start", behavior: "smooth" });
+        }
     }
 
     select(value) {
@@ -55,35 +104,43 @@ export class AdvancedGridIconPicker extends Component {
 }
 
 /**
- * Field widget for the `icon` selection.
+ * Field widget for the `icon` char.
  *
- * A plain selection shows the icon *names* as text, which tells the user
- * nothing about what the icon actually looks like. This renders the glyphs
- * themselves, in the colour configured on the rule.
+ * A raw text input would tell the user nothing about what the icon looks
+ * like, so the glyph itself - or the country flag image - is rendered.
  */
 export class AdvancedGridIconField extends Component {
     static template = "advanced_grid.IconField";
     static props = { ...standardFieldProps };
 
     setup() {
+        this.orm = useService("orm");
+        this.state = useState({ flags: [] });
         this.popover = usePopover(AdvancedGridIconPicker, {
             popoverClass: "o_ag_icon_picker_popover",
         });
-    }
-
-    get options() {
-        const selection = this.props.record.fields[this.props.name].selection || [];
-        return selection.filter(([value]) => value && ICON_RE.test(value));
+        onWillStart(async () => {
+            if (this.isFlag) {
+                this.state.flags = await loadFlagIcons(this.orm);
+            }
+        });
     }
 
     get value() {
-        const value = this.props.record.data[this.props.name];
-        return value && ICON_RE.test(value) ? value : false;
+        return this.props.record.data[this.props.name] || false;
+    }
+
+    get isFlag() {
+        return typeof this.value === "string" && this.value.startsWith("flag:");
+    }
+
+    get flagSrc() {
+        const flag = this.state.flags.find((entry) => entry.value === this.value);
+        return flag ? flag.src : false;
     }
 
     get label() {
-        const option = this.options.find(([value]) => value === this.value);
-        return option ? option[1] : "";
+        return iconLabel(this.value, this.state.flags);
     }
 
     get iconStyle() {
@@ -94,16 +151,19 @@ export class AdvancedGridIconField extends Component {
         return _t("Choose an icon");
     }
 
-    open(ev) {
+    async open(ev) {
         if (this.props.readonly) {
             return;
         }
         this.popover.open(ev.currentTarget, {
-            options: this.options,
             selected: this.value,
             iconStyle: this.iconStyle,
-            onSelect: (value) =>
-                this.props.record.update({ [this.props.name]: value || false }),
+            onSelect: async (value) => {
+                await this.props.record.update({ [this.props.name]: value || false });
+                if (this.isFlag && !this.state.flags.length) {
+                    this.state.flags = await loadFlagIcons(this.orm);
+                }
+            },
         });
     }
 }
@@ -111,7 +171,7 @@ export class AdvancedGridIconField extends Component {
 export const advancedGridIconField = {
     component: AdvancedGridIconField,
     displayName: _t("Icon Picker"),
-    supportedTypes: ["selection"],
+    supportedTypes: ["char"],
 };
 
 registry.category("fields").add("advanced_grid_icon", advancedGridIconField);

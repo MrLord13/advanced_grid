@@ -121,15 +121,22 @@ patch(ListRenderer.prototype, {
     },
 
     getCellClass(column, record) {
-        const classNames = super.getCellClass(...arguments);
+        let classNames = super.getCellClass(...arguments);
         if (column.type !== "field") {
             return classNames;
         }
         const ruleId = this.agCellRule(record, column.name);
-        if (!ruleId) {
-            return classNames;
+        if (ruleId) {
+            classNames = `${classNames} o_ag_cell o_ag_cell_${ruleId}`;
         }
-        return `${classNames} o_ag_cell o_ag_cell_${ruleId}`;
+        // The icons are taken out of the flow and absolutely positioned, so
+        // the cell has to reserve room for them. Without this they would sit
+        // on their own line above the value and make every row taller.
+        const iconCount = this.agCellIcons(column, record).length;
+        if (iconCount) {
+            classNames = `${classNames} o_ag_has_icon o_ag_icons_${iconCount}`;
+        }
+        return classNames;
     },
 
     /**

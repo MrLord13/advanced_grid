@@ -12,100 +12,13 @@ _logger = logging.getLogger(__name__)
 # the value ends up inside a generated <style> tag, so anything else would
 # allow CSS injection.
 COLOR_RE = re.compile(r"^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$")
+# Either a FontAwesome 4 class or a country flag, as "flag:<ISO code>".
+ICON_RE = re.compile(r"^(?:fa-[a-z0-9-]+|flag:[A-Za-z]{2})$")
 
 # Safety net so a user cannot slow down every list view of a model.
 MAX_ACTIVE_RULES_PER_MODEL = 40
 
 RELATIONAL_TYPES = ("many2one", "one2many", "many2many")
-
-# Curated FontAwesome 4 icons (already bundled with Odoo).
-ICON_SELECTION = [
-    # Status
-    ("fa-circle", "Circle"),
-    ("fa-circle-o", "Circle Outline"),
-    ("fa-square", "Square"),
-    ("fa-square-o", "Square Outline"),
-    ("fa-star", "Star"),
-    ("fa-star-o", "Star Outline"),
-    ("fa-flag", "Flag"),
-    ("fa-flag-o", "Flag Outline"),
-    ("fa-bookmark", "Bookmark"),
-    ("fa-check-circle", "Check"),
-    ("fa-check-square-o", "Checkbox"),
-    ("fa-times-circle", "Cross"),
-    ("fa-ban", "Blocked"),
-    ("fa-exclamation-triangle", "Warning"),
-    ("fa-exclamation-circle", "Alert"),
-    ("fa-question-circle", "Question"),
-    ("fa-info-circle", "Information"),
-    ("fa-bell", "Bell"),
-    ("fa-shield", "Shield"),
-    ("fa-eye", "Visible"),
-    ("fa-eye-slash", "Hidden"),
-    # Temperature and energy
-    ("fa-fire", "Fire"),
-    ("fa-bolt", "Bolt"),
-    ("fa-snowflake-o", "Snowflake"),
-    ("fa-thermometer-half", "Thermometer"),
-    ("fa-tint", "Drop"),
-    ("fa-sun-o", "Sun"),
-    ("fa-moon-o", "Moon"),
-    ("fa-leaf", "Leaf"),
-    ("fa-rocket", "Rocket"),
-    ("fa-lightbulb-o", "Idea"),
-    # Time
-    ("fa-clock-o", "Clock"),
-    ("fa-hourglass-half", "Hourglass"),
-    ("fa-calendar", "Calendar"),
-    ("fa-calendar-check-o", "Scheduled"),
-    ("fa-history", "History"),
-    ("fa-refresh", "Refresh"),
-    # Direction
-    ("fa-arrow-up", "Arrow Up"),
-    ("fa-arrow-down", "Arrow Down"),
-    ("fa-arrow-circle-up", "Circled Arrow Up"),
-    ("fa-arrow-circle-down", "Circled Arrow Down"),
-    ("fa-long-arrow-up", "Long Arrow Up"),
-    ("fa-long-arrow-down", "Long Arrow Down"),
-    ("fa-level-up", "Escalate"),
-    # People
-    ("fa-user", "User"),
-    ("fa-users", "Team"),
-    ("fa-user-circle", "Contact"),
-    ("fa-building", "Company"),
-    ("fa-briefcase", "Business"),
-    ("fa-handshake-o", "Agreement"),
-    ("fa-phone", "Phone"),
-    ("fa-envelope", "Email"),
-    ("fa-comments-o", "Comments"),
-    # Money and sales
-    ("fa-money", "Money"),
-    ("fa-credit-card", "Card"),
-    ("fa-usd", "Currency"),
-    ("fa-line-chart", "Line Chart"),
-    ("fa-bar-chart", "Bar Chart"),
-    ("fa-pie-chart", "Pie Chart"),
-    ("fa-shopping-cart", "Cart"),
-    ("fa-tag", "Tag"),
-    ("fa-tags", "Tags"),
-    ("fa-trophy", "Trophy"),
-    ("fa-heart", "Heart"),
-    ("fa-thumbs-up", "Thumbs Up"),
-    ("fa-thumbs-down", "Thumbs Down"),
-    # Operations
-    ("fa-truck", "Delivery"),
-    ("fa-cube", "Product"),
-    ("fa-cubes", "Stock"),
-    ("fa-archive", "Archive Box"),
-    ("fa-wrench", "Repair"),
-    ("fa-cog", "Settings"),
-    ("fa-lock", "Lock"),
-    ("fa-unlock", "Unlock"),
-    ("fa-key", "Key"),
-    ("fa-paperclip", "Paperclip"),
-    ("fa-map-marker", "Location"),
-    ("fa-medkit", "Medical"),
-]
 
 OPERATOR_SELECTION = [
     ("=", "is equal to"),
@@ -200,7 +113,7 @@ class AdvancedGridRule(models.Model):
     text_color = fields.Char(string="Text Colour")
     bold = fields.Boolean()
     italic = fields.Boolean()
-    icon = fields.Selection(ICON_SELECTION, string="Icon")
+    icon = fields.Char(string="Icon")
     icon_color = fields.Char(string="Icon Colour")
 
     # ==================================================================
@@ -302,6 +215,14 @@ class AdvancedGridRule(models.Model):
                 return int(raw)
             return raw
         return raw
+
+    @api.constrains("icon")
+    def _check_icon(self):
+        for rule in self:
+            if rule.icon and not ICON_RE.match(rule.icon.strip()):
+                raise ValidationError(
+                    _("'%(icon)s' is not a valid icon.", icon=rule.icon)
+                )
 
     @api.constrains("background_color", "text_color", "icon_color")
     def _check_colors(self):
@@ -466,6 +387,7 @@ class AdvancedGridRule(models.Model):
             # puts its icon next to the value it comments on, not at the far
             # left of the record.
             icon_slot = "" if rule.target == "row" else (column or "")
+            icon_payload = rule._icon_payload()
             for res_id in matched:
                 entry = matches.setdefault(
                     res_id, {"row": [], "cells": {}, "icons": {}}
@@ -474,19 +396,42 @@ class AdvancedGridRule(models.Model):
                     entry["row"].append(rule.id)
                 elif column:
                     entry["cells"].setdefault(column, []).append(rule.id)
-                if rule.icon:
+                if icon_payload:
                     # setdefault keeps the highest priority rule per slot,
                     # since rules are iterated in sequence order.
-                    entry["icons"].setdefault(
-                        icon_slot,
-                        {
-                            "icon": rule.icon,
-                            "color": rule.icon_color or "",
-                            "title": rule.name,
-                        },
-                    )
+                    entry["icons"].setdefault(icon_slot, icon_payload)
 
         return {"rules": payload, "matches": matches}
+
+    def _icon_payload(self):
+        """Serialisable icon description, or None.
+
+        A flag is resolved server side into the static image URL Odoo already
+        ships, `image_url` on `res.country`, which also covers the few codes
+        that map to a different file name.
+        """
+        self.ensure_one()
+        icon = (self.icon or "").strip()
+        if not icon or not ICON_RE.match(icon):
+            return None
+        if icon.startswith("flag:"):
+            country = self.env["res.country"].search(
+                [("code", "=", icon[5:].upper())], limit=1
+            )
+            if not country or not country.image_url:
+                return None
+            return {
+                "kind": "flag",
+                "value": country.image_url,
+                "color": "",
+                "title": self.name,
+            }
+        return {
+            "kind": "fa",
+            "value": icon,
+            "color": self.icon_color or "",
+            "title": self.name,
+        }
 
     def _styled_column(self):
         """Column name a cell rule paints; only direct fields can be columns."""

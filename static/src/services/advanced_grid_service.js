@@ -10,6 +10,8 @@ const STYLE_ELEMENT_ID = "o_advanced_grid_dynamic_styles";
 // but we never inject a value into CSS without re-validating it here.
 const COLOR_RE = /^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$/;
 const ICON_RE = /^fa-[a-z0-9-]+$/;
+// Flags are served by Odoo itself; no other image source is accepted.
+const FLAG_SRC_RE = /^\/base\/static\/img\/country_flags\/[a-z0-9_-]+\.png$/;
 
 function safeColor(value) {
     return typeof value === "string" && COLOR_RE.test(value.trim())
@@ -167,11 +169,17 @@ export const advancedGridService = {
              * Returns {icon, color, title} or null, validated for safe rendering.
              */
             sanitizeIcon(icon) {
-                if (!icon || !ICON_RE.test(icon.icon || "")) {
+                if (!icon || !icon.value) {
+                    return null;
+                }
+                const isFlag = icon.kind === "flag";
+                const pattern = isFlag ? FLAG_SRC_RE : ICON_RE;
+                if (!pattern.test(icon.value)) {
                     return null;
                 }
                 return {
-                    icon: icon.icon,
+                    kind: isFlag ? "flag" : "fa",
+                    value: icon.value,
                     color: safeColor(icon.color),
                     title: icon.title || "",
                 };
