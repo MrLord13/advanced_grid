@@ -7,10 +7,7 @@
         <xpath expr="//Layout" position="before">
             <t t-if="agShowBrand"
                t-portal="'#' + env.dialogId + ' .modal-header .modal-title'">
-                <span class="o_ag_brand">
-                    <img class="o_ag_brand_logo" t-att-src="agBrandLogo" alt="ERPishro"/>
-                    <span class="o_ag_brand_text" t-out="agBrandName"/>
-                </span>
+                <img class="o_ag_brand" t-att-src="agBrandLogo" t-att-alt="agBrandAlt"/>
             </t>
         </xpath>
         <xpath expr="//t[@t-set-slot='control-panel-create-button']" position="inside">

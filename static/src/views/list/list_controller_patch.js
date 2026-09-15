@@ -5,11 +5,9 @@ import { useService } from "@web/core/utils/hooks";
 import { _t } from "@web/core/l10n/translation";
 import { ListController } from "@web/views/list/list_controller";
 import { ConfirmationDialog } from "@web/core/confirmation_dialog/confirmation_dialog";
+import { BRAND_ALT, brandLogoSrc } from "../brand";
 
 const RULE_MODEL = "advanced.grid.rule";
-// Brand mark shown in the header of the Advanced List dialog.
-const BRAND_NAME = "ERPishro.com";
-const BRAND_LOGO = "/advanced_grid/static/src/img/erpishro_mark.png";
 
 patch(ListController.prototype, {
     setup() {
@@ -59,12 +57,12 @@ patch(ListController.prototype, {
         return this.props.resModel === RULE_MODEL;
     },
 
-    get agBrandName() {
-        return BRAND_NAME;
+    get agBrandLogo() {
+        return brandLogoSrc();
     },
 
-    get agBrandLogo() {
-        return BRAND_LOGO;
+    get agBrandAlt() {
+        return BRAND_ALT;
     },
 
     /**
