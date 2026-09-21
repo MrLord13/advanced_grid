@@ -54,10 +54,13 @@ Bring the Microsoft Dynamics 365 "Color Grid" experience to Odoo 19.
             "advanced_grid/static/src/views/fields/advanced_grid_value_field.xml",
         ],
     },
+    'images': [
+        'static/description/banner.jpg'
+    ],
     'installable': True,
     'auto_install': False,
     'application': True,
     'license': 'OPL-1',
-    'price': 1.00,
+    'price': 0.00,
     'currency': 'EUR',
 }
