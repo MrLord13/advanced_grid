@@ -1,114 +1,261 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8"/>
-<title>Advanced Grid — Color Grid for Odoo 19</title>
-<style>
-  .ag-wrap { font-family: "Segoe UI", Tahoma, Arial, sans-serif; color: #2b2b2b; }
-  .ag-hero { background: linear-gradient(135deg, #1f3864 0%, #2f6fb5 100%);
-             color: #fff; padding: 48px 32px; border-radius: 10px; text-align: center; }
-  .ag-hero h1 { margin: 0 0 8px; font-size: 34px; }
-  .ag-hero p { margin: 0; opacity: .9; font-size: 17px; }
-  .ag-section { padding: 28px 8px; }
-  .ag-section h2 { font-size: 24px; border-bottom: 3px solid #2f6fb5;
-                   display: inline-block; padding-bottom: 4px; }
-  .ag-grid { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 18px; }
-  .ag-card { flex: 1 1 260px; border: 1px solid #e3e6ea; border-radius: 8px;
-             padding: 18px; background: #fbfcfd; }
-  .ag-card h3 { margin: 0 0 8px; font-size: 17px; color: #1f3864; }
-  .ag-card p { margin: 0; font-size: 14px; line-height: 1.7; }
-  .ag-rtl { direction: rtl; text-align: right; font-family: Tahoma, "IRANSans", sans-serif; }
-  .ag-table { width: 100%; border-collapse: collapse; margin-top: 14px; font-size: 14px; }
-  .ag-table th, .ag-table td { border: 1px solid #e3e6ea; padding: 9px 12px; }
-  .ag-table th { background: #1f3864; color: #fff; text-align: left; }
-  .ag-rtl .ag-table th { text-align: right; }
-  .ag-foot { text-align: center; padding: 24px; color: #6b7280; font-size: 14px; }
-  .ag-badge { display: inline-block; background: #ffd966; color: #4a3800;
-              border-radius: 4px; padding: 2px 8px; font-size: 12px; font-weight: 600; }
-</style>
-</head>
-<body>
-<div class="ag-wrap">
-
-  <div class="ag-hero">
-    <h1>Advanced Grid</h1>
-    <p>The Microsoft Dynamics 365 <strong>Color Grid</strong> experience, inside Odoo 19.</p>
-    <p style="margin-top:12px"><span class="ag-badge">Odoo 19 · Community &amp; Enterprise</span></p>
-  </div>
-
-  <div class="ag-section">
-    <h2>Personalise any list, without touching the view</h2>
-    <div class="ag-grid">
-      <div class="ag-card">
-        <h3>Row &amp; cell colouring</h3>
-        <p>Paint a whole row or a single column based on a field value or a full
-           domain. Background, text colour, bold and italic.</p>
-      </div>
-      <div class="ag-card">
-        <h3>Status icons</h3>
-        <p>Add a FontAwesome icon at the start of the row — hot deals, blocked
-           records, overdue items — with its own colour.</p>
-      </div>
-      <div class="ag-card">
-        <h3>Personal by default</h3>
-        <p>Every user builds their own scheme. Nobody else sees it. Managers can
-           publish shared schemes for the whole company.</p>
-      </div>
-      <div class="ag-card">
-        <h3>Nothing breaks</h3>
-        <p>No view arch is modified, no core method is replaced. Native
-           <code>decoration-*</code>, optional columns and editable lists keep working.</p>
-      </div>
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <h2 class="oe_slogan" style="color:#714B67;">Advanced Grid</h2>
+        <h3 class="oe_slogan" style="color:#666;">
+            The Microsoft Dynamics 365 <strong>Color Grid</strong> experience, inside Odoo 19.<br/>
+            Personalise any list without touching the view.
+        </h3>
+        <p style="text-align:center; margin-top:12px;">
+            <span style="display:inline-block; background:#ffd966; color:#4a3800; border-radius:4px; padding:4px 12px; font-size:13px; font-weight:600;">
+                Odoo 19 · Community &amp; Enterprise
+            </span>
+        </p>
     </div>
-  </div>
+</section>
 
-  <div class="ag-section">
-    <h2>Feature mapping</h2>
-    <table class="ag-table">
-      <tr><th>Dynamics 365</th><th>Advanced Grid for Odoo</th></tr>
-      <tr><td>Color Grid command</td><td>“Color Grid” button next to <em>New</em></td></tr>
-      <tr><td>Row colouring by field</td><td>Rule targeting the whole row</td></tr>
-      <tr><td>Cell colouring</td><td>Rule targeting one column</td></tr>
-      <tr><td>Row status icons</td><td>Icon rule with custom colour</td></tr>
-      <tr><td>Personal view settings</td><td>Personal scope (per user)</td></tr>
-      <tr><td>System-wide scheme</td><td>Shared scope (manager only)</td></tr>
-    </table>
-  </div>
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <h2 class="oe_slogan" style="color:#714B67;">Why This Module?</h2>
+        <p style="text-align:center; color:#555; font-size:16px; max-width:800px; margin:0 auto 30px;">
+            Bring Microsoft Dynamics style row and cell colouring to every Odoo list view.
+            Each user can build personal colour schemes, and managers can publish shared schemes — without modifying any view.
+        </p>
 
-  <div class="ag-section ag-rtl">
-    <h2>گرید پیشرفته برای اودو ۱۹</h2>
-    <p style="line-height:1.9">
-      تجربه‌ی <strong>Color Grid</strong> مایکروسافت داینامیکس ۳۶۵ را به هر نمای لیستی
-      در اودو می‌آورد. هر کاربر می‌تواند لیست‌های خودش را رنگ‌آمیزی و آیکن‌گذاری کند،
-      بدون اینکه نمای دیگران تغییری کند و بدون اینکه ساختار view دست بخورد.
-    </p>
-    <div class="ag-grid">
-      <div class="ag-card">
-        <h3>رنگ‌بندی سطر و سلول</h3>
-        <p>کل سطر یا فقط یک ستون را بر اساس مقدار یک فیلد یا یک دامنه‌ی کامل رنگ کنید؛
-           رنگ پس‌زمینه، رنگ متن، درشت و کج.</p>
-      </div>
-      <div class="ag-card">
-        <h3>آیکن وضعیت</h3>
-        <p>ابتدای هر سطر یک آیکن با رنگ دلخواه اضافه کنید تا رکوردهای مهم فوراً دیده شوند.</p>
-      </div>
-      <div class="ag-card">
-        <h3>شخصی و اشتراکی</h3>
-        <p>قواعد شخصی فقط برای خود کاربر اعمال می‌شود؛ مدیر می‌تواند طرح رنگی
-           در سطح شرکت منتشر کند.</p>
-      </div>
-      <div class="ag-card">
-        <h3>بدون آسیب به عملکرد اودو</h3>
-        <p>هیچ view ای تغییر نمی‌کند و هیچ متد اصلی جایگزین نمی‌شود؛ فقط افزونه‌ی
-           غیرمخرب روی رندرر لیست.</p>
-      </div>
+        <!-- Features Row 1 -->
+        <div class="oe_span4" style="margin-bottom:25px;">
+            <div style="background:#fff; border:1px solid #e5e7eb; border-radius:10px; padding:22px; text-align:center;">
+                <div style="font-size:28px; color:#714B67; margin-bottom:10px; font-weight:bold;">1</div>
+                <h3 style="color:#1f2937; margin:0 0 8px 0; font-size:18px;">Row &amp; Cell Colouring</h3>
+                <p style="color:#555; margin:0; font-size:14px;">Paint a whole row or a single column based on a field value or a full domain. Background, text colour, bold and italic.</p>
+            </div>
+        </div>
+        <div class="oe_span4" style="margin-bottom:25px;">
+            <div style="background:#fff; border:1px solid #e5e7eb; border-radius:10px; padding:22px; text-align:center;">
+                <div style="font-size:28px; color:#714B67; margin-bottom:10px; font-weight:bold;">2</div>
+                <h3 style="color:#1f2937; margin:0 0 8px 0; font-size:18px;">Status Icons</h3>
+                <p style="color:#555; margin:0; font-size:14px;">Add a FontAwesome icon at the start of the row — hot deals, blocked records, overdue items — with its own colour.</p>
+            </div>
+        </div>
+        <div class="oe_span4" style="margin-bottom:25px;">
+            <div style="background:#fff; border:1px solid #e5e7eb; border-radius:10px; padding:22px; text-align:center;">
+                <div style="font-size:28px; color:#714B67; margin-bottom:10px; font-weight:bold;">3</div>
+                <h3 style="color:#1f2937; margin:0 0 8px 0; font-size:18px;">Personal by Default</h3>
+                <p style="color:#555; margin:0; font-size:14px;">Every user builds their own scheme. Nobody else sees it. Managers can publish shared schemes for the whole company.</p>
+            </div>
+        </div>
+
+        <!-- Features Row 2 -->
+        <div class="oe_span4" style="margin-bottom:25px;">
+            <div style="background:#fff; border:1px solid #e5e7eb; border-radius:10px; padding:22px; text-align:center;">
+                <div style="font-size:28px; color:#714B67; margin-bottom:10px; font-weight:bold;">4</div>
+                <h3 style="color:#1f2937; margin:0 0 8px 0; font-size:18px;">Nothing Breaks</h3>
+                <p style="color:#555; margin:0; font-size:14px;">No view arch is modified, no core method is replaced. Native decoration-*, optional columns and editable lists keep working.</p>
+            </div>
+        </div>
+        <div class="oe_span4" style="margin-bottom:25px;">
+            <div style="background:#fff; border:1px solid #e5e7eb; border-radius:10px; padding:22px; text-align:center;">
+                <div style="font-size:28px; color:#714B67; margin-bottom:10px; font-weight:bold;">5</div>
+                <h3 style="color:#1f2937; margin:0 0 8px 0; font-size:18px;">Personal Scope</h3>
+                <p style="color:#555; margin:0; font-size:14px;">Rules apply only to the user who created them. Clean and private by default.</p>
+            </div>
+        </div>
+        <div class="oe_span4" style="margin-bottom:25px;">
+            <div style="background:#fff; border:1px solid #e5e7eb; border-radius:10px; padding:22px; text-align:center;">
+                <div style="font-size:28px; color:#714B67; margin-bottom:10px; font-weight:bold;">6</div>
+                <h3 style="color:#1f2937; margin:0 0 8px 0; font-size:18px;">Shared Scope</h3>
+                <p style="color:#555; margin:0; font-size:14px;">Managers can publish company-wide colour schemes that everyone sees.</p>
+            </div>
+        </div>
     </div>
-  </div>
+</section>
 
-  <div class="ag-foot">
-    ERPishro.com — AliReza Nemati - Farid Shohoudi
-  </div>
+<!-- English Screenshots - 4 Grid -->
+<!-- English Screenshots - 2x2 Matrix -->
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <h2 class="oe_slogan" style="color:#714B67;">Screenshots</h2>
 
-</div>
-</body>
-</html>
+        <table style="width:100%; border-collapse:separate; border-spacing:12px; margin-bottom:10px;">
+            <tr>
+                <td style="width:50%; vertical-align:top;">
+                    <div class="oe_demo oe_picture oe_screenshot">
+                        <img src="screenshots/1.png" alt="Color Grid configuration" style="width:100%; border-radius:8px; display:block;"/>
+                    </div>
+                </td>
+                <td style="width:50%; vertical-align:top;">
+                    <div class="oe_demo oe_picture oe_screenshot">
+                        <img src="screenshots/2.png" alt="Row colouring example" style="width:100%; border-radius:8px; display:block;"/>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td style="width:50%; vertical-align:top;">
+                    <div class="oe_demo oe_picture oe_screenshot">
+                        <img src="screenshots/3.png" alt="Status icons in list" style="width:100%; border-radius:8px; display:block;"/>
+                    </div>
+                </td>
+                <td style="width:50%; vertical-align:top;">
+                    <div class="oe_demo oe_picture oe_screenshot">
+                        <img src="screenshots/4.png" alt="Personal and shared schemes" style="width:100%; border-radius:8px; display:block;"/>
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+        <!-- Banner / Main Screenshot -->
+        <div class="oe_span12" style="margin-top:10px;">
+            <div class="oe_demo oe_picture oe_screenshot">
+                <img src="screenshots/odoo-advanced-grid-en.jpg" alt="Advanced Grid main banner" style="max-width:100%; border-radius:8px;width:50%;display:block;margin: auto;"/>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <h2 class="oe_slogan" style="color:#714B67;">Feature Mapping</h2>
+        <table style="width:100%; border-collapse:collapse; background:#fff; border:1px solid #e5e7eb;">
+            <tr style="background:#714B67; color:#fff;">
+                <th style="padding:14px; text-align:left;">Dynamics 365</th>
+                <th style="padding:14px; text-align:left;">Advanced Grid for Odoo</th>
+            </tr>
+            <tr>
+                <td style="padding:13px; border-bottom:1px solid #eee;">Color Grid command</td>
+                <td style="padding:13px; border-bottom:1px solid #eee;">“Color Grid” button next to New</td>
+            </tr>
+            <tr>
+                <td style="padding:13px; border-bottom:1px solid #eee;">Row colouring by field</td>
+                <td style="padding:13px; border-bottom:1px solid #eee;">Rule targeting the whole row</td>
+            </tr>
+            <tr>
+                <td style="padding:13px; border-bottom:1px solid #eee;">Cell colouring</td>
+                <td style="padding:13px; border-bottom:1px solid #eee;">Rule targeting one column</td>
+            </tr>
+            <tr>
+                <td style="padding:13px; border-bottom:1px solid #eee;">Row status icons</td>
+                <td style="padding:13px; border-bottom:1px solid #eee;">Icon rule with custom colour</td>
+            </tr>
+            <tr>
+                <td style="padding:13px; border-bottom:1px solid #eee;">Personal view settings</td>
+                <td style="padding:13px; border-bottom:1px solid #eee;">Personal scope (per user)</td>
+            </tr>
+            <tr>
+                <td style="padding:13px;">System-wide scheme</td>
+                <td style="padding:13px;">Shared scope (manager only)</td>
+            </tr>
+        </table>
+    </div>
+</section>
+
+<!-- Persian Section -->
+<section class="oe_container">
+    <div class="oe_row oe_spaced" style="direction:rtl; text-align:right;">
+        <h2 class="oe_slogan" style="color:#714B67;">گرید پیشرفته برای اودو ۱۹</h2>
+        <p style="text-align:center; color:#555; font-size:16px; margin:0 auto 30px; line-height:1.9;">
+            تجربه‌ی <strong>Color Grid</strong> مایکروسافت داینامیکس ۳۶۵ را به هر نمای لیستی در اودو می‌آورد.
+            هر کاربر می‌تواند لیست‌های خودش را رنگ‌آمیزی و آیکن‌گذاری کند، بدون اینکه نمای دیگران تغییری کند.
+        </p>
+
+        <div class="oe_span4" style="margin-bottom:25px;">
+            <div style="background:#fff; border:1px solid #e5e7eb; border-radius:10px; padding:22px; text-align:center;">
+                <div style="font-size:28px; color:#714B67; margin-bottom:10px; font-weight:bold;">۱</div>
+                <h3 style="color:#1f2937; margin:0 0 8px 0; font-size:18px;">رنگ‌بندی سطر و سلول</h3>
+                <p style="color:#555; margin:0; font-size:14px;">کل سطر یا فقط یک ستون را بر اساس مقدار فیلد یا دامنه رنگ کنید.</p>
+            </div>
+        </div>
+        <div class="oe_span4" style="margin-bottom:25px;">
+            <div style="background:#fff; border:1px solid #e5e7eb; border-radius:10px; padding:22px; text-align:center;">
+                <div style="font-size:28px; color:#714B67; margin-bottom:10px; font-weight:bold;">۲</div>
+                <h3 style="color:#1f2937; margin:0 0 8px 0; font-size:18px;">آیکن وضعیت</h3>
+                <p style="color:#555; margin:0; font-size:14px;">آیکن رنگی در ابتدای سطر برای نمایش سریع وضعیت رکوردها.</p>
+            </div>
+        </div>
+        <div class="oe_span4" style="margin-bottom:25px;">
+            <div style="background:#fff; border:1px solid #e5e7eb; border-radius:10px; padding:22px; text-align:center;">
+                <div style="font-size:28px; color:#714B67; margin-bottom:10px; font-weight:bold;">۳</div>
+                <h3 style="color:#1f2937; margin:0 0 8px 0; font-size:18px;">شخصی و اشتراکی</h3>
+                <p style="color:#555; margin:0; font-size:14px;">قواعد شخصی فقط برای خود کاربر؛ مدیر می‌تواند طرح شرکت‌محور منتشر کند.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Persian Screenshots - 4 Grid + Banner -->
+<!-- English Screenshots - 2x2 Matrix -->
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <h2 class="oe_slogan" style="color:#714B67;">Screenshots</h2>
+
+        <table style="width:100%; border-collapse:separate; border-spacing:12px; margin-bottom:10px;">
+            <tr>
+                <td style="width:50%; vertical-align:top;">
+                    <div class="oe_demo oe_picture oe_screenshot">
+                        <img src="screenshots/01.png" alt="Color Grid configuration" style="width:100%; border-radius:8px; display:block;"/>
+                    </div>
+                </td>
+                <td style="width:50%; vertical-align:top;">
+                    <div class="oe_demo oe_picture oe_screenshot">
+                        <img src="screenshots/02.png" alt="Row colouring example" style="width:100%; border-radius:8px; display:block;"/>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td style="width:50%; vertical-align:top;">
+                    <div class="oe_demo oe_picture oe_screenshot">
+                        <img src="screenshots/03.png" alt="Status icons in list" style="width:100%; border-radius:8px; display:block;"/>
+                    </div>
+                </td>
+                <td style="width:50%; vertical-align:top;">
+                    <div class="oe_demo oe_picture oe_screenshot">
+                        <img src="screenshots/04.png" alt="Personal and shared schemes" style="width:100%; border-radius:8px; display:block;"/>
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+        <!-- Banner / Main Screenshot -->
+        <div class="oe_span12" style="margin-top:10px;">
+            <div class="oe_demo oe_picture oe_screenshot">
+                <img src="screenshots/odoo-advanced-grid-fa.jpg" alt="Advanced Grid main banner" style="max-width:100%; border-radius:8px;width:50%;display:block;margin: auto;"/>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <h2 class="oe_slogan" style="color:#714B67;">How It Works</h2>
+        <div class="oe_span12">
+            <div style="border-left:4px solid #714B67; padding-left:18px; margin-bottom:18px;">
+                <strong style="color:#1f2937;">Step 1</strong><br/>
+                <span style="color:#555;">Open any list view and click the Color Grid button.</span>
+            </div>
+            <div style="border-left:4px solid #714B67; padding-left:18px; margin-bottom:18px;">
+                <strong style="color:#1f2937;">Step 2</strong><br/>
+                <span style="color:#555;">Create a rule: choose field or domain, set colours or icon.</span>
+            </div>
+            <div style="border-left:4px solid #714B67; padding-left:18px; margin-bottom:18px;">
+                <strong style="color:#1f2937;">Step 3</strong><br/>
+                <span style="color:#555;">Decide if the rule is personal (only you) or shared (whole company).</span>
+            </div>
+            <div style="border-left:4px solid #714B67; padding-left:18px; margin-bottom:18px;">
+                <strong style="color:#1f2937;">Step 4</strong><br/>
+                <span style="color:#555;">Save — colours and icons appear instantly, without changing any view.</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="oe_container" style="background:#714B67; border-radius:12px; padding:40px 20px; margin-top:40px;">
+    <div class="oe_row oe_spaced">
+        <h2 class="oe_slogan" style="color:#ffffff; margin-bottom:12px;">Colour Your Lists. Stay in Control.</h2>
+        <p style="text-align:center; color:#f3e8ff; font-size:16px; margin-bottom:20px;">
+            Bring Dynamics-style Color Grid to every Odoo list — personal or shared, zero view changes.
+        </p>
+        <p style="text-align:center; color:#e9d5ff; font-size:14px; margin:0;">
+            Compatible with Odoo 19 Community &amp; Enterprise<br/>
+            ERPishro.com — AliReza Nemati · Farid Shohoudi
+        </p>
+    </div>
+</section>

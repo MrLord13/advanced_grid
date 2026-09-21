@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Advanced Grid — Color Grid for Odoo 19</title>
+<style>
+  .ag-wrap { font-family: "Segoe UI", Tahoma, Arial, sans-serif; color: #2b2b2b; }
+  .ag-hero { background: linear-gradient(135deg, #1f3864 0%, #2f6fb5 100%);
+             color: #fff; padding: 48px 32px; border-radius: 10px; text-align: center; }
+  .ag-hero h1 { margin: 0 0 8px; font-size: 34px; }
+  .ag-hero p { margin: 0; opacity: .9; font-size: 17px; }
+  .ag-section { padding: 28px 8px; }
+  .ag-section h2 { font-size: 24px; border-bottom: 3px solid #2f6fb5;
+                   display: inline-block; padding-bottom: 4px; }
+  .ag-grid { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 18px; }
+  .ag-card { flex: 1 1 260px; border: 1px solid #e3e6ea; border-radius: 8px;
+             padding: 18px; background: #fbfcfd; }
+  .ag-card h3 { margin: 0 0 8px; font-size: 17px; color: #1f3864; }
+  .ag-card p { margin: 0; font-size: 14px; line-height: 1.7; }
+  .ag-rtl { direction: rtl; text-align: right; font-family: Tahoma, "IRANSans", sans-serif; }
+  .ag-table { width: 100%; border-collapse: collapse; margin-top: 14px; font-size: 14px; }
+  .ag-table th, .ag-table td { border: 1px solid #e3e6ea; padding: 9px 12px; }
+  .ag-table th { background: #1f3864; color: #fff; text-align: left; }
+  .ag-rtl .ag-table th { text-align: right; }
+  .ag-foot { text-align: center; padding: 24px; color: #6b7280; font-size: 14px; }
+  .ag-badge { display: inline-block; background: #ffd966; color: #4a3800;
+              border-radius: 4px; padding: 2px 8px; font-size: 12px; font-weight: 600; }
+</style>
+</head>
+<body>
+<div class="ag-wrap">
+
+  <div class="ag-hero">
+    <h1>Advanced Grid</h1>
+    <p>The Microsoft Dynamics 365 <strong>Color Grid</strong> experience, inside Odoo 19.</p>
+    <p style="margin-top:12px"><span class="ag-badge">Odoo 19 · Community &amp; Enterprise</span></p>
+  </div>
+
+  <div class="ag-section">
+    <h2>Personalise any list, without touching the view</h2>
+    <div class="ag-grid">
+      <div class="ag-card">
+        <h3>Row &amp; cell colouring</h3>
+        <p>Paint a whole row or a single column based on a field value or a full
+           domain. Background, text colour, bold and italic.</p>
+      </div>
+      <div class="ag-card">
+        <h3>Status icons</h3>
+        <p>Add a FontAwesome icon at the start of the row — hot deals, blocked
+           records, overdue items — with its own colour.</p>
+      </div>
+      <div class="ag-card">
+        <h3>Personal by default</h3>
+        <p>Every user builds their own scheme. Nobody else sees it. Managers can
+           publish shared schemes for the whole company.</p>
+      </div>
+      <div class="ag-card">
+        <h3>Nothing breaks</h3>
+        <p>No view arch is modified, no core method is replaced. Native
+           <code>decoration-*</code>, optional columns and editable lists keep working.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="ag-section">
+    <h2>Feature mapping</h2>
+    <table class="ag-table">
+      <tr><th>Dynamics 365</th><th>Advanced Grid for Odoo</th></tr>
+      <tr><td>Color Grid command</td><td>“Color Grid” button next to <em>New</em></td></tr>
+      <tr><td>Row colouring by field</td><td>Rule targeting the whole row</td></tr>
+      <tr><td>Cell colouring</td><td>Rule targeting one column</td></tr>
+      <tr><td>Row status icons</td><td>Icon rule with custom colour</td></tr>
+      <tr><td>Personal view settings</td><td>Personal scope (per user)</td></tr>
+      <tr><td>System-wide scheme</td><td>Shared scope (manager only)</td></tr>
+    </table>
+  </div>
+
+  <div class="ag-section ag-rtl">
+    <h2>گرید پیشرفته برای اودو ۱۹</h2>
+    <p style="line-height:1.9">
+      تجربه‌ی <strong>Color Grid</strong> مایکروسافت داینامیکس ۳۶۵ را به هر نمای لیستی
+      در اودو می‌آورد. هر کاربر می‌تواند لیست‌های خودش را رنگ‌آمیزی و آیکن‌گذاری کند،
+      بدون اینکه نمای دیگران تغییری کند و بدون اینکه ساختار view دست بخورد.
+    </p>
+    <div class="ag-grid">
+      <div class="ag-card">
+        <h3>رنگ‌بندی سطر و سلول</h3>
+        <p>کل سطر یا فقط یک ستون را بر اساس مقدار یک فیلد یا یک دامنه‌ی کامل رنگ کنید؛
+           رنگ پس‌زمینه، رنگ متن، درشت و کج.</p>
+      </div>
+      <div class="ag-card">
+        <h3>آیکن وضعیت</h3>
+        <p>ابتدای هر سطر یک آیکن با رنگ دلخواه اضافه کنید تا رکوردهای مهم فوراً دیده شوند.</p>
+      </div>
+      <div class="ag-card">
+        <h3>شخصی و اشتراکی</h3>
+        <p>قواعد شخصی فقط برای خود کاربر اعمال می‌شود؛ مدیر می‌تواند طرح رنگی
+           در سطح شرکت منتشر کند.</p>
+      </div>
+      <div class="ag-card">
+        <h3>بدون آسیب به عملکرد اودو</h3>
+        <p>هیچ view ای تغییر نمی‌کند و هیچ متد اصلی جایگزین نمی‌شود؛ فقط افزونه‌ی
+           غیرمخرب روی رندرر لیست.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="ag-foot">
+    ERPishro.com — AliReza Nemati - Farid Shohoudi
+  </div>
+
+</div>
+</body>
+</html>
