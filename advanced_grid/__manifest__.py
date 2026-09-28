@@ -55,7 +55,7 @@ Bring the Microsoft Dynamics 365 "Color Grid" experience to Odoo 19.
         ],
     },
     'images': [
-        'static/description/banner.jpg'
+        'static/description/banner.png'
     ],
     'installable': True,
     'auto_install': False,
