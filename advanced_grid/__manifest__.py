@@ -19,7 +19,7 @@ Bring the Microsoft Dynamics 365 "Color Grid" experience to Odoo 19.
 """,
     "version": "19.0.3.3.1",
     "category": "ERPishro Modules",
-    "author": "AliReza Nemati",
+    "author": "Farid Shohoudi",
     "maintainer": "ERPishro.com",
     "website": "https://erpishro.com",
     "depends": ["web"],
